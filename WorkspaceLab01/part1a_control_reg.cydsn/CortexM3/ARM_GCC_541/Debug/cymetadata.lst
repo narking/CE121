@@ -1,0 +1,591 @@
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cc84LDib.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 108
+  28              	cy_meta_configecc:
+  29 0000 02       		.byte	2
+  30 0001 52       		.byte	82
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 02       		.byte	2
+  34 0005 08       		.byte	8
+  35 0006 01       		.byte	1
+  36 0007 40       		.byte	64
+  37 0008 03       		.byte	3
+  38 0009 09       		.byte	9
+  39 000a 01       		.byte	1
+  40 000b 40       		.byte	64
+  41 000c 04       		.byte	4
+  42 000d 19       		.byte	25
+  43 000e 01       		.byte	1
+  44 000f 40       		.byte	64
+  45 0010 01       		.byte	1
+  46 0011 1B       		.byte	27
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 02       		.byte	2
+  50 0015 45       		.byte	69
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 01       		.byte	1
+  54 0019 46       		.byte	70
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 03       		.byte	3
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cc84LDib.s 			page 2
+
+
+  58 001d 47       		.byte	71
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 05       		.byte	5
+  62 0021 4C       		.byte	76
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 02       		.byte	2
+  66 0025 4D       		.byte	77
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 08       		.byte	8
+  70 0029 80       		.byte	-128
+  71 002a 09       		.byte	9
+  72 002b 40       		.byte	64
+  73 002c DB       		.byte	-37
+  74 002d 04       		.byte	4
+  75 002e DF       		.byte	-33
+  76 002f 01       		.byte	1
+  77 0030 68       		.byte	104
+  78 0031 48       		.byte	72
+  79 0032 6A       		.byte	106
+  80 0033 04       		.byte	4
+  81 0034 88       		.byte	-120
+  82 0035 40       		.byte	64
+  83 0036 86       		.byte	-122
+  84 0037 04       		.byte	4
+  85 0038 92       		.byte	-110
+  86 0039 04       		.byte	4
+  87 003a A0       		.byte	-96
+  88 003b 08       		.byte	8
+  89 003c E0       		.byte	-32
+  90 003d 02       		.byte	2
+  91 003e B0       		.byte	-80
+  92 003f 08       		.byte	8
+  93 0040 50       		.byte	80
+  94 0041 20       		.byte	32
+  95 0042 D4       		.byte	-44
+  96 0043 04       		.byte	4
+  97 0044 A4       		.byte	-92
+  98 0045 20       		.byte	32
+  99 0046 88       		.byte	-120
+ 100 0047 20       		.byte	32
+ 101 0048 A4       		.byte	-92
+ 102 0049 20       		.byte	32
+ 103 004a E4       		.byte	-28
+ 104 004b 04       		.byte	4
+ 105 004c 5F       		.byte	95
+ 106 004d 04       		.byte	4
+ 107 004e 62       		.byte	98
+ 108 004f 02       		.byte	2
+ 109 0050 87       		.byte	-121
+ 110 0051 04       		.byte	4
+ 111 0052 D6       		.byte	-42
+ 112 0053 01       		.byte	1
+ 113 0054 D8       		.byte	-40
+ 114 0055 02       		.byte	2
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cc84LDib.s 			page 3
+
+
+ 115 0056 B2       		.byte	-78
+ 116 0057 02       		.byte	2
+ 117 0058 EC       		.byte	-20
+ 118 0059 04       		.byte	4
+ 119 005a 00       		.byte	0
+ 120 005b 00       		.byte	0
+ 121 005c 00       		.byte	0
+ 122 005d CB       		.byte	-53
+ 123 005e CB       		.byte	-53
+ 124 005f 00       		.byte	0
+ 125 0060 C0       		.byte	-64
+ 126 0061 00       		.byte	0
+ 127 0062 00       		.byte	0
+ 128 0063 00       		.byte	0
+ 129 0064 00       		.byte	0
+ 130 0065 01       		.byte	1
+ 131 0066 01       		.byte	1
+ 132 0067 00       		.byte	0
+ 133 0068 01       		.byte	1
+ 134 0069 00       		.byte	0
+ 135 006a 00       		.byte	0
+ 136 006b 00       		.byte	0
+ 137              		.section	.cywolatch,"a",%progbits
+ 138              		.align	2
+ 139              		.type	cy_meta_wonvl, %object
+ 140              		.size	cy_meta_wonvl, 4
+ 141              	cy_meta_wonvl:
+ 142 0000 BC       		.byte	-68
+ 143 0001 90       		.byte	-112
+ 144 0002 AC       		.byte	-84
+ 145 0003 AF       		.byte	-81
+ 146              		.section	.cycustnvl,"a",%progbits
+ 147              		.align	2
+ 148              		.type	cy_meta_custnvl, %object
+ 149              		.size	cy_meta_custnvl, 4
+ 150              	cy_meta_custnvl:
+ 151 0000 00       		.byte	0
+ 152 0001 00       		.byte	0
+ 153 0002 40       		.byte	64
+ 154 0003 05       		.byte	5
+ 155              		.section	.cymeta,"a",%progbits
+ 156              		.align	2
+ 157              		.type	cy_metadata, %object
+ 158              		.size	cy_metadata, 12
+ 159              	cy_metadata:
+ 160 0000 00       		.byte	0
+ 161 0001 01       		.byte	1
+ 162 0002 2E       		.byte	46
+ 163 0003 16       		.byte	22
+ 164 0004 10       		.byte	16
+ 165 0005 69       		.byte	105
+ 166 0006 00       		.byte	0
+ 167 0007 01       		.byte	1
+ 168 0008 00       		.byte	0
+ 169 0009 00       		.byte	0
+ 170 000a 00       		.byte	0
+ 171 000b 00       		.byte	0
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cc84LDib.s 			page 4
+
+
+ 172              		.section	.cyflashprotect,"a",%progbits
+ 173              		.align	2
+ 174              		.type	cy_meta_flashprotect, %object
+ 175              		.size	cy_meta_flashprotect, 256
+ 176              	cy_meta_flashprotect:
+ 177 0000 00000000 		.space	256
+ 177      00000000 
+ 177      00000000 
+ 177      00000000 
+ 177      00000000 
+ 178              		.text
+ 179              	.Letext0:
+ 180              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 181              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 182              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 183              		.section	.debug_info,"",%progbits
+ 184              	.Ldebug_info0:
+ 185 0000 30010000 		.4byte	0x130
+ 186 0004 0400     		.2byte	0x4
+ 187 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 188 000a 04       		.byte	0x4
+ 189 000b 01       		.uleb128 0x1
+ 190 000c 24000000 		.4byte	.LASF17
+ 191 0010 0C       		.byte	0xc
+ 192 0011 D0010000 		.4byte	.LASF18
+ 193 0015 69010000 		.4byte	.LASF19
+ 194 0019 00000000 		.4byte	.Ldebug_line0
+ 195 001d 02       		.uleb128 0x2
+ 196 001e 01       		.byte	0x1
+ 197 001f 06       		.byte	0x6
+ 198 0020 C4010000 		.4byte	.LASF0
+ 199 0024 03       		.uleb128 0x3
+ 200 0025 00000000 		.4byte	.LASF9
+ 201 0029 01       		.byte	0x1
+ 202 002a 1D       		.byte	0x1d
+ 203 002b 2F000000 		.4byte	0x2f
+ 204 002f 02       		.uleb128 0x2
+ 205 0030 01       		.byte	0x1
+ 206 0031 08       		.byte	0x8
+ 207 0032 16000000 		.4byte	.LASF1
+ 208 0036 02       		.uleb128 0x2
+ 209 0037 02       		.byte	0x2
+ 210 0038 05       		.byte	0x5
+ 211 0039 D7000000 		.4byte	.LASF2
+ 212 003d 02       		.uleb128 0x2
+ 213 003e 02       		.byte	0x2
+ 214 003f 07       		.byte	0x7
+ 215 0040 C4000000 		.4byte	.LASF3
+ 216 0044 02       		.uleb128 0x2
+ 217 0045 04       		.byte	0x4
+ 218 0046 05       		.byte	0x5
+ 219 0047 BB010000 		.4byte	.LASF4
+ 220 004b 02       		.uleb128 0x2
+ 221 004c 04       		.byte	0x4
+ 222 004d 07       		.byte	0x7
+ 223 004e B2000000 		.4byte	.LASF5
+ 224 0052 02       		.uleb128 0x2
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cc84LDib.s 			page 5
+
+
+ 225 0053 08       		.byte	0x8
+ 226 0054 05       		.byte	0x5
+ 227 0055 5B010000 		.4byte	.LASF6
+ 228 0059 02       		.uleb128 0x2
+ 229 005a 08       		.byte	0x8
+ 230 005b 07       		.byte	0x7
+ 231 005c 10010000 		.4byte	.LASF7
+ 232 0060 04       		.uleb128 0x4
+ 233 0061 04       		.byte	0x4
+ 234 0062 05       		.byte	0x5
+ 235 0063 696E7400 		.ascii	"int\000"
+ 236 0067 02       		.uleb128 0x2
+ 237 0068 04       		.byte	0x4
+ 238 0069 07       		.byte	0x7
+ 239 006a 03010000 		.4byte	.LASF8
+ 240 006e 03       		.uleb128 0x3
+ 241 006f 27010000 		.4byte	.LASF10
+ 242 0073 02       		.byte	0x2
+ 243 0074 18       		.byte	0x18
+ 244 0075 24000000 		.4byte	0x24
+ 245 0079 05       		.uleb128 0x5
+ 246 007a 90000000 		.4byte	0x90
+ 247 007e 89000000 		.4byte	0x89
+ 248 0082 06       		.uleb128 0x6
+ 249 0083 89000000 		.4byte	0x89
+ 250 0087 6B       		.byte	0x6b
+ 251 0088 00       		.byte	0
+ 252 0089 02       		.uleb128 0x2
+ 253 008a 04       		.byte	0x4
+ 254 008b 07       		.byte	0x7
+ 255 008c 52010000 		.4byte	.LASF11
+ 256 0090 07       		.uleb128 0x7
+ 257 0091 6E000000 		.4byte	0x6e
+ 258 0095 08       		.uleb128 0x8
+ 259 0096 F1000000 		.4byte	.LASF12
+ 260 009a 03       		.byte	0x3
+ 261 009b 1F       		.byte	0x1f
+ 262 009c A6000000 		.4byte	0xa6
+ 263 00a0 05       		.uleb128 0x5
+ 264 00a1 03       		.byte	0x3
+ 265 00a2 00000000 		.4byte	cy_meta_configecc
+ 266 00a6 07       		.uleb128 0x7
+ 267 00a7 79000000 		.4byte	0x79
+ 268 00ab 05       		.uleb128 0x5
+ 269 00ac 90000000 		.4byte	0x90
+ 270 00b0 BB000000 		.4byte	0xbb
+ 271 00b4 06       		.uleb128 0x6
+ 272 00b5 89000000 		.4byte	0x89
+ 273 00b9 03       		.byte	0x3
+ 274 00ba 00       		.byte	0
+ 275 00bb 08       		.uleb128 0x8
+ 276 00bc E1000000 		.4byte	.LASF13
+ 277 00c0 03       		.byte	0x3
+ 278 00c1 3A       		.byte	0x3a
+ 279 00c2 CC000000 		.4byte	0xcc
+ 280 00c6 05       		.uleb128 0x5
+ 281 00c7 03       		.byte	0x3
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cc84LDib.s 			page 6
+
+
+ 282 00c8 00000000 		.4byte	cy_meta_custnvl
+ 283 00cc 07       		.uleb128 0x7
+ 284 00cd AB000000 		.4byte	0xab
+ 285 00d1 08       		.uleb128 0x8
+ 286 00d2 44010000 		.4byte	.LASF14
+ 287 00d6 03       		.byte	0x3
+ 288 00d7 48       		.byte	0x48
+ 289 00d8 E2000000 		.4byte	0xe2
+ 290 00dc 05       		.uleb128 0x5
+ 291 00dd 03       		.byte	0x3
+ 292 00de 00000000 		.4byte	cy_meta_wonvl
+ 293 00e2 07       		.uleb128 0x7
+ 294 00e3 AB000000 		.4byte	0xab
+ 295 00e7 05       		.uleb128 0x5
+ 296 00e8 90000000 		.4byte	0x90
+ 297 00ec F7000000 		.4byte	0xf7
+ 298 00f0 06       		.uleb128 0x6
+ 299 00f1 89000000 		.4byte	0x89
+ 300 00f5 FF       		.byte	0xff
+ 301 00f6 00       		.byte	0
+ 302 00f7 08       		.uleb128 0x8
+ 303 00f8 2F010000 		.4byte	.LASF15
+ 304 00fc 03       		.byte	0x3
+ 305 00fd 56       		.byte	0x56
+ 306 00fe 08010000 		.4byte	0x108
+ 307 0102 05       		.uleb128 0x5
+ 308 0103 03       		.byte	0x3
+ 309 0104 00000000 		.4byte	cy_meta_flashprotect
+ 310 0108 07       		.uleb128 0x7
+ 311 0109 E7000000 		.4byte	0xe7
+ 312 010d 05       		.uleb128 0x5
+ 313 010e 90000000 		.4byte	0x90
+ 314 0112 1D010000 		.4byte	0x11d
+ 315 0116 06       		.uleb128 0x6
+ 316 0117 89000000 		.4byte	0x89
+ 317 011b 0B       		.byte	0xb
+ 318 011c 00       		.byte	0
+ 319 011d 08       		.uleb128 0x8
+ 320 011e 0A000000 		.4byte	.LASF16
+ 321 0122 03       		.byte	0x3
+ 322 0123 83       		.byte	0x83
+ 323 0124 2E010000 		.4byte	0x12e
+ 324 0128 05       		.uleb128 0x5
+ 325 0129 03       		.byte	0x3
+ 326 012a 00000000 		.4byte	cy_metadata
+ 327 012e 07       		.uleb128 0x7
+ 328 012f 0D010000 		.4byte	0x10d
+ 329 0133 00       		.byte	0
+ 330              		.section	.debug_abbrev,"",%progbits
+ 331              	.Ldebug_abbrev0:
+ 332 0000 01       		.uleb128 0x1
+ 333 0001 11       		.uleb128 0x11
+ 334 0002 01       		.byte	0x1
+ 335 0003 25       		.uleb128 0x25
+ 336 0004 0E       		.uleb128 0xe
+ 337 0005 13       		.uleb128 0x13
+ 338 0006 0B       		.uleb128 0xb
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cc84LDib.s 			page 7
+
+
+ 339 0007 03       		.uleb128 0x3
+ 340 0008 0E       		.uleb128 0xe
+ 341 0009 1B       		.uleb128 0x1b
+ 342 000a 0E       		.uleb128 0xe
+ 343 000b 10       		.uleb128 0x10
+ 344 000c 17       		.uleb128 0x17
+ 345 000d 00       		.byte	0
+ 346 000e 00       		.byte	0
+ 347 000f 02       		.uleb128 0x2
+ 348 0010 24       		.uleb128 0x24
+ 349 0011 00       		.byte	0
+ 350 0012 0B       		.uleb128 0xb
+ 351 0013 0B       		.uleb128 0xb
+ 352 0014 3E       		.uleb128 0x3e
+ 353 0015 0B       		.uleb128 0xb
+ 354 0016 03       		.uleb128 0x3
+ 355 0017 0E       		.uleb128 0xe
+ 356 0018 00       		.byte	0
+ 357 0019 00       		.byte	0
+ 358 001a 03       		.uleb128 0x3
+ 359 001b 16       		.uleb128 0x16
+ 360 001c 00       		.byte	0
+ 361 001d 03       		.uleb128 0x3
+ 362 001e 0E       		.uleb128 0xe
+ 363 001f 3A       		.uleb128 0x3a
+ 364 0020 0B       		.uleb128 0xb
+ 365 0021 3B       		.uleb128 0x3b
+ 366 0022 0B       		.uleb128 0xb
+ 367 0023 49       		.uleb128 0x49
+ 368 0024 13       		.uleb128 0x13
+ 369 0025 00       		.byte	0
+ 370 0026 00       		.byte	0
+ 371 0027 04       		.uleb128 0x4
+ 372 0028 24       		.uleb128 0x24
+ 373 0029 00       		.byte	0
+ 374 002a 0B       		.uleb128 0xb
+ 375 002b 0B       		.uleb128 0xb
+ 376 002c 3E       		.uleb128 0x3e
+ 377 002d 0B       		.uleb128 0xb
+ 378 002e 03       		.uleb128 0x3
+ 379 002f 08       		.uleb128 0x8
+ 380 0030 00       		.byte	0
+ 381 0031 00       		.byte	0
+ 382 0032 05       		.uleb128 0x5
+ 383 0033 01       		.uleb128 0x1
+ 384 0034 01       		.byte	0x1
+ 385 0035 49       		.uleb128 0x49
+ 386 0036 13       		.uleb128 0x13
+ 387 0037 01       		.uleb128 0x1
+ 388 0038 13       		.uleb128 0x13
+ 389 0039 00       		.byte	0
+ 390 003a 00       		.byte	0
+ 391 003b 06       		.uleb128 0x6
+ 392 003c 21       		.uleb128 0x21
+ 393 003d 00       		.byte	0
+ 394 003e 49       		.uleb128 0x49
+ 395 003f 13       		.uleb128 0x13
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cc84LDib.s 			page 8
+
+
+ 396 0040 2F       		.uleb128 0x2f
+ 397 0041 0B       		.uleb128 0xb
+ 398 0042 00       		.byte	0
+ 399 0043 00       		.byte	0
+ 400 0044 07       		.uleb128 0x7
+ 401 0045 26       		.uleb128 0x26
+ 402 0046 00       		.byte	0
+ 403 0047 49       		.uleb128 0x49
+ 404 0048 13       		.uleb128 0x13
+ 405 0049 00       		.byte	0
+ 406 004a 00       		.byte	0
+ 407 004b 08       		.uleb128 0x8
+ 408 004c 34       		.uleb128 0x34
+ 409 004d 00       		.byte	0
+ 410 004e 03       		.uleb128 0x3
+ 411 004f 0E       		.uleb128 0xe
+ 412 0050 3A       		.uleb128 0x3a
+ 413 0051 0B       		.uleb128 0xb
+ 414 0052 3B       		.uleb128 0x3b
+ 415 0053 0B       		.uleb128 0xb
+ 416 0054 49       		.uleb128 0x49
+ 417 0055 13       		.uleb128 0x13
+ 418 0056 3F       		.uleb128 0x3f
+ 419 0057 19       		.uleb128 0x19
+ 420 0058 02       		.uleb128 0x2
+ 421 0059 18       		.uleb128 0x18
+ 422 005a 00       		.byte	0
+ 423 005b 00       		.byte	0
+ 424 005c 00       		.byte	0
+ 425              		.section	.debug_aranges,"",%progbits
+ 426 0000 14000000 		.4byte	0x14
+ 427 0004 0200     		.2byte	0x2
+ 428 0006 00000000 		.4byte	.Ldebug_info0
+ 429 000a 04       		.byte	0x4
+ 430 000b 00       		.byte	0
+ 431 000c 0000     		.2byte	0
+ 432 000e 0000     		.2byte	0
+ 433 0010 00000000 		.4byte	0
+ 434 0014 00000000 		.4byte	0
+ 435              		.section	.debug_line,"",%progbits
+ 436              	.Ldebug_line0:
+ 437 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 437      02003701 
+ 437      00000201 
+ 437      FB0E0D00 
+ 437      01010101 
+ 438              	.LASF9:
+ 439 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 439      6E74385F 
+ 439      7400
+ 440              	.LASF16:
+ 441 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 441      65746164 
+ 441      61746100 
+ 442              	.LASF1:
+ 443 0016 756E7369 		.ascii	"unsigned char\000"
+ 443      676E6564 
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cc84LDib.s 			page 9
+
+
+ 443      20636861 
+ 443      7200
+ 444              	.LASF17:
+ 445 0024 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 445      43313120 
+ 445      352E342E 
+ 445      31203230 
+ 445      31363036 
+ 446 0057 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 446      20726576 
+ 446      6973696F 
+ 446      6E203233 
+ 446      37373135 
+ 447 008a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 447      66756E63 
+ 447      74696F6E 
+ 447      2D736563 
+ 447      74696F6E 
+ 448              	.LASF5:
+ 449 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 449      20756E73 
+ 449      69676E65 
+ 449      6420696E 
+ 449      7400
+ 450              	.LASF3:
+ 451 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 451      7420756E 
+ 451      7369676E 
+ 451      65642069 
+ 451      6E7400
+ 452              	.LASF2:
+ 453 00d7 73686F72 		.ascii	"short int\000"
+ 453      7420696E 
+ 453      7400
+ 454              	.LASF13:
+ 455 00e1 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 455      6574615F 
+ 455      63757374 
+ 455      6E766C00 
+ 456              	.LASF12:
+ 457 00f1 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 457      6574615F 
+ 457      636F6E66 
+ 457      69676563 
+ 457      6300
+ 458              	.LASF8:
+ 459 0103 756E7369 		.ascii	"unsigned int\000"
+ 459      676E6564 
+ 459      20696E74 
+ 459      00
+ 460              	.LASF7:
+ 461 0110 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 461      206C6F6E 
+ 461      6720756E 
+ 461      7369676E 
+ 461      65642069 
+ 462              	.LASF10:
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cc84LDib.s 			page 10
+
+
+ 463 0127 75696E74 		.ascii	"uint8_t\000"
+ 463      385F7400 
+ 464              	.LASF15:
+ 465 012f 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 465      6574615F 
+ 465      666C6173 
+ 465      6870726F 
+ 465      74656374 
+ 466              	.LASF14:
+ 467 0144 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 467      6574615F 
+ 467      776F6E76 
+ 467      6C00
+ 468              	.LASF11:
+ 469 0152 73697A65 		.ascii	"sizetype\000"
+ 469      74797065 
+ 469      00
+ 470              	.LASF6:
+ 471 015b 6C6F6E67 		.ascii	"long long int\000"
+ 471      206C6F6E 
+ 471      6720696E 
+ 471      7400
+ 472              	.LASF19:
+ 473 0169 433A5C55 		.ascii	"C:\\Users\\narking\\narking\\labs\\lab1\\design\\Wo"
+ 473      73657273 
+ 473      5C6E6172 
+ 473      6B696E67 
+ 473      5C6E6172 
+ 474 0195 726B7370 		.ascii	"rkspaceLab01\\part1a_control_reg.cydsn\000"
+ 474      6163654C 
+ 474      61623031 
+ 474      5C706172 
+ 474      7431615F 
+ 475              	.LASF4:
+ 476 01bb 6C6F6E67 		.ascii	"long int\000"
+ 476      20696E74 
+ 476      00
+ 477              	.LASF0:
+ 478 01c4 7369676E 		.ascii	"signed char\000"
+ 478      65642063 
+ 478      68617200 
+ 479              	.LASF18:
+ 480 01d0 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 480      72617465 
+ 480      645F536F 
+ 480      75726365 
+ 480      5C50536F 
+ 481              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

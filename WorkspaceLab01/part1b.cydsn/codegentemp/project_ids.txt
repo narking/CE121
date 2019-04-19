@@ -1,0 +1,10 @@
+C:\Users\narking\Desktop\CE121\narking\labs\lab1\design\WorkspaceLab01\part1.cydsn\part1.cyprj|0fb7b76e-26ee-4fda-9927-59e1a76d19e1
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|07ff7275-3eca-4cf9-8dd2-49b1ad2a2272
+C:\Users\narking\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|34f0563a-5722-4640-965c-c7d43b178ca1
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|2bdba6a9-137e-4610-8e3a-a3402071597c
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|5d575697-fe8d-4ca0-9431-1735c79bbde6
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|b0df12c7-559f-4055-997d-1c2dfd97bbd0
+C:\Users\narking\Desktop\CE121\narking\labs\lab1\design\WorkspaceLab01\part1a_control_reg.cydsn\part1a_control_reg.cyprj|3f8dd7c9-0ada-4ea0-a8c1-03e6ec421fe2
+C:\Users\narking\Desktop\CE121\narking\labs\lab1\design\WorkspaceLab01\part1b.cydsn\part1b.cyprj|f5ce3df6-6695-4765-a971-cc7753e64874
+C:\Users\narking\Desktop\CE121\narking\labs\lab1\design\WorkspaceLab01\Part3.cydsn\Part3.cyprj|91f6e650-ade7-479a-aed9-97c740179fed
+C:\Users\narking\Desktop\CE121\narking\labs\lab1\design\WorkspaceLab01\part2a.cydsn\part2a.cyprj|32304374-2572-4883-bc40-f27ca31cb750

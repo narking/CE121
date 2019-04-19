@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize" version="5" xml_contents_version="3" name="WorkspaceLab01" persistent="WorkspaceLab01.cywrk" platform="NOT_USED">
+<current_project name=".\part2a.cydsn\part2a.cyprj" />
+<wrkspc_folders />
+<files />
+<projects>
+<v>.\part1.cydsn\part1.cyprj</v>
+<v>.\part1a_control_reg.cydsn\part1a_control_reg.cyprj</v>
+<v>.\part1b.cydsn\part1b.cyprj</v>
+<v>.\Part3.cydsn\Part3.cyprj</v>
+<v>.\part2a.cydsn\part2a.cyprj</v>
+</projects>
+<workspace_id v="dea7a434-30c2-472b-a05c-9af183e630b2" />
+<WriteAppVersionLastSavedWith v="4.2.0.641" />
+<WriteAppMarketingVersionLastSavedWith v="4.2" />
+<CyGuid_dcbd9771-0334-43dc-9cc3-fe99dc3c5316 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize+CyPrjDependencyList" version="4">
+<wrkspc_dependencies />
+</CyGuid_dcbd9771-0334-43dc-9cc3-fe99dc3c5316>
+<CyGuid_63b68103-67f5-4406-8da6-5c8625765b82 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize+CyIgnoredSystemDepsList" version="1">
+<wrkspc_dependencies />
+</CyGuid_63b68103-67f5-4406-8da6-5c8625765b82>
+</CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd>
+</CyXmlSerializer>

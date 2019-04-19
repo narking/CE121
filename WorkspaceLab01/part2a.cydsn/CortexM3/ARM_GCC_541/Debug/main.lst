@@ -1,0 +1,1325 @@
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.MyISR,"ax",%progbits
+  20              		.align	2
+  21              		.global	MyISR
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	MyISR, %function
+  25              	MyISR:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include <stdio.h>
+  14:main.c        **** 
+  15:main.c        **** uint16_t timerGlobal = 0;
+  16:main.c        **** uint16_t intFlag = 0;
+  17:main.c        **** 
+  18:main.c        **** CY_ISR_PROTO(MyISR);
+  19:main.c        **** 
+  20:main.c        **** CY_ISR(MyISR)
+  21:main.c        **** {
+  28              		.loc 1 21 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  22:main.c        ****  /* ISR Code here */
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 2
+
+
+  23:main.c        ****     timerGlobal = Timer_1_ReadCounter();
+  36              		.loc 1 23 0
+  37 0002 FFF7FEFF 		bl	Timer_1_ReadCounter
+  38              	.LVL0:
+  39 0006 024B     		ldr	r3, .L3
+  40 0008 1880     		strh	r0, [r3]	@ movhi
+  24:main.c        ****     intFlag = 1;
+  41              		.loc 1 24 0
+  42 000a 0122     		movs	r2, #1
+  43 000c 5A80     		strh	r2, [r3, #2]	@ movhi
+  44 000e 08BD     		pop	{r3, pc}
+  45              	.L4:
+  46              		.align	2
+  47              	.L3:
+  48 0010 00000000 		.word	.LANCHOR0
+  49              		.cfi_endproc
+  50              	.LFE64:
+  51              		.size	MyISR, .-MyISR
+  52              		.section	.text.main,"ax",%progbits
+  53              		.align	2
+  54              		.global	main
+  55              		.thumb
+  56              		.thumb_func
+  57              		.type	main, %function
+  58              	main:
+  59              	.LFB65:
+  25:main.c        **** }
+  26:main.c        **** 
+  27:main.c        **** 
+  28:main.c        **** 
+  29:main.c        **** 
+  30:main.c        **** int main(void)
+  31:main.c        **** {
+  60              		.loc 1 31 0
+  61              		.cfi_startproc
+  62              		@ args = 0, pretend = 0, frame = 16
+  63              		@ frame_needed = 0, uses_anonymous_args = 0
+  64 0000 30B5     		push	{r4, r5, lr}
+  65              		.cfi_def_cfa_offset 12
+  66              		.cfi_offset 4, -12
+  67              		.cfi_offset 5, -8
+  68              		.cfi_offset 14, -4
+  69 0002 85B0     		sub	sp, sp, #20
+  70              		.cfi_def_cfa_offset 32
+  32:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  71              		.loc 1 32 0
+  72              		.syntax unified
+  73              	@ 32 "main.c" 1
+  74 0004 62B6     		CPSIE   i
+  75              	@ 0 "" 2
+  33:main.c        **** 
+  34:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  35:main.c        **** 
+  36:main.c        ****     isr_1_StartEx(MyISR);
+  76              		.loc 1 36 0
+  77              		.thumb
+  78              		.syntax unified
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 3
+
+
+  79 0006 2348     		ldr	r0, .L9
+  80 0008 FFF7FEFF 		bl	isr_1_StartEx
+  81              	.LVL1:
+  37:main.c        ****     isr_1_Enable();
+  82              		.loc 1 37 0
+  83 000c FFF7FEFF 		bl	isr_1_Enable
+  84              	.LVL2:
+  38:main.c        ****     Timer_1_Start();
+  85              		.loc 1 38 0
+  86 0010 FFF7FEFF 		bl	Timer_1_Start
+  87              	.LVL3:
+  39:main.c        ****     Counter_1_Start();
+  88              		.loc 1 39 0
+  89 0014 FFF7FEFF 		bl	Counter_1_Start
+  90              	.LVL4:
+  40:main.c        ****     LCD_Char_1_Start();
+  91              		.loc 1 40 0
+  92 0018 FFF7FEFF 		bl	LCD_Char_1_Start
+  93              	.LVL5:
+  41:main.c        ****     LCD_Char_1_DisplayOn();
+  94              		.loc 1 41 0
+  95 001c 0C20     		movs	r0, #12
+  96 001e FFF7FEFF 		bl	LCD_Char_1_WriteControl
+  97              	.LVL6:
+  42:main.c        ****     LCD_Char_1_Init();
+  98              		.loc 1 42 0
+  99 0022 FFF7FEFF 		bl	LCD_Char_1_Init
+ 100              	.LVL7:
+  43:main.c        ****     LCD_Char_1_Enable();
+ 101              		.loc 1 43 0
+ 102 0026 FFF7FEFF 		bl	LCD_Char_1_Enable
+ 103              	.LVL8:
+  44:main.c        ****     LCD_Char_1_IsReady();
+ 104              		.loc 1 44 0
+ 105 002a FFF7FEFF 		bl	LCD_Char_1_IsReady
+ 106              	.LVL9:
+  45:main.c        ****     LCD_Char_1_Position(0,0); 
+ 107              		.loc 1 45 0
+ 108 002e 0021     		movs	r1, #0
+ 109 0030 0846     		mov	r0, r1
+ 110 0032 FFF7FEFF 		bl	LCD_Char_1_Position
+ 111              	.LVL10:
+  46:main.c        ****     
+  47:main.c        ****     //Initial reset to start counter
+  48:main.c        ****     Control_Reset_Write (1);   
+ 112              		.loc 1 48 0
+ 113 0036 0120     		movs	r0, #1
+ 114 0038 FFF7FEFF 		bl	Control_Reset_Write
+ 115              	.LVL11:
+  49:main.c        ****     
+  50:main.c        ****     char print[12];
+  51:main.c        ****     //uint16_t capture = 0;
+  52:main.c        ****     
+  53:main.c        ****     int i = 0;
+ 116              		.loc 1 53 0
+ 117 003c 0024     		movs	r4, #0
+ 118              	.LVL12:
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 4
+
+
+ 119              	.L7:
+  54:main.c        ****     
+  55:main.c        ****     for(;;)
+  56:main.c        ****     {
+  57:main.c        ****         /* Place your application code here. */
+  58:main.c        ****         i++;
+ 120              		.loc 1 58 0
+ 121 003e 0134     		adds	r4, r4, #1
+ 122              	.LVL13:
+  59:main.c        ****         Control_Reg_1_Write (1);
+ 123              		.loc 1 59 0
+ 124 0040 0120     		movs	r0, #1
+ 125 0042 FFF7FEFF 		bl	Control_Reg_1_Write
+ 126              	.LVL14:
+ 127              	.L6:
+  60:main.c        ****         
+  61:main.c        ****         while(intFlag == 0){};        
+ 128              		.loc 1 61 0 discriminator 1
+ 129 0046 144B     		ldr	r3, .L9+4
+ 130 0048 5B88     		ldrh	r3, [r3, #2]
+ 131 004a 002B     		cmp	r3, #0
+ 132 004c FBD0     		beq	.L6
+  62:main.c        ****         
+  63:main.c        ****         sprintf(print,"timer = %u, %i", timerGlobal, i);
+ 133              		.loc 1 63 0
+ 134 004e 124D     		ldr	r5, .L9+4
+ 135 0050 2346     		mov	r3, r4
+ 136 0052 2A88     		ldrh	r2, [r5]
+ 137 0054 1149     		ldr	r1, .L9+8
+ 138 0056 01A8     		add	r0, sp, #4
+ 139 0058 FFF7FEFF 		bl	sprintf
+ 140              	.LVL15:
+  64:main.c        ****         
+  65:main.c        ****         // Print count to LCD       
+  66:main.c        ****         LCD_Char_1_ClearDisplay();
+ 141              		.loc 1 66 0
+ 142 005c 0120     		movs	r0, #1
+ 143 005e FFF7FEFF 		bl	LCD_Char_1_WriteControl
+ 144              	.LVL16:
+  67:main.c        ****         LCD_Char_1_IsReady();
+ 145              		.loc 1 67 0
+ 146 0062 FFF7FEFF 		bl	LCD_Char_1_IsReady
+ 147              	.LVL17:
+  68:main.c        ****         LCD_Char_1_Position(0,0);
+ 148              		.loc 1 68 0
+ 149 0066 0021     		movs	r1, #0
+ 150 0068 0846     		mov	r0, r1
+ 151 006a FFF7FEFF 		bl	LCD_Char_1_Position
+ 152              	.LVL18:
+  69:main.c        ****         LCD_Char_1_PrintString(print);
+ 153              		.loc 1 69 0
+ 154 006e 01A8     		add	r0, sp, #4
+ 155 0070 FFF7FEFF 		bl	LCD_Char_1_PrintString
+ 156              	.LVL19:
+  70:main.c        ****         
+  71:main.c        ****         Timer_1_WriteCounter(0);
+ 157              		.loc 1 71 0
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 5
+
+
+ 158 0074 0020     		movs	r0, #0
+ 159 0076 FFF7FEFF 		bl	Timer_1_WriteCounter
+ 160              	.LVL20:
+  72:main.c        ****         Control_Timer_Reset_Write (1);  
+ 161              		.loc 1 72 0
+ 162 007a 0120     		movs	r0, #1
+ 163 007c FFF7FEFF 		bl	Control_Timer_Reset_Write
+ 164              	.LVL21:
+  73:main.c        ****         Control_Reset_Write (1);   
+ 165              		.loc 1 73 0
+ 166 0080 0120     		movs	r0, #1
+ 167 0082 FFF7FEFF 		bl	Control_Reset_Write
+ 168              	.LVL22:
+  74:main.c        ****         
+  75:main.c        ****         intFlag = 0;
+ 169              		.loc 1 75 0
+ 170 0086 0023     		movs	r3, #0
+ 171 0088 6B80     		strh	r3, [r5, #2]	@ movhi
+  76:main.c        ****         
+  77:main.c        ****         CyDelay(200u);
+ 172              		.loc 1 77 0
+ 173 008a C820     		movs	r0, #200
+ 174 008c FFF7FEFF 		bl	CyDelay
+ 175              	.LVL23:
+  78:main.c        ****         
+  79:main.c        ****         
+  80:main.c        ****     }
+ 176              		.loc 1 80 0
+ 177 0090 D5E7     		b	.L7
+ 178              	.L10:
+ 179 0092 00BF     		.align	2
+ 180              	.L9:
+ 181 0094 00000000 		.word	MyISR
+ 182 0098 00000000 		.word	.LANCHOR0
+ 183 009c 00000000 		.word	.LC0
+ 184              		.cfi_endproc
+ 185              	.LFE65:
+ 186              		.size	main, .-main
+ 187              		.global	intFlag
+ 188              		.global	timerGlobal
+ 189              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 190              		.align	2
+ 191              	.LC0:
+ 192 0000 74696D65 		.ascii	"timer = %u, %i\000"
+ 192      72203D20 
+ 192      25752C20 
+ 192      256900
+ 193              		.bss
+ 194              		.align	1
+ 195              		.set	.LANCHOR0,. + 0
+ 196              		.type	timerGlobal, %object
+ 197              		.size	timerGlobal, 2
+ 198              	timerGlobal:
+ 199 0000 0000     		.space	2
+ 200              		.type	intFlag, %object
+ 201              		.size	intFlag, 2
+ 202              	intFlag:
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 6
+
+
+ 203 0002 0000     		.space	2
+ 204              		.text
+ 205              	.Letext0:
+ 206              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 207              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 208              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 209              		.file 5 "Generated_Source\\PSoC5/Timer_1.h"
+ 210              		.file 6 "Generated_Source\\PSoC5/isr_1.h"
+ 211              		.file 7 "Generated_Source\\PSoC5/Counter_1.h"
+ 212              		.file 8 "Generated_Source\\PSoC5/LCD_Char_1.h"
+ 213              		.file 9 "Generated_Source\\PSoC5/Control_Reset.h"
+ 214              		.file 10 "Generated_Source\\PSoC5/Control_Reg_1.h"
+ 215              		.file 11 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4
+ 216              		.file 12 "Generated_Source\\PSoC5/Control_Timer_Reset.h"
+ 217              		.file 13 "Generated_Source\\PSoC5/CyLib.h"
+ 218              		.section	.debug_info,"",%progbits
+ 219              	.Ldebug_info0:
+ 220 0000 6F030000 		.4byte	0x36f
+ 221 0004 0400     		.2byte	0x4
+ 222 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 223 000a 04       		.byte	0x4
+ 224 000b 01       		.uleb128 0x1
+ 225 000c 8B000000 		.4byte	.LASF40
+ 226 0010 0C       		.byte	0xc
+ 227 0011 7B020000 		.4byte	.LASF41
+ 228 0015 08020000 		.4byte	.LASF42
+ 229 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 230 001d 00000000 		.4byte	0
+ 231 0021 00000000 		.4byte	.Ldebug_line0
+ 232 0025 02       		.uleb128 0x2
+ 233 0026 01       		.byte	0x1
+ 234 0027 06       		.byte	0x6
+ 235 0028 FF020000 		.4byte	.LASF0
+ 236 002c 02       		.uleb128 0x2
+ 237 002d 01       		.byte	0x1
+ 238 002e 08       		.byte	0x8
+ 239 002f 7E010000 		.4byte	.LASF1
+ 240 0033 02       		.uleb128 0x2
+ 241 0034 02       		.byte	0x2
+ 242 0035 05       		.byte	0x5
+ 243 0036 C7020000 		.4byte	.LASF2
+ 244 003a 03       		.uleb128 0x3
+ 245 003b 8C010000 		.4byte	.LASF4
+ 246 003f 02       		.byte	0x2
+ 247 0040 2B       		.byte	0x2b
+ 248 0041 45000000 		.4byte	0x45
+ 249 0045 02       		.uleb128 0x2
+ 250 0046 02       		.byte	0x2
+ 251 0047 07       		.byte	0x7
+ 252 0048 45010000 		.4byte	.LASF3
+ 253 004c 03       		.uleb128 0x3
+ 254 004d 4C000000 		.4byte	.LASF5
+ 255 0051 02       		.byte	0x2
+ 256 0052 3F       		.byte	0x3f
+ 257 0053 57000000 		.4byte	0x57
+ 258 0057 02       		.uleb128 0x2
+ 259 0058 04       		.byte	0x4
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 7
+
+
+ 260 0059 05       		.byte	0x5
+ 261 005a DA020000 		.4byte	.LASF6
+ 262 005e 02       		.uleb128 0x2
+ 263 005f 04       		.byte	0x4
+ 264 0060 07       		.byte	0x7
+ 265 0061 33010000 		.4byte	.LASF7
+ 266 0065 02       		.uleb128 0x2
+ 267 0066 08       		.byte	0x8
+ 268 0067 05       		.byte	0x5
+ 269 0068 6D020000 		.4byte	.LASF8
+ 270 006c 02       		.uleb128 0x2
+ 271 006d 08       		.byte	0x8
+ 272 006e 07       		.byte	0x7
+ 273 006f D7010000 		.4byte	.LASF9
+ 274 0073 04       		.uleb128 0x4
+ 275 0074 04       		.byte	0x4
+ 276 0075 05       		.byte	0x5
+ 277 0076 696E7400 		.ascii	"int\000"
+ 278 007a 02       		.uleb128 0x2
+ 279 007b 04       		.byte	0x4
+ 280 007c 07       		.byte	0x7
+ 281 007d CA010000 		.4byte	.LASF10
+ 282 0081 03       		.uleb128 0x3
+ 283 0082 D1020000 		.4byte	.LASF11
+ 284 0086 03       		.byte	0x3
+ 285 0087 24       		.byte	0x24
+ 286 0088 3A000000 		.4byte	0x3a
+ 287 008c 03       		.uleb128 0x3
+ 288 008d 5C020000 		.4byte	.LASF12
+ 289 0091 03       		.byte	0x3
+ 290 0092 2C       		.byte	0x2c
+ 291 0093 4C000000 		.4byte	0x4c
+ 292 0097 02       		.uleb128 0x2
+ 293 0098 04       		.byte	0x4
+ 294 0099 04       		.byte	0x4
+ 295 009a 5D000000 		.4byte	.LASF13
+ 296 009e 02       		.uleb128 0x2
+ 297 009f 08       		.byte	0x8
+ 298 00a0 04       		.byte	0x4
+ 299 00a1 56000000 		.4byte	.LASF14
+ 300 00a5 02       		.uleb128 0x2
+ 301 00a6 01       		.byte	0x1
+ 302 00a7 08       		.byte	0x8
+ 303 00a8 82020000 		.4byte	.LASF15
+ 304 00ac 02       		.uleb128 0x2
+ 305 00ad 08       		.byte	0x8
+ 306 00ae 04       		.byte	0x4
+ 307 00af F3020000 		.4byte	.LASF16
+ 308 00b3 02       		.uleb128 0x2
+ 309 00b4 04       		.byte	0x4
+ 310 00b5 07       		.byte	0x7
+ 311 00b6 64020000 		.4byte	.LASF17
+ 312 00ba 05       		.uleb128 0x5
+ 313 00bb 02020000 		.4byte	.LASF43
+ 314 00bf 01       		.byte	0x1
+ 315 00c0 14       		.byte	0x14
+ 316 00c1 00000000 		.4byte	.LFB64
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 8
+
+
+ 317 00c5 14000000 		.4byte	.LFE64-.LFB64
+ 318 00c9 01       		.uleb128 0x1
+ 319 00ca 9C       		.byte	0x9c
+ 320 00cb D9000000 		.4byte	0xd9
+ 321 00cf 06       		.uleb128 0x6
+ 322 00d0 06000000 		.4byte	.LVL0
+ 323 00d4 AC020000 		.4byte	0x2ac
+ 324 00d8 00       		.byte	0
+ 325 00d9 07       		.uleb128 0x7
+ 326 00da A3010000 		.4byte	.LASF44
+ 327 00de 01       		.byte	0x1
+ 328 00df 1E       		.byte	0x1e
+ 329 00e0 73000000 		.4byte	0x73
+ 330 00e4 00000000 		.4byte	.LFB65
+ 331 00e8 A0000000 		.4byte	.LFE65-.LFB65
+ 332 00ec 01       		.uleb128 0x1
+ 333 00ed 9C       		.byte	0x9c
+ 334 00ee 69020000 		.4byte	0x269
+ 335 00f2 08       		.uleb128 0x8
+ 336 00f3 58010000 		.4byte	.LASF18
+ 337 00f7 01       		.byte	0x1
+ 338 00f8 32       		.byte	0x32
+ 339 00f9 69020000 		.4byte	0x269
+ 340 00fd 02       		.uleb128 0x2
+ 341 00fe 91       		.byte	0x91
+ 342 00ff 64       		.sleb128 -28
+ 343 0100 09       		.uleb128 0x9
+ 344 0101 6900     		.ascii	"i\000"
+ 345 0103 01       		.byte	0x1
+ 346 0104 35       		.byte	0x35
+ 347 0105 73000000 		.4byte	0x73
+ 348 0109 00000000 		.4byte	.LLST0
+ 349 010d 0A       		.uleb128 0xa
+ 350 010e 0C000000 		.4byte	.LVL1
+ 351 0112 B7020000 		.4byte	0x2b7
+ 352 0116 24010000 		.4byte	0x124
+ 353 011a 0B       		.uleb128 0xb
+ 354 011b 01       		.uleb128 0x1
+ 355 011c 50       		.byte	0x50
+ 356 011d 05       		.uleb128 0x5
+ 357 011e 03       		.byte	0x3
+ 358 011f 00000000 		.4byte	MyISR
+ 359 0123 00       		.byte	0
+ 360 0124 06       		.uleb128 0x6
+ 361 0125 10000000 		.4byte	.LVL2
+ 362 0129 C2020000 		.4byte	0x2c2
+ 363 012d 06       		.uleb128 0x6
+ 364 012e 14000000 		.4byte	.LVL3
+ 365 0132 CD020000 		.4byte	0x2cd
+ 366 0136 06       		.uleb128 0x6
+ 367 0137 18000000 		.4byte	.LVL4
+ 368 013b D8020000 		.4byte	0x2d8
+ 369 013f 06       		.uleb128 0x6
+ 370 0140 1C000000 		.4byte	.LVL5
+ 371 0144 E3020000 		.4byte	0x2e3
+ 372 0148 0A       		.uleb128 0xa
+ 373 0149 22000000 		.4byte	.LVL6
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 9
+
+
+ 374 014d EE020000 		.4byte	0x2ee
+ 375 0151 5B010000 		.4byte	0x15b
+ 376 0155 0B       		.uleb128 0xb
+ 377 0156 01       		.uleb128 0x1
+ 378 0157 50       		.byte	0x50
+ 379 0158 01       		.uleb128 0x1
+ 380 0159 3C       		.byte	0x3c
+ 381 015a 00       		.byte	0
+ 382 015b 06       		.uleb128 0x6
+ 383 015c 26000000 		.4byte	.LVL7
+ 384 0160 F9020000 		.4byte	0x2f9
+ 385 0164 06       		.uleb128 0x6
+ 386 0165 2A000000 		.4byte	.LVL8
+ 387 0169 04030000 		.4byte	0x304
+ 388 016d 06       		.uleb128 0x6
+ 389 016e 2E000000 		.4byte	.LVL9
+ 390 0172 0F030000 		.4byte	0x30f
+ 391 0176 0A       		.uleb128 0xa
+ 392 0177 36000000 		.4byte	.LVL10
+ 393 017b 1A030000 		.4byte	0x31a
+ 394 017f 8E010000 		.4byte	0x18e
+ 395 0183 0B       		.uleb128 0xb
+ 396 0184 01       		.uleb128 0x1
+ 397 0185 50       		.byte	0x50
+ 398 0186 01       		.uleb128 0x1
+ 399 0187 30       		.byte	0x30
+ 400 0188 0B       		.uleb128 0xb
+ 401 0189 01       		.uleb128 0x1
+ 402 018a 51       		.byte	0x51
+ 403 018b 01       		.uleb128 0x1
+ 404 018c 30       		.byte	0x30
+ 405 018d 00       		.byte	0
+ 406 018e 0A       		.uleb128 0xa
+ 407 018f 3C000000 		.4byte	.LVL11
+ 408 0193 25030000 		.4byte	0x325
+ 409 0197 A1010000 		.4byte	0x1a1
+ 410 019b 0B       		.uleb128 0xb
+ 411 019c 01       		.uleb128 0x1
+ 412 019d 50       		.byte	0x50
+ 413 019e 01       		.uleb128 0x1
+ 414 019f 31       		.byte	0x31
+ 415 01a0 00       		.byte	0
+ 416 01a1 0A       		.uleb128 0xa
+ 417 01a2 46000000 		.4byte	.LVL14
+ 418 01a6 30030000 		.4byte	0x330
+ 419 01aa B4010000 		.4byte	0x1b4
+ 420 01ae 0B       		.uleb128 0xb
+ 421 01af 01       		.uleb128 0x1
+ 422 01b0 50       		.byte	0x50
+ 423 01b1 01       		.uleb128 0x1
+ 424 01b2 31       		.byte	0x31
+ 425 01b3 00       		.byte	0
+ 426 01b4 0A       		.uleb128 0xa
+ 427 01b5 5C000000 		.4byte	.LVL15
+ 428 01b9 3B030000 		.4byte	0x33b
+ 429 01bd D7010000 		.4byte	0x1d7
+ 430 01c1 0B       		.uleb128 0xb
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 10
+
+
+ 431 01c2 01       		.uleb128 0x1
+ 432 01c3 50       		.byte	0x50
+ 433 01c4 02       		.uleb128 0x2
+ 434 01c5 91       		.byte	0x91
+ 435 01c6 64       		.sleb128 -28
+ 436 01c7 0B       		.uleb128 0xb
+ 437 01c8 01       		.uleb128 0x1
+ 438 01c9 51       		.byte	0x51
+ 439 01ca 05       		.uleb128 0x5
+ 440 01cb 03       		.byte	0x3
+ 441 01cc 00000000 		.4byte	.LC0
+ 442 01d0 0B       		.uleb128 0xb
+ 443 01d1 01       		.uleb128 0x1
+ 444 01d2 53       		.byte	0x53
+ 445 01d3 02       		.uleb128 0x2
+ 446 01d4 74       		.byte	0x74
+ 447 01d5 00       		.sleb128 0
+ 448 01d6 00       		.byte	0
+ 449 01d7 0A       		.uleb128 0xa
+ 450 01d8 62000000 		.4byte	.LVL16
+ 451 01dc EE020000 		.4byte	0x2ee
+ 452 01e0 EA010000 		.4byte	0x1ea
+ 453 01e4 0B       		.uleb128 0xb
+ 454 01e5 01       		.uleb128 0x1
+ 455 01e6 50       		.byte	0x50
+ 456 01e7 01       		.uleb128 0x1
+ 457 01e8 31       		.byte	0x31
+ 458 01e9 00       		.byte	0
+ 459 01ea 06       		.uleb128 0x6
+ 460 01eb 66000000 		.4byte	.LVL17
+ 461 01ef 0F030000 		.4byte	0x30f
+ 462 01f3 0A       		.uleb128 0xa
+ 463 01f4 6E000000 		.4byte	.LVL18
+ 464 01f8 1A030000 		.4byte	0x31a
+ 465 01fc 0B020000 		.4byte	0x20b
+ 466 0200 0B       		.uleb128 0xb
+ 467 0201 01       		.uleb128 0x1
+ 468 0202 50       		.byte	0x50
+ 469 0203 01       		.uleb128 0x1
+ 470 0204 30       		.byte	0x30
+ 471 0205 0B       		.uleb128 0xb
+ 472 0206 01       		.uleb128 0x1
+ 473 0207 51       		.byte	0x51
+ 474 0208 01       		.uleb128 0x1
+ 475 0209 30       		.byte	0x30
+ 476 020a 00       		.byte	0
+ 477 020b 0A       		.uleb128 0xa
+ 478 020c 74000000 		.4byte	.LVL19
+ 479 0210 46030000 		.4byte	0x346
+ 480 0214 1F020000 		.4byte	0x21f
+ 481 0218 0B       		.uleb128 0xb
+ 482 0219 01       		.uleb128 0x1
+ 483 021a 50       		.byte	0x50
+ 484 021b 02       		.uleb128 0x2
+ 485 021c 91       		.byte	0x91
+ 486 021d 64       		.sleb128 -28
+ 487 021e 00       		.byte	0
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 11
+
+
+ 488 021f 0A       		.uleb128 0xa
+ 489 0220 7A000000 		.4byte	.LVL20
+ 490 0224 51030000 		.4byte	0x351
+ 491 0228 32020000 		.4byte	0x232
+ 492 022c 0B       		.uleb128 0xb
+ 493 022d 01       		.uleb128 0x1
+ 494 022e 50       		.byte	0x50
+ 495 022f 01       		.uleb128 0x1
+ 496 0230 30       		.byte	0x30
+ 497 0231 00       		.byte	0
+ 498 0232 0A       		.uleb128 0xa
+ 499 0233 80000000 		.4byte	.LVL21
+ 500 0237 5C030000 		.4byte	0x35c
+ 501 023b 45020000 		.4byte	0x245
+ 502 023f 0B       		.uleb128 0xb
+ 503 0240 01       		.uleb128 0x1
+ 504 0241 50       		.byte	0x50
+ 505 0242 01       		.uleb128 0x1
+ 506 0243 31       		.byte	0x31
+ 507 0244 00       		.byte	0
+ 508 0245 0A       		.uleb128 0xa
+ 509 0246 86000000 		.4byte	.LVL22
+ 510 024a 25030000 		.4byte	0x325
+ 511 024e 58020000 		.4byte	0x258
+ 512 0252 0B       		.uleb128 0xb
+ 513 0253 01       		.uleb128 0x1
+ 514 0254 50       		.byte	0x50
+ 515 0255 01       		.uleb128 0x1
+ 516 0256 31       		.byte	0x31
+ 517 0257 00       		.byte	0
+ 518 0258 0C       		.uleb128 0xc
+ 519 0259 90000000 		.4byte	.LVL23
+ 520 025d 67030000 		.4byte	0x367
+ 521 0261 0B       		.uleb128 0xb
+ 522 0262 01       		.uleb128 0x1
+ 523 0263 50       		.byte	0x50
+ 524 0264 02       		.uleb128 0x2
+ 525 0265 08       		.byte	0x8
+ 526 0266 C8       		.byte	0xc8
+ 527 0267 00       		.byte	0
+ 528 0268 00       		.byte	0
+ 529 0269 0D       		.uleb128 0xd
+ 530 026a A5000000 		.4byte	0xa5
+ 531 026e 79020000 		.4byte	0x279
+ 532 0272 0E       		.uleb128 0xe
+ 533 0273 B3000000 		.4byte	0xb3
+ 534 0277 0B       		.byte	0xb
+ 535 0278 00       		.byte	0
+ 536 0279 0F       		.uleb128 0xf
+ 537 027a BD010000 		.4byte	.LASF19
+ 538 027e 04       		.byte	0x4
+ 539 027f 1207     		.2byte	0x712
+ 540 0281 85020000 		.4byte	0x285
+ 541 0285 10       		.uleb128 0x10
+ 542 0286 8C000000 		.4byte	0x8c
+ 543 028a 11       		.uleb128 0x11
+ 544 028b 97010000 		.4byte	.LASF20
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 12
+
+
+ 545 028f 01       		.byte	0x1
+ 546 0290 0F       		.byte	0xf
+ 547 0291 81000000 		.4byte	0x81
+ 548 0295 05       		.uleb128 0x5
+ 549 0296 03       		.byte	0x3
+ 550 0297 00000000 		.4byte	timerGlobal
+ 551 029b 11       		.uleb128 0x11
+ 552 029c AF020000 		.4byte	.LASF21
+ 553 02a0 01       		.byte	0x1
+ 554 02a1 10       		.byte	0x10
+ 555 02a2 81000000 		.4byte	0x81
+ 556 02a6 05       		.uleb128 0x5
+ 557 02a7 03       		.byte	0x3
+ 558 02a8 00000000 		.4byte	intFlag
+ 559 02ac 12       		.uleb128 0x12
+ 560 02ad 87020000 		.4byte	.LASF22
+ 561 02b1 87020000 		.4byte	.LASF22
+ 562 02b5 05       		.byte	0x5
+ 563 02b6 69       		.byte	0x69
+ 564 02b7 12       		.uleb128 0x12
+ 565 02b8 0B030000 		.4byte	.LASF23
+ 566 02bc 0B030000 		.4byte	.LASF23
+ 567 02c0 06       		.byte	0x6
+ 568 02c1 18       		.byte	0x18
+ 569 02c2 12       		.uleb128 0x12
+ 570 02c3 71010000 		.4byte	.LASF24
+ 571 02c7 71010000 		.4byte	.LASF24
+ 572 02cb 06       		.byte	0x6
+ 573 02cc 23       		.byte	0x23
+ 574 02cd 12       		.uleb128 0x12
+ 575 02ce 2C000000 		.4byte	.LASF25
+ 576 02d2 2C000000 		.4byte	.LASF25
+ 577 02d6 05       		.byte	0x5
+ 578 02d7 5A       		.byte	0x5a
+ 579 02d8 12       		.uleb128 0x12
+ 580 02d9 E3020000 		.4byte	.LASF26
+ 581 02dd E3020000 		.4byte	.LASF26
+ 582 02e1 07       		.byte	0x7
+ 583 02e2 4F       		.byte	0x4f
+ 584 02e3 12       		.uleb128 0x12
+ 585 02e4 63000000 		.4byte	.LASF27
+ 586 02e8 63000000 		.4byte	.LASF27
+ 587 02ec 08       		.byte	0x8
+ 588 02ed 38       		.byte	0x38
+ 589 02ee 12       		.uleb128 0x12
+ 590 02ef 14000000 		.4byte	.LASF28
+ 591 02f3 14000000 		.4byte	.LASF28
+ 592 02f7 08       		.byte	0x8
+ 593 02f8 3A       		.byte	0x3a
+ 594 02f9 12       		.uleb128 0x12
+ 595 02fa B7020000 		.4byte	.LASF29
+ 596 02fe B7020000 		.4byte	.LASF29
+ 597 0302 08       		.byte	0x8
+ 598 0303 36       		.byte	0x36
+ 599 0304 12       		.uleb128 0x12
+ 600 0305 3A000000 		.4byte	.LASF30
+ 601 0309 3A000000 		.4byte	.LASF30
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 13
+
+
+ 602 030d 08       		.byte	0x8
+ 603 030e 37       		.byte	0x37
+ 604 030f 12       		.uleb128 0x12
+ 605 0310 5E010000 		.4byte	.LASF31
+ 606 0314 5E010000 		.4byte	.LASF31
+ 607 0318 08       		.byte	0x8
+ 608 0319 3F       		.byte	0x3f
+ 609 031a 12       		.uleb128 0x12
+ 610 031b 9B020000 		.4byte	.LASF32
+ 611 031f 9B020000 		.4byte	.LASF32
+ 612 0323 08       		.byte	0x8
+ 613 0324 3D       		.byte	0x3d
+ 614 0325 12       		.uleb128 0x12
+ 615 0326 00000000 		.4byte	.LASF33
+ 616 032a 00000000 		.4byte	.LASF33
+ 617 032e 09       		.byte	0x9
+ 618 032f 2F       		.byte	0x2f
+ 619 0330 12       		.uleb128 0x12
+ 620 0331 EE010000 		.4byte	.LASF34
+ 621 0335 EE010000 		.4byte	.LASF34
+ 622 0339 0A       		.byte	0xa
+ 623 033a 2F       		.byte	0x2f
+ 624 033b 12       		.uleb128 0x12
+ 625 033c 19030000 		.4byte	.LASF35
+ 626 0340 19030000 		.4byte	.LASF35
+ 627 0344 0B       		.byte	0xb
+ 628 0345 E7       		.byte	0xe7
+ 629 0346 12       		.uleb128 0x12
+ 630 0347 74000000 		.4byte	.LASF36
+ 631 034b 74000000 		.4byte	.LASF36
+ 632 034f 08       		.byte	0x8
+ 633 0350 3C       		.byte	0x3c
+ 634 0351 12       		.uleb128 0x12
+ 635 0352 A8010000 		.4byte	.LASF37
+ 636 0356 A8010000 		.4byte	.LASF37
+ 637 035a 05       		.byte	0x5
+ 638 035b 6A       		.byte	0x6a
+ 639 035c 12       		.uleb128 0x12
+ 640 035d 19010000 		.4byte	.LASF38
+ 641 0361 19010000 		.4byte	.LASF38
+ 642 0365 0C       		.byte	0xc
+ 643 0366 2F       		.byte	0x2f
+ 644 0367 12       		.uleb128 0x12
+ 645 0368 21030000 		.4byte	.LASF39
+ 646 036c 21030000 		.4byte	.LASF39
+ 647 0370 0D       		.byte	0xd
+ 648 0371 76       		.byte	0x76
+ 649 0372 00       		.byte	0
+ 650              		.section	.debug_abbrev,"",%progbits
+ 651              	.Ldebug_abbrev0:
+ 652 0000 01       		.uleb128 0x1
+ 653 0001 11       		.uleb128 0x11
+ 654 0002 01       		.byte	0x1
+ 655 0003 25       		.uleb128 0x25
+ 656 0004 0E       		.uleb128 0xe
+ 657 0005 13       		.uleb128 0x13
+ 658 0006 0B       		.uleb128 0xb
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 14
+
+
+ 659 0007 03       		.uleb128 0x3
+ 660 0008 0E       		.uleb128 0xe
+ 661 0009 1B       		.uleb128 0x1b
+ 662 000a 0E       		.uleb128 0xe
+ 663 000b 55       		.uleb128 0x55
+ 664 000c 17       		.uleb128 0x17
+ 665 000d 11       		.uleb128 0x11
+ 666 000e 01       		.uleb128 0x1
+ 667 000f 10       		.uleb128 0x10
+ 668 0010 17       		.uleb128 0x17
+ 669 0011 00       		.byte	0
+ 670 0012 00       		.byte	0
+ 671 0013 02       		.uleb128 0x2
+ 672 0014 24       		.uleb128 0x24
+ 673 0015 00       		.byte	0
+ 674 0016 0B       		.uleb128 0xb
+ 675 0017 0B       		.uleb128 0xb
+ 676 0018 3E       		.uleb128 0x3e
+ 677 0019 0B       		.uleb128 0xb
+ 678 001a 03       		.uleb128 0x3
+ 679 001b 0E       		.uleb128 0xe
+ 680 001c 00       		.byte	0
+ 681 001d 00       		.byte	0
+ 682 001e 03       		.uleb128 0x3
+ 683 001f 16       		.uleb128 0x16
+ 684 0020 00       		.byte	0
+ 685 0021 03       		.uleb128 0x3
+ 686 0022 0E       		.uleb128 0xe
+ 687 0023 3A       		.uleb128 0x3a
+ 688 0024 0B       		.uleb128 0xb
+ 689 0025 3B       		.uleb128 0x3b
+ 690 0026 0B       		.uleb128 0xb
+ 691 0027 49       		.uleb128 0x49
+ 692 0028 13       		.uleb128 0x13
+ 693 0029 00       		.byte	0
+ 694 002a 00       		.byte	0
+ 695 002b 04       		.uleb128 0x4
+ 696 002c 24       		.uleb128 0x24
+ 697 002d 00       		.byte	0
+ 698 002e 0B       		.uleb128 0xb
+ 699 002f 0B       		.uleb128 0xb
+ 700 0030 3E       		.uleb128 0x3e
+ 701 0031 0B       		.uleb128 0xb
+ 702 0032 03       		.uleb128 0x3
+ 703 0033 08       		.uleb128 0x8
+ 704 0034 00       		.byte	0
+ 705 0035 00       		.byte	0
+ 706 0036 05       		.uleb128 0x5
+ 707 0037 2E       		.uleb128 0x2e
+ 708 0038 01       		.byte	0x1
+ 709 0039 3F       		.uleb128 0x3f
+ 710 003a 19       		.uleb128 0x19
+ 711 003b 03       		.uleb128 0x3
+ 712 003c 0E       		.uleb128 0xe
+ 713 003d 3A       		.uleb128 0x3a
+ 714 003e 0B       		.uleb128 0xb
+ 715 003f 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 15
+
+
+ 716 0040 0B       		.uleb128 0xb
+ 717 0041 27       		.uleb128 0x27
+ 718 0042 19       		.uleb128 0x19
+ 719 0043 11       		.uleb128 0x11
+ 720 0044 01       		.uleb128 0x1
+ 721 0045 12       		.uleb128 0x12
+ 722 0046 06       		.uleb128 0x6
+ 723 0047 40       		.uleb128 0x40
+ 724 0048 18       		.uleb128 0x18
+ 725 0049 9742     		.uleb128 0x2117
+ 726 004b 19       		.uleb128 0x19
+ 727 004c 01       		.uleb128 0x1
+ 728 004d 13       		.uleb128 0x13
+ 729 004e 00       		.byte	0
+ 730 004f 00       		.byte	0
+ 731 0050 06       		.uleb128 0x6
+ 732 0051 898201   		.uleb128 0x4109
+ 733 0054 00       		.byte	0
+ 734 0055 11       		.uleb128 0x11
+ 735 0056 01       		.uleb128 0x1
+ 736 0057 31       		.uleb128 0x31
+ 737 0058 13       		.uleb128 0x13
+ 738 0059 00       		.byte	0
+ 739 005a 00       		.byte	0
+ 740 005b 07       		.uleb128 0x7
+ 741 005c 2E       		.uleb128 0x2e
+ 742 005d 01       		.byte	0x1
+ 743 005e 3F       		.uleb128 0x3f
+ 744 005f 19       		.uleb128 0x19
+ 745 0060 03       		.uleb128 0x3
+ 746 0061 0E       		.uleb128 0xe
+ 747 0062 3A       		.uleb128 0x3a
+ 748 0063 0B       		.uleb128 0xb
+ 749 0064 3B       		.uleb128 0x3b
+ 750 0065 0B       		.uleb128 0xb
+ 751 0066 27       		.uleb128 0x27
+ 752 0067 19       		.uleb128 0x19
+ 753 0068 49       		.uleb128 0x49
+ 754 0069 13       		.uleb128 0x13
+ 755 006a 8701     		.uleb128 0x87
+ 756 006c 19       		.uleb128 0x19
+ 757 006d 11       		.uleb128 0x11
+ 758 006e 01       		.uleb128 0x1
+ 759 006f 12       		.uleb128 0x12
+ 760 0070 06       		.uleb128 0x6
+ 761 0071 40       		.uleb128 0x40
+ 762 0072 18       		.uleb128 0x18
+ 763 0073 9742     		.uleb128 0x2117
+ 764 0075 19       		.uleb128 0x19
+ 765 0076 01       		.uleb128 0x1
+ 766 0077 13       		.uleb128 0x13
+ 767 0078 00       		.byte	0
+ 768 0079 00       		.byte	0
+ 769 007a 08       		.uleb128 0x8
+ 770 007b 34       		.uleb128 0x34
+ 771 007c 00       		.byte	0
+ 772 007d 03       		.uleb128 0x3
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 16
+
+
+ 773 007e 0E       		.uleb128 0xe
+ 774 007f 3A       		.uleb128 0x3a
+ 775 0080 0B       		.uleb128 0xb
+ 776 0081 3B       		.uleb128 0x3b
+ 777 0082 0B       		.uleb128 0xb
+ 778 0083 49       		.uleb128 0x49
+ 779 0084 13       		.uleb128 0x13
+ 780 0085 02       		.uleb128 0x2
+ 781 0086 18       		.uleb128 0x18
+ 782 0087 00       		.byte	0
+ 783 0088 00       		.byte	0
+ 784 0089 09       		.uleb128 0x9
+ 785 008a 34       		.uleb128 0x34
+ 786 008b 00       		.byte	0
+ 787 008c 03       		.uleb128 0x3
+ 788 008d 08       		.uleb128 0x8
+ 789 008e 3A       		.uleb128 0x3a
+ 790 008f 0B       		.uleb128 0xb
+ 791 0090 3B       		.uleb128 0x3b
+ 792 0091 0B       		.uleb128 0xb
+ 793 0092 49       		.uleb128 0x49
+ 794 0093 13       		.uleb128 0x13
+ 795 0094 02       		.uleb128 0x2
+ 796 0095 17       		.uleb128 0x17
+ 797 0096 00       		.byte	0
+ 798 0097 00       		.byte	0
+ 799 0098 0A       		.uleb128 0xa
+ 800 0099 898201   		.uleb128 0x4109
+ 801 009c 01       		.byte	0x1
+ 802 009d 11       		.uleb128 0x11
+ 803 009e 01       		.uleb128 0x1
+ 804 009f 31       		.uleb128 0x31
+ 805 00a0 13       		.uleb128 0x13
+ 806 00a1 01       		.uleb128 0x1
+ 807 00a2 13       		.uleb128 0x13
+ 808 00a3 00       		.byte	0
+ 809 00a4 00       		.byte	0
+ 810 00a5 0B       		.uleb128 0xb
+ 811 00a6 8A8201   		.uleb128 0x410a
+ 812 00a9 00       		.byte	0
+ 813 00aa 02       		.uleb128 0x2
+ 814 00ab 18       		.uleb128 0x18
+ 815 00ac 9142     		.uleb128 0x2111
+ 816 00ae 18       		.uleb128 0x18
+ 817 00af 00       		.byte	0
+ 818 00b0 00       		.byte	0
+ 819 00b1 0C       		.uleb128 0xc
+ 820 00b2 898201   		.uleb128 0x4109
+ 821 00b5 01       		.byte	0x1
+ 822 00b6 11       		.uleb128 0x11
+ 823 00b7 01       		.uleb128 0x1
+ 824 00b8 31       		.uleb128 0x31
+ 825 00b9 13       		.uleb128 0x13
+ 826 00ba 00       		.byte	0
+ 827 00bb 00       		.byte	0
+ 828 00bc 0D       		.uleb128 0xd
+ 829 00bd 01       		.uleb128 0x1
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 17
+
+
+ 830 00be 01       		.byte	0x1
+ 831 00bf 49       		.uleb128 0x49
+ 832 00c0 13       		.uleb128 0x13
+ 833 00c1 01       		.uleb128 0x1
+ 834 00c2 13       		.uleb128 0x13
+ 835 00c3 00       		.byte	0
+ 836 00c4 00       		.byte	0
+ 837 00c5 0E       		.uleb128 0xe
+ 838 00c6 21       		.uleb128 0x21
+ 839 00c7 00       		.byte	0
+ 840 00c8 49       		.uleb128 0x49
+ 841 00c9 13       		.uleb128 0x13
+ 842 00ca 2F       		.uleb128 0x2f
+ 843 00cb 0B       		.uleb128 0xb
+ 844 00cc 00       		.byte	0
+ 845 00cd 00       		.byte	0
+ 846 00ce 0F       		.uleb128 0xf
+ 847 00cf 34       		.uleb128 0x34
+ 848 00d0 00       		.byte	0
+ 849 00d1 03       		.uleb128 0x3
+ 850 00d2 0E       		.uleb128 0xe
+ 851 00d3 3A       		.uleb128 0x3a
+ 852 00d4 0B       		.uleb128 0xb
+ 853 00d5 3B       		.uleb128 0x3b
+ 854 00d6 05       		.uleb128 0x5
+ 855 00d7 49       		.uleb128 0x49
+ 856 00d8 13       		.uleb128 0x13
+ 857 00d9 3F       		.uleb128 0x3f
+ 858 00da 19       		.uleb128 0x19
+ 859 00db 3C       		.uleb128 0x3c
+ 860 00dc 19       		.uleb128 0x19
+ 861 00dd 00       		.byte	0
+ 862 00de 00       		.byte	0
+ 863 00df 10       		.uleb128 0x10
+ 864 00e0 35       		.uleb128 0x35
+ 865 00e1 00       		.byte	0
+ 866 00e2 49       		.uleb128 0x49
+ 867 00e3 13       		.uleb128 0x13
+ 868 00e4 00       		.byte	0
+ 869 00e5 00       		.byte	0
+ 870 00e6 11       		.uleb128 0x11
+ 871 00e7 34       		.uleb128 0x34
+ 872 00e8 00       		.byte	0
+ 873 00e9 03       		.uleb128 0x3
+ 874 00ea 0E       		.uleb128 0xe
+ 875 00eb 3A       		.uleb128 0x3a
+ 876 00ec 0B       		.uleb128 0xb
+ 877 00ed 3B       		.uleb128 0x3b
+ 878 00ee 0B       		.uleb128 0xb
+ 879 00ef 49       		.uleb128 0x49
+ 880 00f0 13       		.uleb128 0x13
+ 881 00f1 3F       		.uleb128 0x3f
+ 882 00f2 19       		.uleb128 0x19
+ 883 00f3 02       		.uleb128 0x2
+ 884 00f4 18       		.uleb128 0x18
+ 885 00f5 00       		.byte	0
+ 886 00f6 00       		.byte	0
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 18
+
+
+ 887 00f7 12       		.uleb128 0x12
+ 888 00f8 2E       		.uleb128 0x2e
+ 889 00f9 00       		.byte	0
+ 890 00fa 3F       		.uleb128 0x3f
+ 891 00fb 19       		.uleb128 0x19
+ 892 00fc 3C       		.uleb128 0x3c
+ 893 00fd 19       		.uleb128 0x19
+ 894 00fe 6E       		.uleb128 0x6e
+ 895 00ff 0E       		.uleb128 0xe
+ 896 0100 03       		.uleb128 0x3
+ 897 0101 0E       		.uleb128 0xe
+ 898 0102 3A       		.uleb128 0x3a
+ 899 0103 0B       		.uleb128 0xb
+ 900 0104 3B       		.uleb128 0x3b
+ 901 0105 0B       		.uleb128 0xb
+ 902 0106 00       		.byte	0
+ 903 0107 00       		.byte	0
+ 904 0108 00       		.byte	0
+ 905              		.section	.debug_loc,"",%progbits
+ 906              	.Ldebug_loc0:
+ 907              	.LLST0:
+ 908 0000 3C000000 		.4byte	.LVL11
+ 909 0004 3E000000 		.4byte	.LVL12
+ 910 0008 0200     		.2byte	0x2
+ 911 000a 30       		.byte	0x30
+ 912 000b 9F       		.byte	0x9f
+ 913 000c 3E000000 		.4byte	.LVL12
+ 914 0010 A0000000 		.4byte	.LFE65
+ 915 0014 0100     		.2byte	0x1
+ 916 0016 54       		.byte	0x54
+ 917 0017 00000000 		.4byte	0
+ 918 001b 00000000 		.4byte	0
+ 919              		.section	.debug_aranges,"",%progbits
+ 920 0000 24000000 		.4byte	0x24
+ 921 0004 0200     		.2byte	0x2
+ 922 0006 00000000 		.4byte	.Ldebug_info0
+ 923 000a 04       		.byte	0x4
+ 924 000b 00       		.byte	0
+ 925 000c 0000     		.2byte	0
+ 926 000e 0000     		.2byte	0
+ 927 0010 00000000 		.4byte	.LFB64
+ 928 0014 14000000 		.4byte	.LFE64-.LFB64
+ 929 0018 00000000 		.4byte	.LFB65
+ 930 001c A0000000 		.4byte	.LFE65-.LFB65
+ 931 0020 00000000 		.4byte	0
+ 932 0024 00000000 		.4byte	0
+ 933              		.section	.debug_ranges,"",%progbits
+ 934              	.Ldebug_ranges0:
+ 935 0000 00000000 		.4byte	.LFB64
+ 936 0004 14000000 		.4byte	.LFE64
+ 937 0008 00000000 		.4byte	.LFB65
+ 938 000c A0000000 		.4byte	.LFE65
+ 939 0010 00000000 		.4byte	0
+ 940 0014 00000000 		.4byte	0
+ 941              		.section	.debug_line,"",%progbits
+ 942              	.Ldebug_line0:
+ 943 0000 78020000 		.section	.debug_str,"MS",%progbits,1
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 19
+
+
+ 943      02003302 
+ 943      00000201 
+ 943      FB0E0D00 
+ 943      01010101 
+ 944              	.LASF33:
+ 945 0000 436F6E74 		.ascii	"Control_Reset_Write\000"
+ 945      726F6C5F 
+ 945      52657365 
+ 945      745F5772 
+ 945      69746500 
+ 946              	.LASF28:
+ 947 0014 4C43445F 		.ascii	"LCD_Char_1_WriteControl\000"
+ 947      43686172 
+ 947      5F315F57 
+ 947      72697465 
+ 947      436F6E74 
+ 948              	.LASF25:
+ 949 002c 54696D65 		.ascii	"Timer_1_Start\000"
+ 949      725F315F 
+ 949      53746172 
+ 949      7400
+ 950              	.LASF30:
+ 951 003a 4C43445F 		.ascii	"LCD_Char_1_Enable\000"
+ 951      43686172 
+ 951      5F315F45 
+ 951      6E61626C 
+ 951      6500
+ 952              	.LASF5:
+ 953 004c 5F5F696E 		.ascii	"__int32_t\000"
+ 953      7433325F 
+ 953      7400
+ 954              	.LASF14:
+ 955 0056 646F7562 		.ascii	"double\000"
+ 955      6C6500
+ 956              	.LASF13:
+ 957 005d 666C6F61 		.ascii	"float\000"
+ 957      7400
+ 958              	.LASF27:
+ 959 0063 4C43445F 		.ascii	"LCD_Char_1_Start\000"
+ 959      43686172 
+ 959      5F315F53 
+ 959      74617274 
+ 959      00
+ 960              	.LASF36:
+ 961 0074 4C43445F 		.ascii	"LCD_Char_1_PrintString\000"
+ 961      43686172 
+ 961      5F315F50 
+ 961      72696E74 
+ 961      53747269 
+ 962              	.LASF40:
+ 963 008b 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 963      43313120 
+ 963      352E342E 
+ 963      31203230 
+ 963      31363036 
+ 964 00be 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 964      20726576 
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 20
+
+
+ 964      6973696F 
+ 964      6E203233 
+ 964      37373135 
+ 965 00f1 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 965      66756E63 
+ 965      74696F6E 
+ 965      2D736563 
+ 965      74696F6E 
+ 966              	.LASF38:
+ 967 0119 436F6E74 		.ascii	"Control_Timer_Reset_Write\000"
+ 967      726F6C5F 
+ 967      54696D65 
+ 967      725F5265 
+ 967      7365745F 
+ 968              	.LASF7:
+ 969 0133 6C6F6E67 		.ascii	"long unsigned int\000"
+ 969      20756E73 
+ 969      69676E65 
+ 969      6420696E 
+ 969      7400
+ 970              	.LASF3:
+ 971 0145 73686F72 		.ascii	"short unsigned int\000"
+ 971      7420756E 
+ 971      7369676E 
+ 971      65642069 
+ 971      6E7400
+ 972              	.LASF18:
+ 973 0158 7072696E 		.ascii	"print\000"
+ 973      7400
+ 974              	.LASF31:
+ 975 015e 4C43445F 		.ascii	"LCD_Char_1_IsReady\000"
+ 975      43686172 
+ 975      5F315F49 
+ 975      73526561 
+ 975      647900
+ 976              	.LASF24:
+ 977 0171 6973725F 		.ascii	"isr_1_Enable\000"
+ 977      315F456E 
+ 977      61626C65 
+ 977      00
+ 978              	.LASF1:
+ 979 017e 756E7369 		.ascii	"unsigned char\000"
+ 979      676E6564 
+ 979      20636861 
+ 979      7200
+ 980              	.LASF4:
+ 981 018c 5F5F7569 		.ascii	"__uint16_t\000"
+ 981      6E743136 
+ 981      5F7400
+ 982              	.LASF20:
+ 983 0197 74696D65 		.ascii	"timerGlobal\000"
+ 983      72476C6F 
+ 983      62616C00 
+ 984              	.LASF44:
+ 985 01a3 6D61696E 		.ascii	"main\000"
+ 985      00
+ 986              	.LASF37:
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 21
+
+
+ 987 01a8 54696D65 		.ascii	"Timer_1_WriteCounter\000"
+ 987      725F315F 
+ 987      57726974 
+ 987      65436F75 
+ 987      6E746572 
+ 988              	.LASF19:
+ 989 01bd 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 989      52784275 
+ 989      66666572 
+ 989      00
+ 990              	.LASF10:
+ 991 01ca 756E7369 		.ascii	"unsigned int\000"
+ 991      676E6564 
+ 991      20696E74 
+ 991      00
+ 992              	.LASF9:
+ 993 01d7 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 993      206C6F6E 
+ 993      6720756E 
+ 993      7369676E 
+ 993      65642069 
+ 994              	.LASF34:
+ 995 01ee 436F6E74 		.ascii	"Control_Reg_1_Write\000"
+ 995      726F6C5F 
+ 995      5265675F 
+ 995      315F5772 
+ 995      69746500 
+ 996              	.LASF43:
+ 997 0202 4D794953 		.ascii	"MyISR\000"
+ 997      5200
+ 998              	.LASF42:
+ 999 0208 433A5C55 		.ascii	"C:\\Users\\narking\\Desktop\\CE121\\narking\\labs\\"
+ 999      73657273 
+ 999      5C6E6172 
+ 999      6B696E67 
+ 999      5C446573 
+ 1000 0234 6C616231 		.ascii	"lab1\\design\\WorkspaceLab01\\part2a.cydsn\000"
+ 1000      5C646573 
+ 1000      69676E5C 
+ 1000      576F726B 
+ 1000      73706163 
+ 1001              	.LASF12:
+ 1002 025c 696E7433 		.ascii	"int32_t\000"
+ 1002      325F7400 
+ 1003              	.LASF17:
+ 1004 0264 73697A65 		.ascii	"sizetype\000"
+ 1004      74797065 
+ 1004      00
+ 1005              	.LASF8:
+ 1006 026d 6C6F6E67 		.ascii	"long long int\000"
+ 1006      206C6F6E 
+ 1006      6720696E 
+ 1006      7400
+ 1007              	.LASF41:
+ 1008 027b 6D61696E 		.ascii	"main.c\000"
+ 1008      2E6300
+ 1009              	.LASF15:
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 22
+
+
+ 1010 0282 63686172 		.ascii	"char\000"
+ 1010      00
+ 1011              	.LASF22:
+ 1012 0287 54696D65 		.ascii	"Timer_1_ReadCounter\000"
+ 1012      725F315F 
+ 1012      52656164 
+ 1012      436F756E 
+ 1012      74657200 
+ 1013              	.LASF32:
+ 1014 029b 4C43445F 		.ascii	"LCD_Char_1_Position\000"
+ 1014      43686172 
+ 1014      5F315F50 
+ 1014      6F736974 
+ 1014      696F6E00 
+ 1015              	.LASF21:
+ 1016 02af 696E7446 		.ascii	"intFlag\000"
+ 1016      6C616700 
+ 1017              	.LASF29:
+ 1018 02b7 4C43445F 		.ascii	"LCD_Char_1_Init\000"
+ 1018      43686172 
+ 1018      5F315F49 
+ 1018      6E697400 
+ 1019              	.LASF2:
+ 1020 02c7 73686F72 		.ascii	"short int\000"
+ 1020      7420696E 
+ 1020      7400
+ 1021              	.LASF11:
+ 1022 02d1 75696E74 		.ascii	"uint16_t\000"
+ 1022      31365F74 
+ 1022      00
+ 1023              	.LASF6:
+ 1024 02da 6C6F6E67 		.ascii	"long int\000"
+ 1024      20696E74 
+ 1024      00
+ 1025              	.LASF26:
+ 1026 02e3 436F756E 		.ascii	"Counter_1_Start\000"
+ 1026      7465725F 
+ 1026      315F5374 
+ 1026      61727400 
+ 1027              	.LASF16:
+ 1028 02f3 6C6F6E67 		.ascii	"long double\000"
+ 1028      20646F75 
+ 1028      626C6500 
+ 1029              	.LASF0:
+ 1030 02ff 7369676E 		.ascii	"signed char\000"
+ 1030      65642063 
+ 1030      68617200 
+ 1031              	.LASF23:
+ 1032 030b 6973725F 		.ascii	"isr_1_StartEx\000"
+ 1032      315F5374 
+ 1032      61727445 
+ 1032      7800
+ 1033              	.LASF35:
+ 1034 0319 73707269 		.ascii	"sprintf\000"
+ 1034      6E746600 
+ 1035              	.LASF39:
+ 1036 0321 43794465 		.ascii	"CyDelay\000"
+ARM GAS  C:\Users\narking\AppData\Local\Temp\cct2fxkc.s 			page 23
+
+
+ 1036      6C617900 
+ 1037              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

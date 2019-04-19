@@ -1,0 +1,685 @@
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccaTDHDm.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB63:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** 
+  14:main.c        **** int main(void)
+  15:main.c        **** {
+  28              		.loc 1 15 0
+  29              		.cfi_startproc
+  30              		@ Volatile: function does not return.
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 08B5     		push	{r3, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
+  16:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  37              		.loc 1 16 0
+  38              		.syntax unified
+  39              	@ 16 "main.c" 1
+  40 0002 62B6     		CPSIE   i
+  41              	@ 0 "" 2
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccaTDHDm.s 			page 2
+
+
+  42              		.thumb
+  43              		.syntax unified
+  44              	.L2:
+  17:main.c        **** 
+  18:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  19:main.c        ****     
+  20:main.c        ****     
+  21:main.c        ****     for(;;)
+  22:main.c        ****     {
+  23:main.c        ****         
+  24:main.c        ****         /* Place your application code here. */
+  25:main.c        ****         
+  26:main.c        ****         /* PER-PIN SETING *//*
+  27:main.c        ****         // Set all three pins
+  28:main.c        ****         CyPins_SetPin(CYREG_PRT1_PC6);
+  29:main.c        ****         CyPins_SetPin(CYREG_PRT1_PC7);
+  30:main.c        ****         CyPins_SetPin(CYREG_PRT2_PC0);
+  31:main.c        ****         
+  32:main.c        ****         CyDelay(2000u);
+  33:main.c        ****         
+  34:main.c        ****         // Clear all three pins
+  35:main.c        ****         CyPins_ClearPin(CYREG_PRT1_PC6);
+  36:main.c        ****         CyPins_ClearPin(CYREG_PRT1_PC7);
+  37:main.c        ****         CyPins_ClearPin(CYREG_PRT2_PC0);
+  38:main.c        ****         
+  39:main.c        ****         CyDelay(2000u);
+  40:main.c        ****         */
+  41:main.c        ****         
+  42:main.c        ****         Red_Write(1);
+  45              		.loc 1 42 0 discriminator 1
+  46 0004 0120     		movs	r0, #1
+  47 0006 FFF7FEFF 		bl	Red_Write
+  48              	.LVL0:
+  43:main.c        ****         Green_Write(1);
+  49              		.loc 1 43 0 discriminator 1
+  50 000a 0120     		movs	r0, #1
+  51 000c FFF7FEFF 		bl	Green_Write
+  52              	.LVL1:
+  44:main.c        ****         Blue_Write(1);
+  53              		.loc 1 44 0 discriminator 1
+  54 0010 0120     		movs	r0, #1
+  55 0012 FFF7FEFF 		bl	Blue_Write
+  56              	.LVL2:
+  45:main.c        ****         
+  46:main.c        ****         CyDelay(2000u);
+  57              		.loc 1 46 0 discriminator 1
+  58 0016 4FF4FA60 		mov	r0, #2000
+  59 001a FFF7FEFF 		bl	CyDelay
+  60              	.LVL3:
+  47:main.c        ****         
+  48:main.c        ****         Red_Write(0);
+  61              		.loc 1 48 0 discriminator 1
+  62 001e 0020     		movs	r0, #0
+  63 0020 FFF7FEFF 		bl	Red_Write
+  64              	.LVL4:
+  49:main.c        ****         Green_Write(0);
+  65              		.loc 1 49 0 discriminator 1
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccaTDHDm.s 			page 3
+
+
+  66 0024 0020     		movs	r0, #0
+  67 0026 FFF7FEFF 		bl	Green_Write
+  68              	.LVL5:
+  50:main.c        ****         Blue_Write(0);
+  69              		.loc 1 50 0 discriminator 1
+  70 002a 0020     		movs	r0, #0
+  71 002c FFF7FEFF 		bl	Blue_Write
+  72              	.LVL6:
+  51:main.c        ****         
+  52:main.c        ****         CyDelay(2000u);
+  73              		.loc 1 52 0 discriminator 1
+  74 0030 4FF4FA60 		mov	r0, #2000
+  75 0034 FFF7FEFF 		bl	CyDelay
+  76              	.LVL7:
+  77 0038 E4E7     		b	.L2
+  78              		.cfi_endproc
+  79              	.LFE63:
+  80              		.size	main, .-main
+  81 003a 00BF     		.text
+  82              	.Letext0:
+  83              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  84              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  85              		.file 4 "Generated_Source\\PSoC5/Red.h"
+  86              		.file 5 "Generated_Source\\PSoC5/Green.h"
+  87              		.file 6 "Generated_Source\\PSoC5/Blue.h"
+  88              		.file 7 "Generated_Source\\PSoC5/CyLib.h"
+  89              		.file 8 "Generated_Source\\PSoC5/core_cm3.h"
+  90              		.section	.debug_info,"",%progbits
+  91              	.Ldebug_info0:
+  92 0000 90010000 		.4byte	0x190
+  93 0004 0400     		.2byte	0x4
+  94 0006 00000000 		.4byte	.Ldebug_abbrev0
+  95 000a 04       		.byte	0x4
+  96 000b 01       		.uleb128 0x1
+  97 000c 45000000 		.4byte	.LASF20
+  98 0010 0C       		.byte	0xc
+  99 0011 39000000 		.4byte	.LASF21
+ 100 0015 10010000 		.4byte	.LASF22
+ 101 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 102 001d 00000000 		.4byte	0
+ 103 0021 00000000 		.4byte	.Ldebug_line0
+ 104 0025 02       		.uleb128 0x2
+ 105 0026 01       		.byte	0x1
+ 106 0027 06       		.byte	0x6
+ 107 0028 8F010000 		.4byte	.LASF0
+ 108 002c 02       		.uleb128 0x2
+ 109 002d 01       		.byte	0x1
+ 110 002e 08       		.byte	0x8
+ 111 002f 55010000 		.4byte	.LASF1
+ 112 0033 02       		.uleb128 0x2
+ 113 0034 02       		.byte	0x2
+ 114 0035 05       		.byte	0x5
+ 115 0036 B7010000 		.4byte	.LASF2
+ 116 003a 02       		.uleb128 0x2
+ 117 003b 02       		.byte	0x2
+ 118 003c 07       		.byte	0x7
+ 119 003d 0E000000 		.4byte	.LASF3
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccaTDHDm.s 			page 4
+
+
+ 120 0041 03       		.uleb128 0x3
+ 121 0042 A7010000 		.4byte	.LASF9
+ 122 0046 02       		.byte	0x2
+ 123 0047 3F       		.byte	0x3f
+ 124 0048 4C000000 		.4byte	0x4c
+ 125 004c 02       		.uleb128 0x2
+ 126 004d 04       		.byte	0x4
+ 127 004e 05       		.byte	0x5
+ 128 004f 68010000 		.4byte	.LASF4
+ 129 0053 02       		.uleb128 0x2
+ 130 0054 04       		.byte	0x4
+ 131 0055 07       		.byte	0x7
+ 132 0056 DB000000 		.4byte	.LASF5
+ 133 005a 02       		.uleb128 0x2
+ 134 005b 08       		.byte	0x8
+ 135 005c 05       		.byte	0x5
+ 136 005d 00000000 		.4byte	.LASF6
+ 137 0061 02       		.uleb128 0x2
+ 138 0062 08       		.byte	0x8
+ 139 0063 07       		.byte	0x7
+ 140 0064 F9000000 		.4byte	.LASF7
+ 141 0068 04       		.uleb128 0x4
+ 142 0069 04       		.byte	0x4
+ 143 006a 05       		.byte	0x5
+ 144 006b 696E7400 		.ascii	"int\000"
+ 145 006f 02       		.uleb128 0x2
+ 146 0070 04       		.byte	0x4
+ 147 0071 07       		.byte	0x7
+ 148 0072 21000000 		.4byte	.LASF8
+ 149 0076 03       		.uleb128 0x3
+ 150 0077 C1010000 		.4byte	.LASF10
+ 151 007b 03       		.byte	0x3
+ 152 007c 2C       		.byte	0x2c
+ 153 007d 41000000 		.4byte	0x41
+ 154 0081 02       		.uleb128 0x2
+ 155 0082 04       		.byte	0x4
+ 156 0083 04       		.byte	0x4
+ 157 0084 B1010000 		.4byte	.LASF11
+ 158 0088 02       		.uleb128 0x2
+ 159 0089 08       		.byte	0x8
+ 160 008a 04       		.byte	0x4
+ 161 008b 7B010000 		.4byte	.LASF12
+ 162 008f 02       		.uleb128 0x2
+ 163 0090 01       		.byte	0x1
+ 164 0091 08       		.byte	0x8
+ 165 0092 63010000 		.4byte	.LASF13
+ 166 0096 02       		.uleb128 0x2
+ 167 0097 04       		.byte	0x4
+ 168 0098 07       		.byte	0x7
+ 169 0099 C9010000 		.4byte	.LASF14
+ 170 009d 02       		.uleb128 0x2
+ 171 009e 08       		.byte	0x8
+ 172 009f 04       		.byte	0x4
+ 173 00a0 9B010000 		.4byte	.LASF15
+ 174 00a4 05       		.uleb128 0x5
+ 175 00a5 40000000 		.4byte	.LASF23
+ 176 00a9 01       		.byte	0x1
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccaTDHDm.s 			page 5
+
+
+ 177 00aa 0E       		.byte	0xe
+ 178 00ab 68000000 		.4byte	0x68
+ 179 00af 00000000 		.4byte	.LFB63
+ 180 00b3 3A000000 		.4byte	.LFE63-.LFB63
+ 181 00b7 01       		.uleb128 0x1
+ 182 00b8 9C       		.byte	0x9c
+ 183 00b9 56010000 		.4byte	0x156
+ 184 00bd 06       		.uleb128 0x6
+ 185 00be 0A000000 		.4byte	.LVL0
+ 186 00c2 67010000 		.4byte	0x167
+ 187 00c6 D0000000 		.4byte	0xd0
+ 188 00ca 07       		.uleb128 0x7
+ 189 00cb 01       		.uleb128 0x1
+ 190 00cc 50       		.byte	0x50
+ 191 00cd 01       		.uleb128 0x1
+ 192 00ce 31       		.byte	0x31
+ 193 00cf 00       		.byte	0
+ 194 00d0 06       		.uleb128 0x6
+ 195 00d1 10000000 		.4byte	.LVL1
+ 196 00d5 72010000 		.4byte	0x172
+ 197 00d9 E3000000 		.4byte	0xe3
+ 198 00dd 07       		.uleb128 0x7
+ 199 00de 01       		.uleb128 0x1
+ 200 00df 50       		.byte	0x50
+ 201 00e0 01       		.uleb128 0x1
+ 202 00e1 31       		.byte	0x31
+ 203 00e2 00       		.byte	0
+ 204 00e3 06       		.uleb128 0x6
+ 205 00e4 16000000 		.4byte	.LVL2
+ 206 00e8 7D010000 		.4byte	0x17d
+ 207 00ec F6000000 		.4byte	0xf6
+ 208 00f0 07       		.uleb128 0x7
+ 209 00f1 01       		.uleb128 0x1
+ 210 00f2 50       		.byte	0x50
+ 211 00f3 01       		.uleb128 0x1
+ 212 00f4 31       		.byte	0x31
+ 213 00f5 00       		.byte	0
+ 214 00f6 06       		.uleb128 0x6
+ 215 00f7 1E000000 		.4byte	.LVL3
+ 216 00fb 88010000 		.4byte	0x188
+ 217 00ff 0B010000 		.4byte	0x10b
+ 218 0103 07       		.uleb128 0x7
+ 219 0104 01       		.uleb128 0x1
+ 220 0105 50       		.byte	0x50
+ 221 0106 03       		.uleb128 0x3
+ 222 0107 0A       		.byte	0xa
+ 223 0108 D007     		.2byte	0x7d0
+ 224 010a 00       		.byte	0
+ 225 010b 06       		.uleb128 0x6
+ 226 010c 24000000 		.4byte	.LVL4
+ 227 0110 67010000 		.4byte	0x167
+ 228 0114 1E010000 		.4byte	0x11e
+ 229 0118 07       		.uleb128 0x7
+ 230 0119 01       		.uleb128 0x1
+ 231 011a 50       		.byte	0x50
+ 232 011b 01       		.uleb128 0x1
+ 233 011c 30       		.byte	0x30
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccaTDHDm.s 			page 6
+
+
+ 234 011d 00       		.byte	0
+ 235 011e 06       		.uleb128 0x6
+ 236 011f 2A000000 		.4byte	.LVL5
+ 237 0123 72010000 		.4byte	0x172
+ 238 0127 31010000 		.4byte	0x131
+ 239 012b 07       		.uleb128 0x7
+ 240 012c 01       		.uleb128 0x1
+ 241 012d 50       		.byte	0x50
+ 242 012e 01       		.uleb128 0x1
+ 243 012f 30       		.byte	0x30
+ 244 0130 00       		.byte	0
+ 245 0131 06       		.uleb128 0x6
+ 246 0132 30000000 		.4byte	.LVL6
+ 247 0136 7D010000 		.4byte	0x17d
+ 248 013a 44010000 		.4byte	0x144
+ 249 013e 07       		.uleb128 0x7
+ 250 013f 01       		.uleb128 0x1
+ 251 0140 50       		.byte	0x50
+ 252 0141 01       		.uleb128 0x1
+ 253 0142 30       		.byte	0x30
+ 254 0143 00       		.byte	0
+ 255 0144 08       		.uleb128 0x8
+ 256 0145 38000000 		.4byte	.LVL7
+ 257 0149 88010000 		.4byte	0x188
+ 258 014d 07       		.uleb128 0x7
+ 259 014e 01       		.uleb128 0x1
+ 260 014f 50       		.byte	0x50
+ 261 0150 03       		.uleb128 0x3
+ 262 0151 0A       		.byte	0xa
+ 263 0152 D007     		.2byte	0x7d0
+ 264 0154 00       		.byte	0
+ 265 0155 00       		.byte	0
+ 266 0156 09       		.uleb128 0x9
+ 267 0157 82010000 		.4byte	.LASF24
+ 268 015b 08       		.byte	0x8
+ 269 015c 1207     		.2byte	0x712
+ 270 015e 62010000 		.4byte	0x162
+ 271 0162 0A       		.uleb128 0xa
+ 272 0163 76000000 		.4byte	0x76
+ 273 0167 0B       		.uleb128 0xb
+ 274 0168 71010000 		.4byte	.LASF16
+ 275 016c 71010000 		.4byte	.LASF16
+ 276 0170 04       		.byte	0x4
+ 277 0171 26       		.byte	0x26
+ 278 0172 0B       		.uleb128 0xb
+ 279 0173 ED000000 		.4byte	.LASF17
+ 280 0177 ED000000 		.4byte	.LASF17
+ 281 017b 05       		.byte	0x5
+ 282 017c 26       		.byte	0x26
+ 283 017d 0B       		.uleb128 0xb
+ 284 017e 2E000000 		.4byte	.LASF18
+ 285 0182 2E000000 		.4byte	.LASF18
+ 286 0186 06       		.byte	0x6
+ 287 0187 26       		.byte	0x26
+ 288 0188 0B       		.uleb128 0xb
+ 289 0189 D3000000 		.4byte	.LASF19
+ 290 018d D3000000 		.4byte	.LASF19
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccaTDHDm.s 			page 7
+
+
+ 291 0191 07       		.byte	0x7
+ 292 0192 76       		.byte	0x76
+ 293 0193 00       		.byte	0
+ 294              		.section	.debug_abbrev,"",%progbits
+ 295              	.Ldebug_abbrev0:
+ 296 0000 01       		.uleb128 0x1
+ 297 0001 11       		.uleb128 0x11
+ 298 0002 01       		.byte	0x1
+ 299 0003 25       		.uleb128 0x25
+ 300 0004 0E       		.uleb128 0xe
+ 301 0005 13       		.uleb128 0x13
+ 302 0006 0B       		.uleb128 0xb
+ 303 0007 03       		.uleb128 0x3
+ 304 0008 0E       		.uleb128 0xe
+ 305 0009 1B       		.uleb128 0x1b
+ 306 000a 0E       		.uleb128 0xe
+ 307 000b 55       		.uleb128 0x55
+ 308 000c 17       		.uleb128 0x17
+ 309 000d 11       		.uleb128 0x11
+ 310 000e 01       		.uleb128 0x1
+ 311 000f 10       		.uleb128 0x10
+ 312 0010 17       		.uleb128 0x17
+ 313 0011 00       		.byte	0
+ 314 0012 00       		.byte	0
+ 315 0013 02       		.uleb128 0x2
+ 316 0014 24       		.uleb128 0x24
+ 317 0015 00       		.byte	0
+ 318 0016 0B       		.uleb128 0xb
+ 319 0017 0B       		.uleb128 0xb
+ 320 0018 3E       		.uleb128 0x3e
+ 321 0019 0B       		.uleb128 0xb
+ 322 001a 03       		.uleb128 0x3
+ 323 001b 0E       		.uleb128 0xe
+ 324 001c 00       		.byte	0
+ 325 001d 00       		.byte	0
+ 326 001e 03       		.uleb128 0x3
+ 327 001f 16       		.uleb128 0x16
+ 328 0020 00       		.byte	0
+ 329 0021 03       		.uleb128 0x3
+ 330 0022 0E       		.uleb128 0xe
+ 331 0023 3A       		.uleb128 0x3a
+ 332 0024 0B       		.uleb128 0xb
+ 333 0025 3B       		.uleb128 0x3b
+ 334 0026 0B       		.uleb128 0xb
+ 335 0027 49       		.uleb128 0x49
+ 336 0028 13       		.uleb128 0x13
+ 337 0029 00       		.byte	0
+ 338 002a 00       		.byte	0
+ 339 002b 04       		.uleb128 0x4
+ 340 002c 24       		.uleb128 0x24
+ 341 002d 00       		.byte	0
+ 342 002e 0B       		.uleb128 0xb
+ 343 002f 0B       		.uleb128 0xb
+ 344 0030 3E       		.uleb128 0x3e
+ 345 0031 0B       		.uleb128 0xb
+ 346 0032 03       		.uleb128 0x3
+ 347 0033 08       		.uleb128 0x8
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccaTDHDm.s 			page 8
+
+
+ 348 0034 00       		.byte	0
+ 349 0035 00       		.byte	0
+ 350 0036 05       		.uleb128 0x5
+ 351 0037 2E       		.uleb128 0x2e
+ 352 0038 01       		.byte	0x1
+ 353 0039 3F       		.uleb128 0x3f
+ 354 003a 19       		.uleb128 0x19
+ 355 003b 03       		.uleb128 0x3
+ 356 003c 0E       		.uleb128 0xe
+ 357 003d 3A       		.uleb128 0x3a
+ 358 003e 0B       		.uleb128 0xb
+ 359 003f 3B       		.uleb128 0x3b
+ 360 0040 0B       		.uleb128 0xb
+ 361 0041 27       		.uleb128 0x27
+ 362 0042 19       		.uleb128 0x19
+ 363 0043 49       		.uleb128 0x49
+ 364 0044 13       		.uleb128 0x13
+ 365 0045 8701     		.uleb128 0x87
+ 366 0047 19       		.uleb128 0x19
+ 367 0048 11       		.uleb128 0x11
+ 368 0049 01       		.uleb128 0x1
+ 369 004a 12       		.uleb128 0x12
+ 370 004b 06       		.uleb128 0x6
+ 371 004c 40       		.uleb128 0x40
+ 372 004d 18       		.uleb128 0x18
+ 373 004e 9742     		.uleb128 0x2117
+ 374 0050 19       		.uleb128 0x19
+ 375 0051 01       		.uleb128 0x1
+ 376 0052 13       		.uleb128 0x13
+ 377 0053 00       		.byte	0
+ 378 0054 00       		.byte	0
+ 379 0055 06       		.uleb128 0x6
+ 380 0056 898201   		.uleb128 0x4109
+ 381 0059 01       		.byte	0x1
+ 382 005a 11       		.uleb128 0x11
+ 383 005b 01       		.uleb128 0x1
+ 384 005c 31       		.uleb128 0x31
+ 385 005d 13       		.uleb128 0x13
+ 386 005e 01       		.uleb128 0x1
+ 387 005f 13       		.uleb128 0x13
+ 388 0060 00       		.byte	0
+ 389 0061 00       		.byte	0
+ 390 0062 07       		.uleb128 0x7
+ 391 0063 8A8201   		.uleb128 0x410a
+ 392 0066 00       		.byte	0
+ 393 0067 02       		.uleb128 0x2
+ 394 0068 18       		.uleb128 0x18
+ 395 0069 9142     		.uleb128 0x2111
+ 396 006b 18       		.uleb128 0x18
+ 397 006c 00       		.byte	0
+ 398 006d 00       		.byte	0
+ 399 006e 08       		.uleb128 0x8
+ 400 006f 898201   		.uleb128 0x4109
+ 401 0072 01       		.byte	0x1
+ 402 0073 11       		.uleb128 0x11
+ 403 0074 01       		.uleb128 0x1
+ 404 0075 31       		.uleb128 0x31
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccaTDHDm.s 			page 9
+
+
+ 405 0076 13       		.uleb128 0x13
+ 406 0077 00       		.byte	0
+ 407 0078 00       		.byte	0
+ 408 0079 09       		.uleb128 0x9
+ 409 007a 34       		.uleb128 0x34
+ 410 007b 00       		.byte	0
+ 411 007c 03       		.uleb128 0x3
+ 412 007d 0E       		.uleb128 0xe
+ 413 007e 3A       		.uleb128 0x3a
+ 414 007f 0B       		.uleb128 0xb
+ 415 0080 3B       		.uleb128 0x3b
+ 416 0081 05       		.uleb128 0x5
+ 417 0082 49       		.uleb128 0x49
+ 418 0083 13       		.uleb128 0x13
+ 419 0084 3F       		.uleb128 0x3f
+ 420 0085 19       		.uleb128 0x19
+ 421 0086 3C       		.uleb128 0x3c
+ 422 0087 19       		.uleb128 0x19
+ 423 0088 00       		.byte	0
+ 424 0089 00       		.byte	0
+ 425 008a 0A       		.uleb128 0xa
+ 426 008b 35       		.uleb128 0x35
+ 427 008c 00       		.byte	0
+ 428 008d 49       		.uleb128 0x49
+ 429 008e 13       		.uleb128 0x13
+ 430 008f 00       		.byte	0
+ 431 0090 00       		.byte	0
+ 432 0091 0B       		.uleb128 0xb
+ 433 0092 2E       		.uleb128 0x2e
+ 434 0093 00       		.byte	0
+ 435 0094 3F       		.uleb128 0x3f
+ 436 0095 19       		.uleb128 0x19
+ 437 0096 3C       		.uleb128 0x3c
+ 438 0097 19       		.uleb128 0x19
+ 439 0098 6E       		.uleb128 0x6e
+ 440 0099 0E       		.uleb128 0xe
+ 441 009a 03       		.uleb128 0x3
+ 442 009b 0E       		.uleb128 0xe
+ 443 009c 3A       		.uleb128 0x3a
+ 444 009d 0B       		.uleb128 0xb
+ 445 009e 3B       		.uleb128 0x3b
+ 446 009f 0B       		.uleb128 0xb
+ 447 00a0 00       		.byte	0
+ 448 00a1 00       		.byte	0
+ 449 00a2 00       		.byte	0
+ 450              		.section	.debug_aranges,"",%progbits
+ 451 0000 1C000000 		.4byte	0x1c
+ 452 0004 0200     		.2byte	0x2
+ 453 0006 00000000 		.4byte	.Ldebug_info0
+ 454 000a 04       		.byte	0x4
+ 455 000b 00       		.byte	0
+ 456 000c 0000     		.2byte	0
+ 457 000e 0000     		.2byte	0
+ 458 0010 00000000 		.4byte	.LFB63
+ 459 0014 3A000000 		.4byte	.LFE63-.LFB63
+ 460 0018 00000000 		.4byte	0
+ 461 001c 00000000 		.4byte	0
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccaTDHDm.s 			page 10
+
+
+ 462              		.section	.debug_ranges,"",%progbits
+ 463              	.Ldebug_ranges0:
+ 464 0000 00000000 		.4byte	.LFB63
+ 465 0004 3A000000 		.4byte	.LFE63
+ 466 0008 00000000 		.4byte	0
+ 467 000c 00000000 		.4byte	0
+ 468              		.section	.debug_line,"",%progbits
+ 469              	.Ldebug_line0:
+ 470 0000 A8010000 		.section	.debug_str,"MS",%progbits,1
+ 470      02006801 
+ 470      00000201 
+ 470      FB0E0D00 
+ 470      01010101 
+ 471              	.LASF6:
+ 472 0000 6C6F6E67 		.ascii	"long long int\000"
+ 472      206C6F6E 
+ 472      6720696E 
+ 472      7400
+ 473              	.LASF3:
+ 474 000e 73686F72 		.ascii	"short unsigned int\000"
+ 474      7420756E 
+ 474      7369676E 
+ 474      65642069 
+ 474      6E7400
+ 475              	.LASF8:
+ 476 0021 756E7369 		.ascii	"unsigned int\000"
+ 476      676E6564 
+ 476      20696E74 
+ 476      00
+ 477              	.LASF18:
+ 478 002e 426C7565 		.ascii	"Blue_Write\000"
+ 478      5F577269 
+ 478      746500
+ 479              	.LASF21:
+ 480 0039 6D61696E 		.ascii	"main.c\000"
+ 480      2E6300
+ 481              	.LASF23:
+ 482 0040 6D61696E 		.ascii	"main\000"
+ 482      00
+ 483              	.LASF20:
+ 484 0045 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 484      43313120 
+ 484      352E342E 
+ 484      31203230 
+ 484      31363036 
+ 485 0078 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 485      20726576 
+ 485      6973696F 
+ 485      6E203233 
+ 485      37373135 
+ 486 00ab 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 486      66756E63 
+ 486      74696F6E 
+ 486      2D736563 
+ 486      74696F6E 
+ 487              	.LASF19:
+ 488 00d3 43794465 		.ascii	"CyDelay\000"
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccaTDHDm.s 			page 11
+
+
+ 488      6C617900 
+ 489              	.LASF5:
+ 490 00db 6C6F6E67 		.ascii	"long unsigned int\000"
+ 490      20756E73 
+ 490      69676E65 
+ 490      6420696E 
+ 490      7400
+ 491              	.LASF17:
+ 492 00ed 47726565 		.ascii	"Green_Write\000"
+ 492      6E5F5772 
+ 492      69746500 
+ 493              	.LASF7:
+ 494 00f9 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 494      206C6F6E 
+ 494      6720756E 
+ 494      7369676E 
+ 494      65642069 
+ 495              	.LASF22:
+ 496 0110 433A5C55 		.ascii	"C:\\Users\\narking\\narking\\labs\\lab1\\design\\Wo"
+ 496      73657273 
+ 496      5C6E6172 
+ 496      6B696E67 
+ 496      5C6E6172 
+ 497 013c 726B7370 		.ascii	"rkspaceLab01\\part1.cydsn\000"
+ 497      6163654C 
+ 497      61623031 
+ 497      5C706172 
+ 497      74312E63 
+ 498              	.LASF1:
+ 499 0155 756E7369 		.ascii	"unsigned char\000"
+ 499      676E6564 
+ 499      20636861 
+ 499      7200
+ 500              	.LASF13:
+ 501 0163 63686172 		.ascii	"char\000"
+ 501      00
+ 502              	.LASF4:
+ 503 0168 6C6F6E67 		.ascii	"long int\000"
+ 503      20696E74 
+ 503      00
+ 504              	.LASF16:
+ 505 0171 5265645F 		.ascii	"Red_Write\000"
+ 505      57726974 
+ 505      6500
+ 506              	.LASF12:
+ 507 017b 646F7562 		.ascii	"double\000"
+ 507      6C6500
+ 508              	.LASF24:
+ 509 0182 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 509      52784275 
+ 509      66666572 
+ 509      00
+ 510              	.LASF0:
+ 511 018f 7369676E 		.ascii	"signed char\000"
+ 511      65642063 
+ 511      68617200 
+ 512              	.LASF15:
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccaTDHDm.s 			page 12
+
+
+ 513 019b 6C6F6E67 		.ascii	"long double\000"
+ 513      20646F75 
+ 513      626C6500 
+ 514              	.LASF9:
+ 515 01a7 5F5F696E 		.ascii	"__int32_t\000"
+ 515      7433325F 
+ 515      7400
+ 516              	.LASF11:
+ 517 01b1 666C6F61 		.ascii	"float\000"
+ 517      7400
+ 518              	.LASF2:
+ 519 01b7 73686F72 		.ascii	"short int\000"
+ 519      7420696E 
+ 519      7400
+ 520              	.LASF10:
+ 521 01c1 696E7433 		.ascii	"int32_t\000"
+ 521      325F7400 
+ 522              	.LASF14:
+ 523 01c9 73697A65 		.ascii	"sizetype\000"
+ 523      74797065 
+ 523      00
+ 524              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

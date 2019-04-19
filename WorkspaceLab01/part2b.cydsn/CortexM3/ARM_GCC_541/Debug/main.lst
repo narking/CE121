@@ -1,0 +1,2033 @@
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.MyISR,"ax",%progbits
+  20              		.align	2
+  21              		.global	MyISR
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	MyISR, %function
+  25              	MyISR:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include <stdio.h>
+  14:main.c        **** #include "cyPm.h"
+  15:main.c        **** 
+  16:main.c        **** #define LED_CUTOFF 100
+  17:main.c        **** 
+  18:main.c        **** uint16_t timerGlobal = 0;
+  19:main.c        **** uint16_t intFlag = 0;
+  20:main.c        **** 
+  21:main.c        **** CY_ISR_PROTO(MyISR);
+  22:main.c        **** CY_ISR_PROTO(Snooze);
+  23:main.c        **** 
+  24:main.c        **** CY_ISR(MyISR)
+  25:main.c        **** {
+  28              		.loc 1 25 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 2
+
+
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  26:main.c        ****  /* ISR Code here */
+  27:main.c        ****     timerGlobal = 65536 - Timer_1_ReadCounter();
+  36              		.loc 1 27 0
+  37 0002 FFF7FEFF 		bl	Timer_1_ReadCounter
+  38              	.LVL0:
+  39 0006 034B     		ldr	r3, .L3
+  40 0008 4042     		negs	r0, r0
+  41 000a 1880     		strh	r0, [r3]	@ movhi
+  28:main.c        ****     intFlag = 1;
+  42              		.loc 1 28 0
+  43 000c 0122     		movs	r2, #1
+  44 000e 5A80     		strh	r2, [r3, #2]	@ movhi
+  45 0010 08BD     		pop	{r3, pc}
+  46              	.L4:
+  47 0012 00BF     		.align	2
+  48              	.L3:
+  49 0014 00000000 		.word	.LANCHOR0
+  50              		.cfi_endproc
+  51              	.LFE64:
+  52              		.size	MyISR, .-MyISR
+  53              		.section	.text.Snooze,"ax",%progbits
+  54              		.align	2
+  55              		.global	Snooze
+  56              		.thumb
+  57              		.thumb_func
+  58              		.type	Snooze, %function
+  59              	Snooze:
+  60              	.LFB65:
+  29:main.c        **** }
+  30:main.c        **** 
+  31:main.c        **** CY_ISR(Snooze)
+  32:main.c        **** {
+  61              		.loc 1 32 0
+  62              		.cfi_startproc
+  63              		@ args = 0, pretend = 0, frame = 0
+  64              		@ frame_needed = 0, uses_anonymous_args = 0
+  65 0000 08B5     		push	{r3, lr}
+  66              		.cfi_def_cfa_offset 8
+  67              		.cfi_offset 3, -8
+  68              		.cfi_offset 14, -4
+  33:main.c        ****  /* ISR Code here */
+  34:main.c        ****         SleepTimer_1_GetStatus();
+  69              		.loc 1 34 0
+  70 0002 FFF7FEFF 		bl	SleepTimer_1_GetStatus
+  71              	.LVL1:
+  72 0006 08BD     		pop	{r3, pc}
+  73              		.cfi_endproc
+  74              	.LFE65:
+  75              		.size	Snooze, .-Snooze
+  76              		.section	.text.main,"ax",%progbits
+  77              		.align	2
+  78              		.global	main
+  79              		.thumb
+  80              		.thumb_func
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 3
+
+
+  81              		.type	main, %function
+  82              	main:
+  83              	.LFB66:
+  35:main.c        **** 
+  36:main.c        ****     
+  37:main.c        **** }
+  38:main.c        **** 
+  39:main.c        **** int main(void)
+  40:main.c        **** {
+  84              		.loc 1 40 0
+  85              		.cfi_startproc
+  86              		@ args = 0, pretend = 0, frame = 16
+  87              		@ frame_needed = 0, uses_anonymous_args = 0
+  88 0000 30B5     		push	{r4, r5, lr}
+  89              		.cfi_def_cfa_offset 12
+  90              		.cfi_offset 4, -12
+  91              		.cfi_offset 5, -8
+  92              		.cfi_offset 14, -4
+  93 0002 85B0     		sub	sp, sp, #20
+  94              		.cfi_def_cfa_offset 32
+  41:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  95              		.loc 1 41 0
+  96              		.syntax unified
+  97              	@ 41 "main.c" 1
+  98 0004 62B6     		CPSIE   i
+  99              	@ 0 "" 2
+  42:main.c        **** 
+  43:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  44:main.c        **** 
+  45:main.c        ****     isr_1_StartEx(MyISR);
+ 100              		.loc 1 45 0
+ 101              		.thumb
+ 102              		.syntax unified
+ 103 0006 5248     		ldr	r0, .L12
+ 104 0008 FFF7FEFF 		bl	isr_1_StartEx
+ 105              	.LVL2:
+  46:main.c        ****     isr_2_StartEx(Snooze);
+ 106              		.loc 1 46 0
+ 107 000c 5148     		ldr	r0, .L12+4
+ 108 000e FFF7FEFF 		bl	isr_2_StartEx
+ 109              	.LVL3:
+  47:main.c        ****     SleepTimer_1_Start();
+ 110              		.loc 1 47 0
+ 111 0012 FFF7FEFF 		bl	SleepTimer_1_Start
+ 112              	.LVL4:
+  48:main.c        ****     isr_1_Enable();
+ 113              		.loc 1 48 0
+ 114 0016 FFF7FEFF 		bl	isr_1_Enable
+ 115              	.LVL5:
+  49:main.c        ****     Timer_1_Start();
+ 116              		.loc 1 49 0
+ 117 001a FFF7FEFF 		bl	Timer_1_Start
+ 118              	.LVL6:
+  50:main.c        ****     Counter_1_Start();
+ 119              		.loc 1 50 0
+ 120 001e FFF7FEFF 		bl	Counter_1_Start
+ 121              	.LVL7:
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 4
+
+
+  51:main.c        ****     Counter_2_Start();
+ 122              		.loc 1 51 0
+ 123 0022 FFF7FEFF 		bl	Counter_2_Start
+ 124              	.LVL8:
+  52:main.c        ****     LCD_Char_1_Start();
+ 125              		.loc 1 52 0
+ 126 0026 FFF7FEFF 		bl	LCD_Char_1_Start
+ 127              	.LVL9:
+  53:main.c        ****     LCD_Char_1_DisplayOn();
+ 128              		.loc 1 53 0
+ 129 002a 0C20     		movs	r0, #12
+ 130 002c FFF7FEFF 		bl	LCD_Char_1_WriteControl
+ 131              	.LVL10:
+  54:main.c        ****     LCD_Char_1_Init();
+ 132              		.loc 1 54 0
+ 133 0030 FFF7FEFF 		bl	LCD_Char_1_Init
+ 134              	.LVL11:
+  55:main.c        ****     LCD_Char_1_Enable();
+ 135              		.loc 1 55 0
+ 136 0034 FFF7FEFF 		bl	LCD_Char_1_Enable
+ 137              	.LVL12:
+  56:main.c        ****     LCD_Char_1_IsReady();
+ 138              		.loc 1 56 0
+ 139 0038 FFF7FEFF 		bl	LCD_Char_1_IsReady
+ 140              	.LVL13:
+  57:main.c        ****     LCD_Char_1_Position(0,0); 
+ 141              		.loc 1 57 0
+ 142 003c 0021     		movs	r1, #0
+ 143 003e 0846     		mov	r0, r1
+ 144 0040 FFF7FEFF 		bl	LCD_Char_1_Position
+ 145              	.LVL14:
+  58:main.c        ****     
+  59:main.c        ****     //Initial reset to start counter
+  60:main.c        ****     Control_Reset_Write (1);  
+ 146              		.loc 1 60 0
+ 147 0044 0120     		movs	r0, #1
+ 148 0046 FFF7FEFF 		bl	Control_Reset_Write
+ 149              	.LVL15:
+  61:main.c        ****     
+  62:main.c        ****     //Begin LED count down
+  63:main.c        ****     LED_Reset_Write (1); 
+ 150              		.loc 1 63 0
+ 151 004a 0120     		movs	r0, #1
+ 152 004c FFF7FEFF 		bl	LED_Reset_Write
+ 153              	.LVL16:
+  64:main.c        ****     
+  65:main.c        ****     char print[12];
+  66:main.c        ****     uint16_t distance = 0;
+  67:main.c        ****     int i = 0;
+  68:main.c        ****     
+  69:main.c        ****     //Write 1 to trigger, start 10 us count
+  70:main.c        ****     Control_Reg_1_Write (1);
+ 154              		.loc 1 70 0
+ 155 0050 0120     		movs	r0, #1
+ 156 0052 FFF7FEFF 		bl	Control_Reg_1_Write
+ 157              	.LVL17:
+  71:main.c        ****     Control_Reset_Write (1); 
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 5
+
+
+ 158              		.loc 1 71 0
+ 159 0056 0120     		movs	r0, #1
+ 160 0058 FFF7FEFF 		bl	Control_Reset_Write
+ 161              	.LVL18:
+  72:main.c        **** 
+  73:main.c        ****     // Print count and distance to LCD  
+  74:main.c        ****         sprintf(print,"Hello");           
+ 162              		.loc 1 74 0
+ 163 005c 3E4B     		ldr	r3, .L12+8
+ 164 005e 93E80300 		ldmia	r3, {r0, r1}
+ 165 0062 0190     		str	r0, [sp, #4]
+ 166 0064 ADF80810 		strh	r1, [sp, #8]	@ movhi
+  75:main.c        ****         LCD_Char_1_ClearDisplay();
+ 167              		.loc 1 75 0
+ 168 0068 0120     		movs	r0, #1
+ 169 006a FFF7FEFF 		bl	LCD_Char_1_WriteControl
+ 170              	.LVL19:
+  76:main.c        ****         LCD_Char_1_IsReady();
+ 171              		.loc 1 76 0
+ 172 006e FFF7FEFF 		bl	LCD_Char_1_IsReady
+ 173              	.LVL20:
+  77:main.c        ****         LCD_Char_1_Position(0,0);
+ 174              		.loc 1 77 0
+ 175 0072 0021     		movs	r1, #0
+ 176 0074 0846     		mov	r0, r1
+ 177 0076 FFF7FEFF 		bl	LCD_Char_1_Position
+ 178              	.LVL21:
+  78:main.c        ****         LCD_Char_1_PrintString(print);
+ 179              		.loc 1 78 0
+ 180 007a 01A8     		add	r0, sp, #4
+ 181 007c FFF7FEFF 		bl	LCD_Char_1_PrintString
+ 182              	.LVL22:
+  66:main.c        ****     int i = 0;
+ 183              		.loc 1 66 0
+ 184 0080 0025     		movs	r5, #0
+ 185              	.LVL23:
+ 186              	.L10:
+ 187              	.LBB2:
+  79:main.c        ****     
+  80:main.c        ****     
+  81:main.c        ****     for(;;)
+  82:main.c        ****     {
+  83:main.c        ****         /* Place your application code here. */      
+  84:main.c        ****               
+  85:main.c        ****         
+  86:main.c        ****         uint8_t count = Counter_2_ReadCounter();
+ 188              		.loc 1 86 0
+ 189 0082 FFF7FEFF 		bl	Counter_2_ReadCounter
+ 190              	.LVL24:
+ 191 0086 0446     		mov	r4, r0
+ 192              	.LVL25:
+  87:main.c        ****         
+  88:main.c        ****         if(intFlag == 1){
+ 193              		.loc 1 88 0
+ 194 0088 344B     		ldr	r3, .L12+12
+ 195 008a 5B88     		ldrh	r3, [r3, #2]
+ 196 008c 012B     		cmp	r3, #1
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 6
+
+
+ 197 008e 4CD1     		bne	.L8
+  89:main.c        ****         
+  90:main.c        ****             i++;
+  91:main.c        ****             
+  92:main.c        ****             // Reset timer
+  93:main.c        ****             Control_Timer_Reset_Write (1); 
+ 198              		.loc 1 93 0
+ 199 0090 0120     		movs	r0, #1
+ 200 0092 FFF7FEFF 		bl	Control_Timer_Reset_Write
+ 201              	.LVL26:
+  94:main.c        ****             intFlag = 0;
+ 202              		.loc 1 94 0
+ 203 0096 314B     		ldr	r3, .L12+12
+ 204 0098 0022     		movs	r2, #0
+ 205 009a 5A80     		strh	r2, [r3, #2]	@ movhi
+  95:main.c        ****             
+  96:main.c        ****             // Calculate distance
+  97:main.c        ****             distance = timerGlobal/150;
+ 206              		.loc 1 97 0
+ 207 009c 1B88     		ldrh	r3, [r3]
+ 208 009e 304D     		ldr	r5, .L12+16
+ 209              	.LVL27:
+ 210 00a0 A5FB0335 		umull	r3, r5, r5, r3
+ 211 00a4 2D09     		lsrs	r5, r5, #4
+ 212              	.LVL28:
+  98:main.c        ****             
+  99:main.c        ****             // Reset LED count if you're in the distance range
+ 100:main.c        ****             if(distance < LED_CUTOFF){
+ 213              		.loc 1 100 0
+ 214 00a6 632D     		cmp	r5, #99
+ 215 00a8 02D8     		bhi	.L9
+ 101:main.c        ****                 LED_Reset_Write (1); 
+ 216              		.loc 1 101 0
+ 217 00aa 0120     		movs	r0, #1
+ 218 00ac FFF7FEFF 		bl	LED_Reset_Write
+ 219              	.LVL29:
+ 220              	.L9:
+ 102:main.c        ****             }
+ 103:main.c        ****             
+ 104:main.c        ****             // Delay 500 milliseconds
+ 105:main.c        ****             //CyDelay(500);
+ 106:main.c        ****             
+ 107:main.c        ****             // Print count and distance to LCD  
+ 108:main.c        ****             sprintf(print,"Interrupt");           
+ 221              		.loc 1 108 0
+ 222 00b0 2C4A     		ldr	r2, .L12+20
+ 223 00b2 01AB     		add	r3, sp, #4
+ 224 00b4 07CA     		ldmia	r2, {r0, r1, r2}
+ 225 00b6 03C3     		stmia	r3!, {r0, r1}
+ 226 00b8 1A80     		strh	r2, [r3]	@ movhi
+ 109:main.c        ****             LCD_Char_1_ClearDisplay();
+ 227              		.loc 1 109 0
+ 228 00ba 0120     		movs	r0, #1
+ 229 00bc FFF7FEFF 		bl	LCD_Char_1_WriteControl
+ 230              	.LVL30:
+ 110:main.c        ****             LCD_Char_1_IsReady();
+ 231              		.loc 1 110 0
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 7
+
+
+ 232 00c0 FFF7FEFF 		bl	LCD_Char_1_IsReady
+ 233              	.LVL31:
+ 111:main.c        ****             LCD_Char_1_Position(0,0);
+ 234              		.loc 1 111 0
+ 235 00c4 0021     		movs	r1, #0
+ 236 00c6 0846     		mov	r0, r1
+ 237 00c8 FFF7FEFF 		bl	LCD_Char_1_Position
+ 238              	.LVL32:
+ 112:main.c        ****             LCD_Char_1_PrintString(print);
+ 239              		.loc 1 112 0
+ 240 00cc 01A8     		add	r0, sp, #4
+ 241 00ce FFF7FEFF 		bl	LCD_Char_1_PrintString
+ 242              	.LVL33:
+ 113:main.c        ****             
+ 114:main.c        ****             // Enter sleep mode for 512 ms
+ 115:main.c        ****             Counter_1_Sleep();
+ 243              		.loc 1 115 0
+ 244 00d2 FFF7FEFF 		bl	Counter_1_Sleep
+ 245              	.LVL34:
+ 116:main.c        ****             Counter_2_Sleep();
+ 246              		.loc 1 116 0
+ 247 00d6 FFF7FEFF 		bl	Counter_2_Sleep
+ 248              	.LVL35:
+ 117:main.c        ****             Timer_1_Sleep();
+ 249              		.loc 1 117 0
+ 250 00da FFF7FEFF 		bl	Timer_1_Sleep
+ 251              	.LVL36:
+ 118:main.c        ****             CyPmSaveClocks();
+ 252              		.loc 1 118 0
+ 253 00de FFF7FEFF 		bl	CyPmSaveClocks
+ 254              	.LVL37:
+ 119:main.c        ****             CyPmSleep(PM_SLEEP_TIME_NONE, PM_SLEEP_SRC_PICU);
+ 255              		.loc 1 119 0
+ 256 00e2 4021     		movs	r1, #64
+ 257 00e4 0020     		movs	r0, #0
+ 258 00e6 FFF7FEFF 		bl	CyPmSleep
+ 259              	.LVL38:
+ 120:main.c        ****             CyPmRestoreClocks();
+ 260              		.loc 1 120 0
+ 261 00ea FFF7FEFF 		bl	CyPmRestoreClocks
+ 262              	.LVL39:
+ 121:main.c        ****             Counter_1_Wakeup();
+ 263              		.loc 1 121 0
+ 264 00ee FFF7FEFF 		bl	Counter_1_Wakeup
+ 265              	.LVL40:
+ 122:main.c        ****             Counter_2_Wakeup();
+ 266              		.loc 1 122 0
+ 267 00f2 FFF7FEFF 		bl	Counter_2_Wakeup
+ 268              	.LVL41:
+ 123:main.c        ****             Timer_1_Wakeup(); 
+ 269              		.loc 1 123 0
+ 270 00f6 FFF7FEFF 		bl	Timer_1_Wakeup
+ 271              	.LVL42:
+ 124:main.c        ****             
+ 125:main.c        ****             // Print count and distance to LCD  
+ 126:main.c        ****             sprintf(print,"Wake");           
+ 272              		.loc 1 126 0
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 8
+
+
+ 273 00fa 1B4B     		ldr	r3, .L12+24
+ 274 00fc 93E80300 		ldmia	r3, {r0, r1}
+ 275 0100 0190     		str	r0, [sp, #4]
+ 276 0102 8DF80810 		strb	r1, [sp, #8]
+ 127:main.c        ****             LCD_Char_1_ClearDisplay();
+ 277              		.loc 1 127 0
+ 278 0106 0120     		movs	r0, #1
+ 279 0108 FFF7FEFF 		bl	LCD_Char_1_WriteControl
+ 280              	.LVL43:
+ 128:main.c        ****             LCD_Char_1_IsReady();
+ 281              		.loc 1 128 0
+ 282 010c FFF7FEFF 		bl	LCD_Char_1_IsReady
+ 283              	.LVL44:
+ 129:main.c        ****             LCD_Char_1_Position(0,0);
+ 284              		.loc 1 129 0
+ 285 0110 0021     		movs	r1, #0
+ 286 0112 0846     		mov	r0, r1
+ 287 0114 FFF7FEFF 		bl	LCD_Char_1_Position
+ 288              	.LVL45:
+ 130:main.c        ****             LCD_Char_1_PrintString(print);
+ 289              		.loc 1 130 0
+ 290 0118 01A8     		add	r0, sp, #4
+ 291 011a FFF7FEFF 		bl	LCD_Char_1_PrintString
+ 292              	.LVL46:
+ 131:main.c        ****             
+ 132:main.c        ****             // Write 1 to trigger, start 10 us count
+ 133:main.c        ****             Control_Reg_1_Write (1);
+ 293              		.loc 1 133 0
+ 294 011e 0120     		movs	r0, #1
+ 295 0120 FFF7FEFF 		bl	Control_Reg_1_Write
+ 296              	.LVL47:
+ 134:main.c        ****             Control_Reset_Write (1);    
+ 297              		.loc 1 134 0
+ 298 0124 0120     		movs	r0, #1
+ 299 0126 FFF7FEFF 		bl	Control_Reset_Write
+ 300              	.LVL48:
+ 301              	.L8:
+ 135:main.c        ****            
+ 136:main.c        ****         }
+ 137:main.c        ****         
+ 138:main.c        ****         // Print count and distance to LCD  
+ 139:main.c        ****         sprintf(print,"c = %u d = %u", count, distance);           
+ 302              		.loc 1 139 0
+ 303 012a 2B46     		mov	r3, r5
+ 304 012c 2246     		mov	r2, r4
+ 305 012e 0F49     		ldr	r1, .L12+28
+ 306 0130 01A8     		add	r0, sp, #4
+ 307 0132 FFF7FEFF 		bl	sprintf
+ 308              	.LVL49:
+ 140:main.c        ****         LCD_Char_1_ClearDisplay();
+ 309              		.loc 1 140 0
+ 310 0136 0120     		movs	r0, #1
+ 311 0138 FFF7FEFF 		bl	LCD_Char_1_WriteControl
+ 312              	.LVL50:
+ 141:main.c        ****         LCD_Char_1_IsReady();
+ 313              		.loc 1 141 0
+ 314 013c FFF7FEFF 		bl	LCD_Char_1_IsReady
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 9
+
+
+ 315              	.LVL51:
+ 142:main.c        ****         LCD_Char_1_Position(0,0);
+ 316              		.loc 1 142 0
+ 317 0140 0021     		movs	r1, #0
+ 318 0142 0846     		mov	r0, r1
+ 319 0144 FFF7FEFF 		bl	LCD_Char_1_Position
+ 320              	.LVL52:
+ 143:main.c        ****         LCD_Char_1_PrintString(print);
+ 321              		.loc 1 143 0
+ 322 0148 01A8     		add	r0, sp, #4
+ 323 014a FFF7FEFF 		bl	LCD_Char_1_PrintString
+ 324              	.LVL53:
+ 325              	.LBE2:
+ 144:main.c        ****                
+ 145:main.c        ****     }
+ 326              		.loc 1 145 0
+ 327 014e 98E7     		b	.L10
+ 328              	.L13:
+ 329              		.align	2
+ 330              	.L12:
+ 331 0150 00000000 		.word	MyISR
+ 332 0154 00000000 		.word	Snooze
+ 333 0158 00000000 		.word	.LC0
+ 334 015c 00000000 		.word	.LANCHOR0
+ 335 0160 B5814E1B 		.word	458129845
+ 336 0164 08000000 		.word	.LC1
+ 337 0168 14000000 		.word	.LC2
+ 338 016c 1C000000 		.word	.LC3
+ 339              		.cfi_endproc
+ 340              	.LFE66:
+ 341              		.size	main, .-main
+ 342              		.global	intFlag
+ 343              		.global	timerGlobal
+ 344              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 345              		.align	2
+ 346              	.LC0:
+ 347 0000 48656C6C 		.ascii	"Hello\000"
+ 347      6F00
+ 348 0006 0000     		.space	2
+ 349              	.LC1:
+ 350 0008 496E7465 		.ascii	"Interrupt\000"
+ 350      72727570 
+ 350      7400
+ 351 0012 0000     		.space	2
+ 352              	.LC2:
+ 353 0014 57616B65 		.ascii	"Wake\000"
+ 353      00
+ 354 0019 000000   		.space	3
+ 355              	.LC3:
+ 356 001c 63203D20 		.ascii	"c = %u d = %u\000"
+ 356      25752064 
+ 356      203D2025 
+ 356      7500
+ 357              		.bss
+ 358              		.align	1
+ 359              		.set	.LANCHOR0,. + 0
+ 360              		.type	timerGlobal, %object
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 10
+
+
+ 361              		.size	timerGlobal, 2
+ 362              	timerGlobal:
+ 363 0000 0000     		.space	2
+ 364              		.type	intFlag, %object
+ 365              		.size	intFlag, 2
+ 366              	intFlag:
+ 367 0002 0000     		.space	2
+ 368              		.text
+ 369              	.Letext0:
+ 370              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 371              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 372              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 373              		.file 5 "Generated_Source\\PSoC5/Timer_1.h"
+ 374              		.file 6 "Generated_Source\\PSoC5/SleepTimer_1.h"
+ 375              		.file 7 "Generated_Source\\PSoC5/Counter_2.h"
+ 376              		.file 8 "Generated_Source\\PSoC5/Control_Timer_Reset.h"
+ 377              		.file 9 "Generated_Source\\PSoC5/LED_Reset.h"
+ 378              		.file 10 "Generated_Source\\PSoC5/LCD_Char_1.h"
+ 379              		.file 11 "Generated_Source\\PSoC5/Counter_1.h"
+ 380              		.file 12 "Generated_Source\\PSoC5/cyPm.h"
+ 381              		.file 13 "Generated_Source\\PSoC5/Control_Reg_1.h"
+ 382              		.file 14 "Generated_Source\\PSoC5/Control_Reset.h"
+ 383              		.file 15 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4
+ 384              		.file 16 "Generated_Source\\PSoC5/isr_1.h"
+ 385              		.file 17 "Generated_Source\\PSoC5/isr_2.h"
+ 386              		.section	.debug_info,"",%progbits
+ 387              	.Ldebug_info0:
+ 388 0000 EF050000 		.4byte	0x5ef
+ 389 0004 0400     		.2byte	0x4
+ 390 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 391 000a 04       		.byte	0x4
+ 392 000b 01       		.uleb128 0x1
+ 393 000c 8E030000 		.4byte	.LASF59
+ 394 0010 0C       		.byte	0xc
+ 395 0011 FE020000 		.4byte	.LASF60
+ 396 0015 C4000000 		.4byte	.LASF61
+ 397 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 398 001d 00000000 		.4byte	0
+ 399 0021 00000000 		.4byte	.Ldebug_line0
+ 400 0025 02       		.uleb128 0x2
+ 401 0026 01       		.byte	0x1
+ 402 0027 06       		.byte	0x6
+ 403 0028 18010000 		.4byte	.LASF0
+ 404 002c 03       		.uleb128 0x3
+ 405 002d 60010000 		.4byte	.LASF3
+ 406 0031 02       		.byte	0x2
+ 407 0032 1D       		.byte	0x1d
+ 408 0033 37000000 		.4byte	0x37
+ 409 0037 02       		.uleb128 0x2
+ 410 0038 01       		.byte	0x1
+ 411 0039 08       		.byte	0x8
+ 412 003a B9010000 		.4byte	.LASF1
+ 413 003e 02       		.uleb128 0x2
+ 414 003f 02       		.byte	0x2
+ 415 0040 05       		.byte	0x5
+ 416 0041 58000000 		.4byte	.LASF2
+ 417 0045 03       		.uleb128 0x3
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 11
+
+
+ 418 0046 8A000000 		.4byte	.LASF4
+ 419 004a 02       		.byte	0x2
+ 420 004b 2B       		.byte	0x2b
+ 421 004c 50000000 		.4byte	0x50
+ 422 0050 02       		.uleb128 0x2
+ 423 0051 02       		.byte	0x2
+ 424 0052 07       		.byte	0x7
+ 425 0053 85020000 		.4byte	.LASF5
+ 426 0057 03       		.uleb128 0x3
+ 427 0058 43030000 		.4byte	.LASF6
+ 428 005c 02       		.byte	0x2
+ 429 005d 3F       		.byte	0x3f
+ 430 005e 62000000 		.4byte	0x62
+ 431 0062 02       		.uleb128 0x2
+ 432 0063 04       		.byte	0x4
+ 433 0064 05       		.byte	0x5
+ 434 0065 57010000 		.4byte	.LASF7
+ 435 0069 02       		.uleb128 0x2
+ 436 006a 04       		.byte	0x4
+ 437 006b 07       		.byte	0x7
+ 438 006c 05030000 		.4byte	.LASF8
+ 439 0070 02       		.uleb128 0x2
+ 440 0071 08       		.byte	0x8
+ 441 0072 05       		.byte	0x5
+ 442 0073 41010000 		.4byte	.LASF9
+ 443 0077 02       		.uleb128 0x2
+ 444 0078 08       		.byte	0x8
+ 445 0079 07       		.byte	0x7
+ 446 007a 08020000 		.4byte	.LASF10
+ 447 007e 04       		.uleb128 0x4
+ 448 007f 04       		.byte	0x4
+ 449 0080 05       		.byte	0x5
+ 450 0081 696E7400 		.ascii	"int\000"
+ 451 0085 02       		.uleb128 0x2
+ 452 0086 04       		.byte	0x4
+ 453 0087 07       		.byte	0x7
+ 454 0088 5B020000 		.4byte	.LASF11
+ 455 008c 03       		.uleb128 0x3
+ 456 008d AD000000 		.4byte	.LASF12
+ 457 0091 03       		.byte	0x3
+ 458 0092 18       		.byte	0x18
+ 459 0093 2C000000 		.4byte	0x2c
+ 460 0097 03       		.uleb128 0x3
+ 461 0098 68020000 		.4byte	.LASF13
+ 462 009c 03       		.byte	0x3
+ 463 009d 24       		.byte	0x24
+ 464 009e 45000000 		.4byte	0x45
+ 465 00a2 03       		.uleb128 0x3
+ 466 00a3 BD020000 		.4byte	.LASF14
+ 467 00a7 03       		.byte	0x3
+ 468 00a8 2C       		.byte	0x2c
+ 469 00a9 57000000 		.4byte	0x57
+ 470 00ad 02       		.uleb128 0x2
+ 471 00ae 04       		.byte	0x4
+ 472 00af 04       		.byte	0x4
+ 473 00b0 24010000 		.4byte	.LASF15
+ 474 00b4 02       		.uleb128 0x2
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 12
+
+
+ 475 00b5 08       		.byte	0x8
+ 476 00b6 04       		.byte	0x4
+ 477 00b7 66030000 		.4byte	.LASF16
+ 478 00bb 02       		.uleb128 0x2
+ 479 00bc 01       		.byte	0x1
+ 480 00bd 08       		.byte	0x8
+ 481 00be A1020000 		.4byte	.LASF17
+ 482 00c2 02       		.uleb128 0x2
+ 483 00c3 08       		.byte	0x8
+ 484 00c4 04       		.byte	0x4
+ 485 00c5 A0010000 		.4byte	.LASF18
+ 486 00c9 02       		.uleb128 0x2
+ 487 00ca 04       		.byte	0x4
+ 488 00cb 07       		.byte	0x7
+ 489 00cc 7C000000 		.4byte	.LASF19
+ 490 00d0 05       		.uleb128 0x5
+ 491 00d1 8C010000 		.4byte	.LASF20
+ 492 00d5 01       		.byte	0x1
+ 493 00d6 18       		.byte	0x18
+ 494 00d7 00000000 		.4byte	.LFB64
+ 495 00db 18000000 		.4byte	.LFE64-.LFB64
+ 496 00df 01       		.uleb128 0x1
+ 497 00e0 9C       		.byte	0x9c
+ 498 00e1 EF000000 		.4byte	0xef
+ 499 00e5 06       		.uleb128 0x6
+ 500 00e6 06000000 		.4byte	.LVL0
+ 501 00ea 9D040000 		.4byte	0x49d
+ 502 00ee 00       		.byte	0
+ 503 00ef 05       		.uleb128 0x5
+ 504 00f0 A6000000 		.4byte	.LASF21
+ 505 00f4 01       		.byte	0x1
+ 506 00f5 1F       		.byte	0x1f
+ 507 00f6 00000000 		.4byte	.LFB65
+ 508 00fa 08000000 		.4byte	.LFE65-.LFB65
+ 509 00fe 01       		.uleb128 0x1
+ 510 00ff 9C       		.byte	0x9c
+ 511 0100 0E010000 		.4byte	0x10e
+ 512 0104 06       		.uleb128 0x6
+ 513 0105 06000000 		.4byte	.LVL1
+ 514 0109 A8040000 		.4byte	0x4a8
+ 515 010d 00       		.byte	0
+ 516 010e 07       		.uleb128 0x7
+ 517 010f 85000000 		.4byte	.LASF62
+ 518 0113 01       		.byte	0x1
+ 519 0114 27       		.byte	0x27
+ 520 0115 7E000000 		.4byte	0x7e
+ 521 0119 00000000 		.4byte	.LFB66
+ 522 011d 70010000 		.4byte	.LFE66-.LFB66
+ 523 0121 01       		.uleb128 0x1
+ 524 0122 9C       		.byte	0x9c
+ 525 0123 5A040000 		.4byte	0x45a
+ 526 0127 08       		.uleb128 0x8
+ 527 0128 4D030000 		.4byte	.LASF22
+ 528 012c 01       		.byte	0x1
+ 529 012d 41       		.byte	0x41
+ 530 012e 5A040000 		.4byte	0x45a
+ 531 0132 02       		.uleb128 0x2
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 13
+
+
+ 532 0133 91       		.byte	0x91
+ 533 0134 64       		.sleb128 -28
+ 534 0135 09       		.uleb128 0x9
+ 535 0136 98020000 		.4byte	.LASF23
+ 536 013a 01       		.byte	0x1
+ 537 013b 42       		.byte	0x42
+ 538 013c 97000000 		.4byte	0x97
+ 539 0140 00000000 		.4byte	.LLST0
+ 540 0144 0A       		.uleb128 0xa
+ 541 0145 6900     		.ascii	"i\000"
+ 542 0147 01       		.byte	0x1
+ 543 0148 43       		.byte	0x43
+ 544 0149 7E000000 		.4byte	0x7e
+ 545 014d 2A000000 		.4byte	.LLST1
+ 546 0151 0B       		.uleb128 0xb
+ 547 0152 82000000 		.4byte	.LBB2
+ 548 0156 CC000000 		.4byte	.LBE2-.LBB2
+ 549 015a 1F030000 		.4byte	0x31f
+ 550 015e 08       		.uleb128 0x8
+ 551 015f 3D030000 		.4byte	.LASF24
+ 552 0163 01       		.byte	0x1
+ 553 0164 56       		.byte	0x56
+ 554 0165 8C000000 		.4byte	0x8c
+ 555 0169 01       		.uleb128 0x1
+ 556 016a 54       		.byte	0x54
+ 557 016b 06       		.uleb128 0x6
+ 558 016c 86000000 		.4byte	.LVL24
+ 559 0170 B3040000 		.4byte	0x4b3
+ 560 0174 0C       		.uleb128 0xc
+ 561 0175 96000000 		.4byte	.LVL26
+ 562 0179 BE040000 		.4byte	0x4be
+ 563 017d 87010000 		.4byte	0x187
+ 564 0181 0D       		.uleb128 0xd
+ 565 0182 01       		.uleb128 0x1
+ 566 0183 50       		.byte	0x50
+ 567 0184 01       		.uleb128 0x1
+ 568 0185 31       		.byte	0x31
+ 569 0186 00       		.byte	0
+ 570 0187 0C       		.uleb128 0xc
+ 571 0188 B0000000 		.4byte	.LVL29
+ 572 018c C9040000 		.4byte	0x4c9
+ 573 0190 9A010000 		.4byte	0x19a
+ 574 0194 0D       		.uleb128 0xd
+ 575 0195 01       		.uleb128 0x1
+ 576 0196 50       		.byte	0x50
+ 577 0197 01       		.uleb128 0x1
+ 578 0198 31       		.byte	0x31
+ 579 0199 00       		.byte	0
+ 580 019a 0C       		.uleb128 0xc
+ 581 019b C0000000 		.4byte	.LVL30
+ 582 019f D4040000 		.4byte	0x4d4
+ 583 01a3 AD010000 		.4byte	0x1ad
+ 584 01a7 0D       		.uleb128 0xd
+ 585 01a8 01       		.uleb128 0x1
+ 586 01a9 50       		.byte	0x50
+ 587 01aa 01       		.uleb128 0x1
+ 588 01ab 31       		.byte	0x31
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 14
+
+
+ 589 01ac 00       		.byte	0
+ 590 01ad 06       		.uleb128 0x6
+ 591 01ae C4000000 		.4byte	.LVL31
+ 592 01b2 DF040000 		.4byte	0x4df
+ 593 01b6 0C       		.uleb128 0xc
+ 594 01b7 CC000000 		.4byte	.LVL32
+ 595 01bb EA040000 		.4byte	0x4ea
+ 596 01bf CE010000 		.4byte	0x1ce
+ 597 01c3 0D       		.uleb128 0xd
+ 598 01c4 01       		.uleb128 0x1
+ 599 01c5 50       		.byte	0x50
+ 600 01c6 01       		.uleb128 0x1
+ 601 01c7 30       		.byte	0x30
+ 602 01c8 0D       		.uleb128 0xd
+ 603 01c9 01       		.uleb128 0x1
+ 604 01ca 51       		.byte	0x51
+ 605 01cb 01       		.uleb128 0x1
+ 606 01cc 30       		.byte	0x30
+ 607 01cd 00       		.byte	0
+ 608 01ce 0C       		.uleb128 0xc
+ 609 01cf D2000000 		.4byte	.LVL33
+ 610 01d3 F5040000 		.4byte	0x4f5
+ 611 01d7 E2010000 		.4byte	0x1e2
+ 612 01db 0D       		.uleb128 0xd
+ 613 01dc 01       		.uleb128 0x1
+ 614 01dd 50       		.byte	0x50
+ 615 01de 02       		.uleb128 0x2
+ 616 01df 91       		.byte	0x91
+ 617 01e0 64       		.sleb128 -28
+ 618 01e1 00       		.byte	0
+ 619 01e2 06       		.uleb128 0x6
+ 620 01e3 D6000000 		.4byte	.LVL34
+ 621 01e7 00050000 		.4byte	0x500
+ 622 01eb 06       		.uleb128 0x6
+ 623 01ec DA000000 		.4byte	.LVL35
+ 624 01f0 0B050000 		.4byte	0x50b
+ 625 01f4 06       		.uleb128 0x6
+ 626 01f5 DE000000 		.4byte	.LVL36
+ 627 01f9 16050000 		.4byte	0x516
+ 628 01fd 06       		.uleb128 0x6
+ 629 01fe E2000000 		.4byte	.LVL37
+ 630 0202 21050000 		.4byte	0x521
+ 631 0206 0C       		.uleb128 0xc
+ 632 0207 EA000000 		.4byte	.LVL38
+ 633 020b 2C050000 		.4byte	0x52c
+ 634 020f 1F020000 		.4byte	0x21f
+ 635 0213 0D       		.uleb128 0xd
+ 636 0214 01       		.uleb128 0x1
+ 637 0215 50       		.byte	0x50
+ 638 0216 01       		.uleb128 0x1
+ 639 0217 30       		.byte	0x30
+ 640 0218 0D       		.uleb128 0xd
+ 641 0219 01       		.uleb128 0x1
+ 642 021a 51       		.byte	0x51
+ 643 021b 02       		.uleb128 0x2
+ 644 021c 08       		.byte	0x8
+ 645 021d 40       		.byte	0x40
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 15
+
+
+ 646 021e 00       		.byte	0
+ 647 021f 06       		.uleb128 0x6
+ 648 0220 EE000000 		.4byte	.LVL39
+ 649 0224 37050000 		.4byte	0x537
+ 650 0228 06       		.uleb128 0x6
+ 651 0229 F2000000 		.4byte	.LVL40
+ 652 022d 42050000 		.4byte	0x542
+ 653 0231 06       		.uleb128 0x6
+ 654 0232 F6000000 		.4byte	.LVL41
+ 655 0236 4D050000 		.4byte	0x54d
+ 656 023a 06       		.uleb128 0x6
+ 657 023b FA000000 		.4byte	.LVL42
+ 658 023f 58050000 		.4byte	0x558
+ 659 0243 0C       		.uleb128 0xc
+ 660 0244 0C010000 		.4byte	.LVL43
+ 661 0248 D4040000 		.4byte	0x4d4
+ 662 024c 56020000 		.4byte	0x256
+ 663 0250 0D       		.uleb128 0xd
+ 664 0251 01       		.uleb128 0x1
+ 665 0252 50       		.byte	0x50
+ 666 0253 01       		.uleb128 0x1
+ 667 0254 31       		.byte	0x31
+ 668 0255 00       		.byte	0
+ 669 0256 06       		.uleb128 0x6
+ 670 0257 10010000 		.4byte	.LVL44
+ 671 025b DF040000 		.4byte	0x4df
+ 672 025f 0C       		.uleb128 0xc
+ 673 0260 18010000 		.4byte	.LVL45
+ 674 0264 EA040000 		.4byte	0x4ea
+ 675 0268 77020000 		.4byte	0x277
+ 676 026c 0D       		.uleb128 0xd
+ 677 026d 01       		.uleb128 0x1
+ 678 026e 50       		.byte	0x50
+ 679 026f 01       		.uleb128 0x1
+ 680 0270 30       		.byte	0x30
+ 681 0271 0D       		.uleb128 0xd
+ 682 0272 01       		.uleb128 0x1
+ 683 0273 51       		.byte	0x51
+ 684 0274 01       		.uleb128 0x1
+ 685 0275 30       		.byte	0x30
+ 686 0276 00       		.byte	0
+ 687 0277 0C       		.uleb128 0xc
+ 688 0278 1E010000 		.4byte	.LVL46
+ 689 027c F5040000 		.4byte	0x4f5
+ 690 0280 8B020000 		.4byte	0x28b
+ 691 0284 0D       		.uleb128 0xd
+ 692 0285 01       		.uleb128 0x1
+ 693 0286 50       		.byte	0x50
+ 694 0287 02       		.uleb128 0x2
+ 695 0288 91       		.byte	0x91
+ 696 0289 64       		.sleb128 -28
+ 697 028a 00       		.byte	0
+ 698 028b 0C       		.uleb128 0xc
+ 699 028c 24010000 		.4byte	.LVL47
+ 700 0290 63050000 		.4byte	0x563
+ 701 0294 9E020000 		.4byte	0x29e
+ 702 0298 0D       		.uleb128 0xd
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 16
+
+
+ 703 0299 01       		.uleb128 0x1
+ 704 029a 50       		.byte	0x50
+ 705 029b 01       		.uleb128 0x1
+ 706 029c 31       		.byte	0x31
+ 707 029d 00       		.byte	0
+ 708 029e 0C       		.uleb128 0xc
+ 709 029f 2A010000 		.4byte	.LVL48
+ 710 02a3 6E050000 		.4byte	0x56e
+ 711 02a7 B1020000 		.4byte	0x2b1
+ 712 02ab 0D       		.uleb128 0xd
+ 713 02ac 01       		.uleb128 0x1
+ 714 02ad 50       		.byte	0x50
+ 715 02ae 01       		.uleb128 0x1
+ 716 02af 31       		.byte	0x31
+ 717 02b0 00       		.byte	0
+ 718 02b1 0C       		.uleb128 0xc
+ 719 02b2 36010000 		.4byte	.LVL49
+ 720 02b6 79050000 		.4byte	0x579
+ 721 02ba DA020000 		.4byte	0x2da
+ 722 02be 0D       		.uleb128 0xd
+ 723 02bf 01       		.uleb128 0x1
+ 724 02c0 50       		.byte	0x50
+ 725 02c1 02       		.uleb128 0x2
+ 726 02c2 91       		.byte	0x91
+ 727 02c3 64       		.sleb128 -28
+ 728 02c4 0D       		.uleb128 0xd
+ 729 02c5 01       		.uleb128 0x1
+ 730 02c6 51       		.byte	0x51
+ 731 02c7 05       		.uleb128 0x5
+ 732 02c8 03       		.byte	0x3
+ 733 02c9 1C000000 		.4byte	.LC3
+ 734 02cd 0D       		.uleb128 0xd
+ 735 02ce 01       		.uleb128 0x1
+ 736 02cf 52       		.byte	0x52
+ 737 02d0 02       		.uleb128 0x2
+ 738 02d1 74       		.byte	0x74
+ 739 02d2 00       		.sleb128 0
+ 740 02d3 0D       		.uleb128 0xd
+ 741 02d4 01       		.uleb128 0x1
+ 742 02d5 53       		.byte	0x53
+ 743 02d6 02       		.uleb128 0x2
+ 744 02d7 75       		.byte	0x75
+ 745 02d8 00       		.sleb128 0
+ 746 02d9 00       		.byte	0
+ 747 02da 0C       		.uleb128 0xc
+ 748 02db 3C010000 		.4byte	.LVL50
+ 749 02df D4040000 		.4byte	0x4d4
+ 750 02e3 ED020000 		.4byte	0x2ed
+ 751 02e7 0D       		.uleb128 0xd
+ 752 02e8 01       		.uleb128 0x1
+ 753 02e9 50       		.byte	0x50
+ 754 02ea 01       		.uleb128 0x1
+ 755 02eb 31       		.byte	0x31
+ 756 02ec 00       		.byte	0
+ 757 02ed 06       		.uleb128 0x6
+ 758 02ee 40010000 		.4byte	.LVL51
+ 759 02f2 DF040000 		.4byte	0x4df
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 17
+
+
+ 760 02f6 0C       		.uleb128 0xc
+ 761 02f7 48010000 		.4byte	.LVL52
+ 762 02fb EA040000 		.4byte	0x4ea
+ 763 02ff 0E030000 		.4byte	0x30e
+ 764 0303 0D       		.uleb128 0xd
+ 765 0304 01       		.uleb128 0x1
+ 766 0305 50       		.byte	0x50
+ 767 0306 01       		.uleb128 0x1
+ 768 0307 30       		.byte	0x30
+ 769 0308 0D       		.uleb128 0xd
+ 770 0309 01       		.uleb128 0x1
+ 771 030a 51       		.byte	0x51
+ 772 030b 01       		.uleb128 0x1
+ 773 030c 30       		.byte	0x30
+ 774 030d 00       		.byte	0
+ 775 030e 0E       		.uleb128 0xe
+ 776 030f 4E010000 		.4byte	.LVL53
+ 777 0313 F5040000 		.4byte	0x4f5
+ 778 0317 0D       		.uleb128 0xd
+ 779 0318 01       		.uleb128 0x1
+ 780 0319 50       		.byte	0x50
+ 781 031a 02       		.uleb128 0x2
+ 782 031b 91       		.byte	0x91
+ 783 031c 64       		.sleb128 -28
+ 784 031d 00       		.byte	0
+ 785 031e 00       		.byte	0
+ 786 031f 0C       		.uleb128 0xc
+ 787 0320 0C000000 		.4byte	.LVL2
+ 788 0324 84050000 		.4byte	0x584
+ 789 0328 36030000 		.4byte	0x336
+ 790 032c 0D       		.uleb128 0xd
+ 791 032d 01       		.uleb128 0x1
+ 792 032e 50       		.byte	0x50
+ 793 032f 05       		.uleb128 0x5
+ 794 0330 03       		.byte	0x3
+ 795 0331 00000000 		.4byte	MyISR
+ 796 0335 00       		.byte	0
+ 797 0336 0C       		.uleb128 0xc
+ 798 0337 12000000 		.4byte	.LVL3
+ 799 033b 8F050000 		.4byte	0x58f
+ 800 033f 4D030000 		.4byte	0x34d
+ 801 0343 0D       		.uleb128 0xd
+ 802 0344 01       		.uleb128 0x1
+ 803 0345 50       		.byte	0x50
+ 804 0346 05       		.uleb128 0x5
+ 805 0347 03       		.byte	0x3
+ 806 0348 00000000 		.4byte	Snooze
+ 807 034c 00       		.byte	0
+ 808 034d 06       		.uleb128 0x6
+ 809 034e 16000000 		.4byte	.LVL4
+ 810 0352 9A050000 		.4byte	0x59a
+ 811 0356 06       		.uleb128 0x6
+ 812 0357 1A000000 		.4byte	.LVL5
+ 813 035b A5050000 		.4byte	0x5a5
+ 814 035f 06       		.uleb128 0x6
+ 815 0360 1E000000 		.4byte	.LVL6
+ 816 0364 B0050000 		.4byte	0x5b0
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 18
+
+
+ 817 0368 06       		.uleb128 0x6
+ 818 0369 22000000 		.4byte	.LVL7
+ 819 036d BB050000 		.4byte	0x5bb
+ 820 0371 06       		.uleb128 0x6
+ 821 0372 26000000 		.4byte	.LVL8
+ 822 0376 C6050000 		.4byte	0x5c6
+ 823 037a 06       		.uleb128 0x6
+ 824 037b 2A000000 		.4byte	.LVL9
+ 825 037f D1050000 		.4byte	0x5d1
+ 826 0383 0C       		.uleb128 0xc
+ 827 0384 30000000 		.4byte	.LVL10
+ 828 0388 D4040000 		.4byte	0x4d4
+ 829 038c 96030000 		.4byte	0x396
+ 830 0390 0D       		.uleb128 0xd
+ 831 0391 01       		.uleb128 0x1
+ 832 0392 50       		.byte	0x50
+ 833 0393 01       		.uleb128 0x1
+ 834 0394 3C       		.byte	0x3c
+ 835 0395 00       		.byte	0
+ 836 0396 06       		.uleb128 0x6
+ 837 0397 34000000 		.4byte	.LVL11
+ 838 039b DC050000 		.4byte	0x5dc
+ 839 039f 06       		.uleb128 0x6
+ 840 03a0 38000000 		.4byte	.LVL12
+ 841 03a4 E7050000 		.4byte	0x5e7
+ 842 03a8 06       		.uleb128 0x6
+ 843 03a9 3C000000 		.4byte	.LVL13
+ 844 03ad DF040000 		.4byte	0x4df
+ 845 03b1 0C       		.uleb128 0xc
+ 846 03b2 44000000 		.4byte	.LVL14
+ 847 03b6 EA040000 		.4byte	0x4ea
+ 848 03ba C9030000 		.4byte	0x3c9
+ 849 03be 0D       		.uleb128 0xd
+ 850 03bf 01       		.uleb128 0x1
+ 851 03c0 50       		.byte	0x50
+ 852 03c1 01       		.uleb128 0x1
+ 853 03c2 30       		.byte	0x30
+ 854 03c3 0D       		.uleb128 0xd
+ 855 03c4 01       		.uleb128 0x1
+ 856 03c5 51       		.byte	0x51
+ 857 03c6 01       		.uleb128 0x1
+ 858 03c7 30       		.byte	0x30
+ 859 03c8 00       		.byte	0
+ 860 03c9 0C       		.uleb128 0xc
+ 861 03ca 4A000000 		.4byte	.LVL15
+ 862 03ce 6E050000 		.4byte	0x56e
+ 863 03d2 DC030000 		.4byte	0x3dc
+ 864 03d6 0D       		.uleb128 0xd
+ 865 03d7 01       		.uleb128 0x1
+ 866 03d8 50       		.byte	0x50
+ 867 03d9 01       		.uleb128 0x1
+ 868 03da 31       		.byte	0x31
+ 869 03db 00       		.byte	0
+ 870 03dc 0C       		.uleb128 0xc
+ 871 03dd 50000000 		.4byte	.LVL16
+ 872 03e1 C9040000 		.4byte	0x4c9
+ 873 03e5 EF030000 		.4byte	0x3ef
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 19
+
+
+ 874 03e9 0D       		.uleb128 0xd
+ 875 03ea 01       		.uleb128 0x1
+ 876 03eb 50       		.byte	0x50
+ 877 03ec 01       		.uleb128 0x1
+ 878 03ed 31       		.byte	0x31
+ 879 03ee 00       		.byte	0
+ 880 03ef 0C       		.uleb128 0xc
+ 881 03f0 56000000 		.4byte	.LVL17
+ 882 03f4 63050000 		.4byte	0x563
+ 883 03f8 02040000 		.4byte	0x402
+ 884 03fc 0D       		.uleb128 0xd
+ 885 03fd 01       		.uleb128 0x1
+ 886 03fe 50       		.byte	0x50
+ 887 03ff 01       		.uleb128 0x1
+ 888 0400 31       		.byte	0x31
+ 889 0401 00       		.byte	0
+ 890 0402 0C       		.uleb128 0xc
+ 891 0403 5C000000 		.4byte	.LVL18
+ 892 0407 6E050000 		.4byte	0x56e
+ 893 040b 15040000 		.4byte	0x415
+ 894 040f 0D       		.uleb128 0xd
+ 895 0410 01       		.uleb128 0x1
+ 896 0411 50       		.byte	0x50
+ 897 0412 01       		.uleb128 0x1
+ 898 0413 31       		.byte	0x31
+ 899 0414 00       		.byte	0
+ 900 0415 0C       		.uleb128 0xc
+ 901 0416 6E000000 		.4byte	.LVL19
+ 902 041a D4040000 		.4byte	0x4d4
+ 903 041e 28040000 		.4byte	0x428
+ 904 0422 0D       		.uleb128 0xd
+ 905 0423 01       		.uleb128 0x1
+ 906 0424 50       		.byte	0x50
+ 907 0425 01       		.uleb128 0x1
+ 908 0426 31       		.byte	0x31
+ 909 0427 00       		.byte	0
+ 910 0428 06       		.uleb128 0x6
+ 911 0429 72000000 		.4byte	.LVL20
+ 912 042d DF040000 		.4byte	0x4df
+ 913 0431 0C       		.uleb128 0xc
+ 914 0432 7A000000 		.4byte	.LVL21
+ 915 0436 EA040000 		.4byte	0x4ea
+ 916 043a 49040000 		.4byte	0x449
+ 917 043e 0D       		.uleb128 0xd
+ 918 043f 01       		.uleb128 0x1
+ 919 0440 50       		.byte	0x50
+ 920 0441 01       		.uleb128 0x1
+ 921 0442 30       		.byte	0x30
+ 922 0443 0D       		.uleb128 0xd
+ 923 0444 01       		.uleb128 0x1
+ 924 0445 51       		.byte	0x51
+ 925 0446 01       		.uleb128 0x1
+ 926 0447 30       		.byte	0x30
+ 927 0448 00       		.byte	0
+ 928 0449 0E       		.uleb128 0xe
+ 929 044a 80000000 		.4byte	.LVL22
+ 930 044e F5040000 		.4byte	0x4f5
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 20
+
+
+ 931 0452 0D       		.uleb128 0xd
+ 932 0453 01       		.uleb128 0x1
+ 933 0454 50       		.byte	0x50
+ 934 0455 02       		.uleb128 0x2
+ 935 0456 91       		.byte	0x91
+ 936 0457 64       		.sleb128 -28
+ 937 0458 00       		.byte	0
+ 938 0459 00       		.byte	0
+ 939 045a 0F       		.uleb128 0xf
+ 940 045b BB000000 		.4byte	0xbb
+ 941 045f 6A040000 		.4byte	0x46a
+ 942 0463 10       		.uleb128 0x10
+ 943 0464 C9000000 		.4byte	0xc9
+ 944 0468 0B       		.byte	0xb
+ 945 0469 00       		.byte	0
+ 946 046a 11       		.uleb128 0x11
+ 947 046b 81030000 		.4byte	.LASF25
+ 948 046f 04       		.byte	0x4
+ 949 0470 1207     		.2byte	0x712
+ 950 0472 76040000 		.4byte	0x476
+ 951 0476 12       		.uleb128 0x12
+ 952 0477 A2000000 		.4byte	0xa2
+ 953 047b 13       		.uleb128 0x13
+ 954 047c F2020000 		.4byte	.LASF26
+ 955 0480 01       		.byte	0x1
+ 956 0481 12       		.byte	0x12
+ 957 0482 97000000 		.4byte	0x97
+ 958 0486 05       		.uleb128 0x5
+ 959 0487 03       		.byte	0x3
+ 960 0488 00000000 		.4byte	timerGlobal
+ 961 048c 13       		.uleb128 0x13
+ 962 048d 4F010000 		.4byte	.LASF27
+ 963 0491 01       		.byte	0x1
+ 964 0492 13       		.byte	0x13
+ 965 0493 97000000 		.4byte	0x97
+ 966 0497 05       		.uleb128 0x5
+ 967 0498 03       		.byte	0x3
+ 968 0499 00000000 		.4byte	intFlag
+ 969 049d 14       		.uleb128 0x14
+ 970 049e 6D030000 		.4byte	.LASF28
+ 971 04a2 6D030000 		.4byte	.LASF28
+ 972 04a6 05       		.byte	0x5
+ 973 04a7 69       		.byte	0x69
+ 974 04a8 14       		.uleb128 0x14
+ 975 04a9 2A010000 		.4byte	.LASF29
+ 976 04ad 2A010000 		.4byte	.LASF29
+ 977 04b1 06       		.byte	0x6
+ 978 04b2 2B       		.byte	0x2b
+ 979 04b3 14       		.uleb128 0x14
+ 980 04b4 13000000 		.4byte	.LASF30
+ 981 04b8 13000000 		.4byte	.LASF30
+ 982 04bc 07       		.byte	0x7
+ 983 04bd 5D       		.byte	0x5d
+ 984 04be 14       		.uleb128 0x14
+ 985 04bf 62000000 		.4byte	.LASF31
+ 986 04c3 62000000 		.4byte	.LASF31
+ 987 04c7 08       		.byte	0x8
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 21
+
+
+ 988 04c8 2F       		.byte	0x2f
+ 989 04c9 14       		.uleb128 0x14
+ 990 04ca 3B020000 		.4byte	.LASF32
+ 991 04ce 3B020000 		.4byte	.LASF32
+ 992 04d2 09       		.byte	0x9
+ 993 04d3 2F       		.byte	0x2f
+ 994 04d4 14       		.uleb128 0x14
+ 995 04d5 E0010000 		.4byte	.LASF33
+ 996 04d9 E0010000 		.4byte	.LASF33
+ 997 04dd 0A       		.byte	0xa
+ 998 04de 3A       		.byte	0x3a
+ 999 04df 14       		.uleb128 0x14
+ 1000 04e0 53030000 		.4byte	.LASF34
+ 1001 04e4 53030000 		.4byte	.LASF34
+ 1002 04e8 0A       		.byte	0xa
+ 1003 04e9 3F       		.byte	0x3f
+ 1004 04ea 14       		.uleb128 0x14
+ 1005 04eb 17030000 		.4byte	.LASF35
+ 1006 04ef 17030000 		.4byte	.LASF35
+ 1007 04f3 0A       		.byte	0xa
+ 1008 04f4 3D       		.byte	0x3d
+ 1009 04f5 14       		.uleb128 0x14
+ 1010 04f6 A6020000 		.4byte	.LASF36
+ 1011 04fa A6020000 		.4byte	.LASF36
+ 1012 04fe 0A       		.byte	0xa
+ 1013 04ff 3C       		.byte	0x3c
+ 1014 0500 14       		.uleb128 0x14
+ 1015 0501 F8010000 		.4byte	.LASF37
+ 1016 0505 F8010000 		.4byte	.LASF37
+ 1017 0509 0B       		.byte	0xb
+ 1018 050a 74       		.byte	0x74
+ 1019 050b 14       		.uleb128 0x14
+ 1020 050c 38000000 		.4byte	.LASF38
+ 1021 0510 38000000 		.4byte	.LASF38
+ 1022 0514 07       		.byte	0x7
+ 1023 0515 74       		.byte	0x74
+ 1024 0516 14       		.uleb128 0x14
+ 1025 0517 D6020000 		.4byte	.LASF39
+ 1026 051b D6020000 		.4byte	.LASF39
+ 1027 051f 05       		.byte	0x5
+ 1028 0520 8E       		.byte	0x8e
+ 1029 0521 14       		.uleb128 0x14
+ 1030 0522 B5000000 		.4byte	.LASF40
+ 1031 0526 B5000000 		.4byte	.LASF40
+ 1032 052a 0C       		.byte	0xc
+ 1033 052b 1F       		.byte	0x1f
+ 1034 052c 14       		.uleb128 0x14
+ 1035 052d 31020000 		.4byte	.LASF41
+ 1036 0531 31020000 		.4byte	.LASF41
+ 1037 0535 0C       		.byte	0xc
+ 1038 0536 22       		.byte	0x22
+ 1039 0537 14       		.uleb128 0x14
+ 1040 0538 1F020000 		.4byte	.LASF42
+ 1041 053c 1F020000 		.4byte	.LASF42
+ 1042 0540 0C       		.byte	0xc
+ 1043 0541 20       		.byte	0x20
+ 1044 0542 14       		.uleb128 0x14
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 22
+
+
+ 1045 0543 C5020000 		.4byte	.LASF43
+ 1046 0547 C5020000 		.4byte	.LASF43
+ 1047 054b 0B       		.byte	0xb
+ 1048 054c 75       		.byte	0x75
+ 1049 054d 14       		.uleb128 0x14
+ 1050 054e CF010000 		.4byte	.LASF44
+ 1051 0552 CF010000 		.4byte	.LASF44
+ 1052 0556 07       		.byte	0x7
+ 1053 0557 75       		.byte	0x75
+ 1054 0558 14       		.uleb128 0x14
+ 1055 0559 29000000 		.4byte	.LASF45
+ 1056 055d 29000000 		.4byte	.LASF45
+ 1057 0561 05       		.byte	0x5
+ 1058 0562 8F       		.byte	0x8f
+ 1059 0563 14       		.uleb128 0x14
+ 1060 0564 71020000 		.4byte	.LASF46
+ 1061 0568 71020000 		.4byte	.LASF46
+ 1062 056c 0D       		.byte	0xd
+ 1063 056d 2F       		.byte	0x2f
+ 1064 056e 14       		.uleb128 0x14
+ 1065 056f 78010000 		.4byte	.LASF47
+ 1066 0573 78010000 		.4byte	.LASF47
+ 1067 0577 0E       		.byte	0xe
+ 1068 0578 2F       		.byte	0x2f
+ 1069 0579 14       		.uleb128 0x14
+ 1070 057a C7010000 		.4byte	.LASF48
+ 1071 057e C7010000 		.4byte	.LASF48
+ 1072 0582 0F       		.byte	0xf
+ 1073 0583 E7       		.byte	0xe7
+ 1074 0584 14       		.uleb128 0x14
+ 1075 0585 6A010000 		.4byte	.LASF49
+ 1076 0589 6A010000 		.4byte	.LASF49
+ 1077 058d 10       		.byte	0x10
+ 1078 058e 18       		.byte	0x18
+ 1079 058f 14       		.uleb128 0x14
+ 1080 0590 92010000 		.4byte	.LASF50
+ 1081 0594 92010000 		.4byte	.LASF50
+ 1082 0598 11       		.byte	0x11
+ 1083 0599 18       		.byte	0x18
+ 1084 059a 14       		.uleb128 0x14
+ 1085 059b 00000000 		.4byte	.LASF51
+ 1086 059f 00000000 		.4byte	.LASF51
+ 1087 05a3 06       		.byte	0x6
+ 1088 05a4 24       		.byte	0x24
+ 1089 05a5 14       		.uleb128 0x14
+ 1090 05a6 AC010000 		.4byte	.LASF52
+ 1091 05aa AC010000 		.4byte	.LASF52
+ 1092 05ae 10       		.byte	0x10
+ 1093 05af 23       		.byte	0x23
+ 1094 05b0 14       		.uleb128 0x14
+ 1095 05b1 E4020000 		.4byte	.LASF53
+ 1096 05b5 E4020000 		.4byte	.LASF53
+ 1097 05b9 05       		.byte	0x5
+ 1098 05ba 5A       		.byte	0x5a
+ 1099 05bb 14       		.uleb128 0x14
+ 1100 05bc 4B020000 		.4byte	.LASF54
+ 1101 05c0 4B020000 		.4byte	.LASF54
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 23
+
+
+ 1102 05c4 0B       		.byte	0xb
+ 1103 05c5 4F       		.byte	0x4f
+ 1104 05c6 14       		.uleb128 0x14
+ 1105 05c7 48000000 		.4byte	.LASF55
+ 1106 05cb 48000000 		.4byte	.LASF55
+ 1107 05cf 07       		.byte	0x7
+ 1108 05d0 4F       		.byte	0x4f
+ 1109 05d1 14       		.uleb128 0x14
+ 1110 05d2 95000000 		.4byte	.LASF56
+ 1111 05d6 95000000 		.4byte	.LASF56
+ 1112 05da 0A       		.byte	0xa
+ 1113 05db 38       		.byte	0x38
+ 1114 05dc 14       		.uleb128 0x14
+ 1115 05dd 1C040000 		.4byte	.LASF57
+ 1116 05e1 1C040000 		.4byte	.LASF57
+ 1117 05e5 0A       		.byte	0xa
+ 1118 05e6 36       		.byte	0x36
+ 1119 05e7 14       		.uleb128 0x14
+ 1120 05e8 2B030000 		.4byte	.LASF58
+ 1121 05ec 2B030000 		.4byte	.LASF58
+ 1122 05f0 0A       		.byte	0xa
+ 1123 05f1 37       		.byte	0x37
+ 1124 05f2 00       		.byte	0
+ 1125              		.section	.debug_abbrev,"",%progbits
+ 1126              	.Ldebug_abbrev0:
+ 1127 0000 01       		.uleb128 0x1
+ 1128 0001 11       		.uleb128 0x11
+ 1129 0002 01       		.byte	0x1
+ 1130 0003 25       		.uleb128 0x25
+ 1131 0004 0E       		.uleb128 0xe
+ 1132 0005 13       		.uleb128 0x13
+ 1133 0006 0B       		.uleb128 0xb
+ 1134 0007 03       		.uleb128 0x3
+ 1135 0008 0E       		.uleb128 0xe
+ 1136 0009 1B       		.uleb128 0x1b
+ 1137 000a 0E       		.uleb128 0xe
+ 1138 000b 55       		.uleb128 0x55
+ 1139 000c 17       		.uleb128 0x17
+ 1140 000d 11       		.uleb128 0x11
+ 1141 000e 01       		.uleb128 0x1
+ 1142 000f 10       		.uleb128 0x10
+ 1143 0010 17       		.uleb128 0x17
+ 1144 0011 00       		.byte	0
+ 1145 0012 00       		.byte	0
+ 1146 0013 02       		.uleb128 0x2
+ 1147 0014 24       		.uleb128 0x24
+ 1148 0015 00       		.byte	0
+ 1149 0016 0B       		.uleb128 0xb
+ 1150 0017 0B       		.uleb128 0xb
+ 1151 0018 3E       		.uleb128 0x3e
+ 1152 0019 0B       		.uleb128 0xb
+ 1153 001a 03       		.uleb128 0x3
+ 1154 001b 0E       		.uleb128 0xe
+ 1155 001c 00       		.byte	0
+ 1156 001d 00       		.byte	0
+ 1157 001e 03       		.uleb128 0x3
+ 1158 001f 16       		.uleb128 0x16
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 24
+
+
+ 1159 0020 00       		.byte	0
+ 1160 0021 03       		.uleb128 0x3
+ 1161 0022 0E       		.uleb128 0xe
+ 1162 0023 3A       		.uleb128 0x3a
+ 1163 0024 0B       		.uleb128 0xb
+ 1164 0025 3B       		.uleb128 0x3b
+ 1165 0026 0B       		.uleb128 0xb
+ 1166 0027 49       		.uleb128 0x49
+ 1167 0028 13       		.uleb128 0x13
+ 1168 0029 00       		.byte	0
+ 1169 002a 00       		.byte	0
+ 1170 002b 04       		.uleb128 0x4
+ 1171 002c 24       		.uleb128 0x24
+ 1172 002d 00       		.byte	0
+ 1173 002e 0B       		.uleb128 0xb
+ 1174 002f 0B       		.uleb128 0xb
+ 1175 0030 3E       		.uleb128 0x3e
+ 1176 0031 0B       		.uleb128 0xb
+ 1177 0032 03       		.uleb128 0x3
+ 1178 0033 08       		.uleb128 0x8
+ 1179 0034 00       		.byte	0
+ 1180 0035 00       		.byte	0
+ 1181 0036 05       		.uleb128 0x5
+ 1182 0037 2E       		.uleb128 0x2e
+ 1183 0038 01       		.byte	0x1
+ 1184 0039 3F       		.uleb128 0x3f
+ 1185 003a 19       		.uleb128 0x19
+ 1186 003b 03       		.uleb128 0x3
+ 1187 003c 0E       		.uleb128 0xe
+ 1188 003d 3A       		.uleb128 0x3a
+ 1189 003e 0B       		.uleb128 0xb
+ 1190 003f 3B       		.uleb128 0x3b
+ 1191 0040 0B       		.uleb128 0xb
+ 1192 0041 27       		.uleb128 0x27
+ 1193 0042 19       		.uleb128 0x19
+ 1194 0043 11       		.uleb128 0x11
+ 1195 0044 01       		.uleb128 0x1
+ 1196 0045 12       		.uleb128 0x12
+ 1197 0046 06       		.uleb128 0x6
+ 1198 0047 40       		.uleb128 0x40
+ 1199 0048 18       		.uleb128 0x18
+ 1200 0049 9742     		.uleb128 0x2117
+ 1201 004b 19       		.uleb128 0x19
+ 1202 004c 01       		.uleb128 0x1
+ 1203 004d 13       		.uleb128 0x13
+ 1204 004e 00       		.byte	0
+ 1205 004f 00       		.byte	0
+ 1206 0050 06       		.uleb128 0x6
+ 1207 0051 898201   		.uleb128 0x4109
+ 1208 0054 00       		.byte	0
+ 1209 0055 11       		.uleb128 0x11
+ 1210 0056 01       		.uleb128 0x1
+ 1211 0057 31       		.uleb128 0x31
+ 1212 0058 13       		.uleb128 0x13
+ 1213 0059 00       		.byte	0
+ 1214 005a 00       		.byte	0
+ 1215 005b 07       		.uleb128 0x7
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 25
+
+
+ 1216 005c 2E       		.uleb128 0x2e
+ 1217 005d 01       		.byte	0x1
+ 1218 005e 3F       		.uleb128 0x3f
+ 1219 005f 19       		.uleb128 0x19
+ 1220 0060 03       		.uleb128 0x3
+ 1221 0061 0E       		.uleb128 0xe
+ 1222 0062 3A       		.uleb128 0x3a
+ 1223 0063 0B       		.uleb128 0xb
+ 1224 0064 3B       		.uleb128 0x3b
+ 1225 0065 0B       		.uleb128 0xb
+ 1226 0066 27       		.uleb128 0x27
+ 1227 0067 19       		.uleb128 0x19
+ 1228 0068 49       		.uleb128 0x49
+ 1229 0069 13       		.uleb128 0x13
+ 1230 006a 8701     		.uleb128 0x87
+ 1231 006c 19       		.uleb128 0x19
+ 1232 006d 11       		.uleb128 0x11
+ 1233 006e 01       		.uleb128 0x1
+ 1234 006f 12       		.uleb128 0x12
+ 1235 0070 06       		.uleb128 0x6
+ 1236 0071 40       		.uleb128 0x40
+ 1237 0072 18       		.uleb128 0x18
+ 1238 0073 9742     		.uleb128 0x2117
+ 1239 0075 19       		.uleb128 0x19
+ 1240 0076 01       		.uleb128 0x1
+ 1241 0077 13       		.uleb128 0x13
+ 1242 0078 00       		.byte	0
+ 1243 0079 00       		.byte	0
+ 1244 007a 08       		.uleb128 0x8
+ 1245 007b 34       		.uleb128 0x34
+ 1246 007c 00       		.byte	0
+ 1247 007d 03       		.uleb128 0x3
+ 1248 007e 0E       		.uleb128 0xe
+ 1249 007f 3A       		.uleb128 0x3a
+ 1250 0080 0B       		.uleb128 0xb
+ 1251 0081 3B       		.uleb128 0x3b
+ 1252 0082 0B       		.uleb128 0xb
+ 1253 0083 49       		.uleb128 0x49
+ 1254 0084 13       		.uleb128 0x13
+ 1255 0085 02       		.uleb128 0x2
+ 1256 0086 18       		.uleb128 0x18
+ 1257 0087 00       		.byte	0
+ 1258 0088 00       		.byte	0
+ 1259 0089 09       		.uleb128 0x9
+ 1260 008a 34       		.uleb128 0x34
+ 1261 008b 00       		.byte	0
+ 1262 008c 03       		.uleb128 0x3
+ 1263 008d 0E       		.uleb128 0xe
+ 1264 008e 3A       		.uleb128 0x3a
+ 1265 008f 0B       		.uleb128 0xb
+ 1266 0090 3B       		.uleb128 0x3b
+ 1267 0091 0B       		.uleb128 0xb
+ 1268 0092 49       		.uleb128 0x49
+ 1269 0093 13       		.uleb128 0x13
+ 1270 0094 02       		.uleb128 0x2
+ 1271 0095 17       		.uleb128 0x17
+ 1272 0096 00       		.byte	0
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 26
+
+
+ 1273 0097 00       		.byte	0
+ 1274 0098 0A       		.uleb128 0xa
+ 1275 0099 34       		.uleb128 0x34
+ 1276 009a 00       		.byte	0
+ 1277 009b 03       		.uleb128 0x3
+ 1278 009c 08       		.uleb128 0x8
+ 1279 009d 3A       		.uleb128 0x3a
+ 1280 009e 0B       		.uleb128 0xb
+ 1281 009f 3B       		.uleb128 0x3b
+ 1282 00a0 0B       		.uleb128 0xb
+ 1283 00a1 49       		.uleb128 0x49
+ 1284 00a2 13       		.uleb128 0x13
+ 1285 00a3 02       		.uleb128 0x2
+ 1286 00a4 17       		.uleb128 0x17
+ 1287 00a5 00       		.byte	0
+ 1288 00a6 00       		.byte	0
+ 1289 00a7 0B       		.uleb128 0xb
+ 1290 00a8 0B       		.uleb128 0xb
+ 1291 00a9 01       		.byte	0x1
+ 1292 00aa 11       		.uleb128 0x11
+ 1293 00ab 01       		.uleb128 0x1
+ 1294 00ac 12       		.uleb128 0x12
+ 1295 00ad 06       		.uleb128 0x6
+ 1296 00ae 01       		.uleb128 0x1
+ 1297 00af 13       		.uleb128 0x13
+ 1298 00b0 00       		.byte	0
+ 1299 00b1 00       		.byte	0
+ 1300 00b2 0C       		.uleb128 0xc
+ 1301 00b3 898201   		.uleb128 0x4109
+ 1302 00b6 01       		.byte	0x1
+ 1303 00b7 11       		.uleb128 0x11
+ 1304 00b8 01       		.uleb128 0x1
+ 1305 00b9 31       		.uleb128 0x31
+ 1306 00ba 13       		.uleb128 0x13
+ 1307 00bb 01       		.uleb128 0x1
+ 1308 00bc 13       		.uleb128 0x13
+ 1309 00bd 00       		.byte	0
+ 1310 00be 00       		.byte	0
+ 1311 00bf 0D       		.uleb128 0xd
+ 1312 00c0 8A8201   		.uleb128 0x410a
+ 1313 00c3 00       		.byte	0
+ 1314 00c4 02       		.uleb128 0x2
+ 1315 00c5 18       		.uleb128 0x18
+ 1316 00c6 9142     		.uleb128 0x2111
+ 1317 00c8 18       		.uleb128 0x18
+ 1318 00c9 00       		.byte	0
+ 1319 00ca 00       		.byte	0
+ 1320 00cb 0E       		.uleb128 0xe
+ 1321 00cc 898201   		.uleb128 0x4109
+ 1322 00cf 01       		.byte	0x1
+ 1323 00d0 11       		.uleb128 0x11
+ 1324 00d1 01       		.uleb128 0x1
+ 1325 00d2 31       		.uleb128 0x31
+ 1326 00d3 13       		.uleb128 0x13
+ 1327 00d4 00       		.byte	0
+ 1328 00d5 00       		.byte	0
+ 1329 00d6 0F       		.uleb128 0xf
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 27
+
+
+ 1330 00d7 01       		.uleb128 0x1
+ 1331 00d8 01       		.byte	0x1
+ 1332 00d9 49       		.uleb128 0x49
+ 1333 00da 13       		.uleb128 0x13
+ 1334 00db 01       		.uleb128 0x1
+ 1335 00dc 13       		.uleb128 0x13
+ 1336 00dd 00       		.byte	0
+ 1337 00de 00       		.byte	0
+ 1338 00df 10       		.uleb128 0x10
+ 1339 00e0 21       		.uleb128 0x21
+ 1340 00e1 00       		.byte	0
+ 1341 00e2 49       		.uleb128 0x49
+ 1342 00e3 13       		.uleb128 0x13
+ 1343 00e4 2F       		.uleb128 0x2f
+ 1344 00e5 0B       		.uleb128 0xb
+ 1345 00e6 00       		.byte	0
+ 1346 00e7 00       		.byte	0
+ 1347 00e8 11       		.uleb128 0x11
+ 1348 00e9 34       		.uleb128 0x34
+ 1349 00ea 00       		.byte	0
+ 1350 00eb 03       		.uleb128 0x3
+ 1351 00ec 0E       		.uleb128 0xe
+ 1352 00ed 3A       		.uleb128 0x3a
+ 1353 00ee 0B       		.uleb128 0xb
+ 1354 00ef 3B       		.uleb128 0x3b
+ 1355 00f0 05       		.uleb128 0x5
+ 1356 00f1 49       		.uleb128 0x49
+ 1357 00f2 13       		.uleb128 0x13
+ 1358 00f3 3F       		.uleb128 0x3f
+ 1359 00f4 19       		.uleb128 0x19
+ 1360 00f5 3C       		.uleb128 0x3c
+ 1361 00f6 19       		.uleb128 0x19
+ 1362 00f7 00       		.byte	0
+ 1363 00f8 00       		.byte	0
+ 1364 00f9 12       		.uleb128 0x12
+ 1365 00fa 35       		.uleb128 0x35
+ 1366 00fb 00       		.byte	0
+ 1367 00fc 49       		.uleb128 0x49
+ 1368 00fd 13       		.uleb128 0x13
+ 1369 00fe 00       		.byte	0
+ 1370 00ff 00       		.byte	0
+ 1371 0100 13       		.uleb128 0x13
+ 1372 0101 34       		.uleb128 0x34
+ 1373 0102 00       		.byte	0
+ 1374 0103 03       		.uleb128 0x3
+ 1375 0104 0E       		.uleb128 0xe
+ 1376 0105 3A       		.uleb128 0x3a
+ 1377 0106 0B       		.uleb128 0xb
+ 1378 0107 3B       		.uleb128 0x3b
+ 1379 0108 0B       		.uleb128 0xb
+ 1380 0109 49       		.uleb128 0x49
+ 1381 010a 13       		.uleb128 0x13
+ 1382 010b 3F       		.uleb128 0x3f
+ 1383 010c 19       		.uleb128 0x19
+ 1384 010d 02       		.uleb128 0x2
+ 1385 010e 18       		.uleb128 0x18
+ 1386 010f 00       		.byte	0
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 28
+
+
+ 1387 0110 00       		.byte	0
+ 1388 0111 14       		.uleb128 0x14
+ 1389 0112 2E       		.uleb128 0x2e
+ 1390 0113 00       		.byte	0
+ 1391 0114 3F       		.uleb128 0x3f
+ 1392 0115 19       		.uleb128 0x19
+ 1393 0116 3C       		.uleb128 0x3c
+ 1394 0117 19       		.uleb128 0x19
+ 1395 0118 6E       		.uleb128 0x6e
+ 1396 0119 0E       		.uleb128 0xe
+ 1397 011a 03       		.uleb128 0x3
+ 1398 011b 0E       		.uleb128 0xe
+ 1399 011c 3A       		.uleb128 0x3a
+ 1400 011d 0B       		.uleb128 0xb
+ 1401 011e 3B       		.uleb128 0x3b
+ 1402 011f 0B       		.uleb128 0xb
+ 1403 0120 00       		.byte	0
+ 1404 0121 00       		.byte	0
+ 1405 0122 00       		.byte	0
+ 1406              		.section	.debug_loc,"",%progbits
+ 1407              	.Ldebug_loc0:
+ 1408              	.LLST0:
+ 1409 0000 50000000 		.4byte	.LVL16
+ 1410 0004 82000000 		.4byte	.LVL23
+ 1411 0008 0200     		.2byte	0x2
+ 1412 000a 30       		.byte	0x30
+ 1413 000b 9F       		.byte	0x9f
+ 1414 000c 82000000 		.4byte	.LVL23
+ 1415 0010 A0000000 		.4byte	.LVL27
+ 1416 0014 0100     		.2byte	0x1
+ 1417 0016 55       		.byte	0x55
+ 1418 0017 A6000000 		.4byte	.LVL28
+ 1419 001b 70010000 		.4byte	.LFE66
+ 1420 001f 0100     		.2byte	0x1
+ 1421 0021 55       		.byte	0x55
+ 1422 0022 00000000 		.4byte	0
+ 1423 0026 00000000 		.4byte	0
+ 1424              	.LLST1:
+ 1425 002a 50000000 		.4byte	.LVL16
+ 1426 002e 82000000 		.4byte	.LVL23
+ 1427 0032 0200     		.2byte	0x2
+ 1428 0034 30       		.byte	0x30
+ 1429 0035 9F       		.byte	0x9f
+ 1430 0036 00000000 		.4byte	0
+ 1431 003a 00000000 		.4byte	0
+ 1432              		.section	.debug_aranges,"",%progbits
+ 1433 0000 2C000000 		.4byte	0x2c
+ 1434 0004 0200     		.2byte	0x2
+ 1435 0006 00000000 		.4byte	.Ldebug_info0
+ 1436 000a 04       		.byte	0x4
+ 1437 000b 00       		.byte	0
+ 1438 000c 0000     		.2byte	0
+ 1439 000e 0000     		.2byte	0
+ 1440 0010 00000000 		.4byte	.LFB64
+ 1441 0014 18000000 		.4byte	.LFE64-.LFB64
+ 1442 0018 00000000 		.4byte	.LFB65
+ 1443 001c 08000000 		.4byte	.LFE65-.LFB65
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 29
+
+
+ 1444 0020 00000000 		.4byte	.LFB66
+ 1445 0024 70010000 		.4byte	.LFE66-.LFB66
+ 1446 0028 00000000 		.4byte	0
+ 1447 002c 00000000 		.4byte	0
+ 1448              		.section	.debug_ranges,"",%progbits
+ 1449              	.Ldebug_ranges0:
+ 1450 0000 00000000 		.4byte	.LFB64
+ 1451 0004 18000000 		.4byte	.LFE64
+ 1452 0008 00000000 		.4byte	.LFB65
+ 1453 000c 08000000 		.4byte	.LFE65
+ 1454 0010 00000000 		.4byte	.LFB66
+ 1455 0014 70010000 		.4byte	.LFE66
+ 1456 0018 00000000 		.4byte	0
+ 1457 001c 00000000 		.4byte	0
+ 1458              		.section	.debug_line,"",%progbits
+ 1459              	.Ldebug_line0:
+ 1460 0000 E0020000 		.section	.debug_str,"MS",%progbits,1
+ 1460      02006D02 
+ 1460      00000201 
+ 1460      FB0E0D00 
+ 1460      01010101 
+ 1461              	.LASF51:
+ 1462 0000 536C6565 		.ascii	"SleepTimer_1_Start\000"
+ 1462      7054696D 
+ 1462      65725F31 
+ 1462      5F537461 
+ 1462      727400
+ 1463              	.LASF30:
+ 1464 0013 436F756E 		.ascii	"Counter_2_ReadCounter\000"
+ 1464      7465725F 
+ 1464      325F5265 
+ 1464      6164436F 
+ 1464      756E7465 
+ 1465              	.LASF45:
+ 1466 0029 54696D65 		.ascii	"Timer_1_Wakeup\000"
+ 1466      725F315F 
+ 1466      57616B65 
+ 1466      757000
+ 1467              	.LASF38:
+ 1468 0038 436F756E 		.ascii	"Counter_2_Sleep\000"
+ 1468      7465725F 
+ 1468      325F536C 
+ 1468      65657000 
+ 1469              	.LASF55:
+ 1470 0048 436F756E 		.ascii	"Counter_2_Start\000"
+ 1470      7465725F 
+ 1470      325F5374 
+ 1470      61727400 
+ 1471              	.LASF2:
+ 1472 0058 73686F72 		.ascii	"short int\000"
+ 1472      7420696E 
+ 1472      7400
+ 1473              	.LASF31:
+ 1474 0062 436F6E74 		.ascii	"Control_Timer_Reset_Write\000"
+ 1474      726F6C5F 
+ 1474      54696D65 
+ 1474      725F5265 
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 30
+
+
+ 1474      7365745F 
+ 1475              	.LASF19:
+ 1476 007c 73697A65 		.ascii	"sizetype\000"
+ 1476      74797065 
+ 1476      00
+ 1477              	.LASF62:
+ 1478 0085 6D61696E 		.ascii	"main\000"
+ 1478      00
+ 1479              	.LASF4:
+ 1480 008a 5F5F7569 		.ascii	"__uint16_t\000"
+ 1480      6E743136 
+ 1480      5F7400
+ 1481              	.LASF56:
+ 1482 0095 4C43445F 		.ascii	"LCD_Char_1_Start\000"
+ 1482      43686172 
+ 1482      5F315F53 
+ 1482      74617274 
+ 1482      00
+ 1483              	.LASF21:
+ 1484 00a6 536E6F6F 		.ascii	"Snooze\000"
+ 1484      7A6500
+ 1485              	.LASF12:
+ 1486 00ad 75696E74 		.ascii	"uint8_t\000"
+ 1486      385F7400 
+ 1487              	.LASF40:
+ 1488 00b5 4379506D 		.ascii	"CyPmSaveClocks\000"
+ 1488      53617665 
+ 1488      436C6F63 
+ 1488      6B7300
+ 1489              	.LASF61:
+ 1490 00c4 433A5C55 		.ascii	"C:\\Users\\narking\\Desktop\\CE121\\narking\\labs\\"
+ 1490      73657273 
+ 1490      5C6E6172 
+ 1490      6B696E67 
+ 1490      5C446573 
+ 1491 00f0 6C616231 		.ascii	"lab1\\design\\WorkspaceLab01\\part2b.cydsn\000"
+ 1491      5C646573 
+ 1491      69676E5C 
+ 1491      576F726B 
+ 1491      73706163 
+ 1492              	.LASF0:
+ 1493 0118 7369676E 		.ascii	"signed char\000"
+ 1493      65642063 
+ 1493      68617200 
+ 1494              	.LASF15:
+ 1495 0124 666C6F61 		.ascii	"float\000"
+ 1495      7400
+ 1496              	.LASF29:
+ 1497 012a 536C6565 		.ascii	"SleepTimer_1_GetStatus\000"
+ 1497      7054696D 
+ 1497      65725F31 
+ 1497      5F476574 
+ 1497      53746174 
+ 1498              	.LASF9:
+ 1499 0141 6C6F6E67 		.ascii	"long long int\000"
+ 1499      206C6F6E 
+ 1499      6720696E 
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 31
+
+
+ 1499      7400
+ 1500              	.LASF27:
+ 1501 014f 696E7446 		.ascii	"intFlag\000"
+ 1501      6C616700 
+ 1502              	.LASF7:
+ 1503 0157 6C6F6E67 		.ascii	"long int\000"
+ 1503      20696E74 
+ 1503      00
+ 1504              	.LASF3:
+ 1505 0160 5F5F7569 		.ascii	"__uint8_t\000"
+ 1505      6E74385F 
+ 1505      7400
+ 1506              	.LASF49:
+ 1507 016a 6973725F 		.ascii	"isr_1_StartEx\000"
+ 1507      315F5374 
+ 1507      61727445 
+ 1507      7800
+ 1508              	.LASF47:
+ 1509 0178 436F6E74 		.ascii	"Control_Reset_Write\000"
+ 1509      726F6C5F 
+ 1509      52657365 
+ 1509      745F5772 
+ 1509      69746500 
+ 1510              	.LASF20:
+ 1511 018c 4D794953 		.ascii	"MyISR\000"
+ 1511      5200
+ 1512              	.LASF50:
+ 1513 0192 6973725F 		.ascii	"isr_2_StartEx\000"
+ 1513      325F5374 
+ 1513      61727445 
+ 1513      7800
+ 1514              	.LASF18:
+ 1515 01a0 6C6F6E67 		.ascii	"long double\000"
+ 1515      20646F75 
+ 1515      626C6500 
+ 1516              	.LASF52:
+ 1517 01ac 6973725F 		.ascii	"isr_1_Enable\000"
+ 1517      315F456E 
+ 1517      61626C65 
+ 1517      00
+ 1518              	.LASF1:
+ 1519 01b9 756E7369 		.ascii	"unsigned char\000"
+ 1519      676E6564 
+ 1519      20636861 
+ 1519      7200
+ 1520              	.LASF48:
+ 1521 01c7 73707269 		.ascii	"sprintf\000"
+ 1521      6E746600 
+ 1522              	.LASF44:
+ 1523 01cf 436F756E 		.ascii	"Counter_2_Wakeup\000"
+ 1523      7465725F 
+ 1523      325F5761 
+ 1523      6B657570 
+ 1523      00
+ 1524              	.LASF33:
+ 1525 01e0 4C43445F 		.ascii	"LCD_Char_1_WriteControl\000"
+ 1525      43686172 
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 32
+
+
+ 1525      5F315F57 
+ 1525      72697465 
+ 1525      436F6E74 
+ 1526              	.LASF37:
+ 1527 01f8 436F756E 		.ascii	"Counter_1_Sleep\000"
+ 1527      7465725F 
+ 1527      315F536C 
+ 1527      65657000 
+ 1528              	.LASF10:
+ 1529 0208 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1529      206C6F6E 
+ 1529      6720756E 
+ 1529      7369676E 
+ 1529      65642069 
+ 1530              	.LASF42:
+ 1531 021f 4379506D 		.ascii	"CyPmRestoreClocks\000"
+ 1531      52657374 
+ 1531      6F726543 
+ 1531      6C6F636B 
+ 1531      7300
+ 1532              	.LASF41:
+ 1533 0231 4379506D 		.ascii	"CyPmSleep\000"
+ 1533      536C6565 
+ 1533      7000
+ 1534              	.LASF32:
+ 1535 023b 4C45445F 		.ascii	"LED_Reset_Write\000"
+ 1535      52657365 
+ 1535      745F5772 
+ 1535      69746500 
+ 1536              	.LASF54:
+ 1537 024b 436F756E 		.ascii	"Counter_1_Start\000"
+ 1537      7465725F 
+ 1537      315F5374 
+ 1537      61727400 
+ 1538              	.LASF11:
+ 1539 025b 756E7369 		.ascii	"unsigned int\000"
+ 1539      676E6564 
+ 1539      20696E74 
+ 1539      00
+ 1540              	.LASF13:
+ 1541 0268 75696E74 		.ascii	"uint16_t\000"
+ 1541      31365F74 
+ 1541      00
+ 1542              	.LASF46:
+ 1543 0271 436F6E74 		.ascii	"Control_Reg_1_Write\000"
+ 1543      726F6C5F 
+ 1543      5265675F 
+ 1543      315F5772 
+ 1543      69746500 
+ 1544              	.LASF5:
+ 1545 0285 73686F72 		.ascii	"short unsigned int\000"
+ 1545      7420756E 
+ 1545      7369676E 
+ 1545      65642069 
+ 1545      6E7400
+ 1546              	.LASF23:
+ 1547 0298 64697374 		.ascii	"distance\000"
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 33
+
+
+ 1547      616E6365 
+ 1547      00
+ 1548              	.LASF17:
+ 1549 02a1 63686172 		.ascii	"char\000"
+ 1549      00
+ 1550              	.LASF36:
+ 1551 02a6 4C43445F 		.ascii	"LCD_Char_1_PrintString\000"
+ 1551      43686172 
+ 1551      5F315F50 
+ 1551      72696E74 
+ 1551      53747269 
+ 1552              	.LASF14:
+ 1553 02bd 696E7433 		.ascii	"int32_t\000"
+ 1553      325F7400 
+ 1554              	.LASF43:
+ 1555 02c5 436F756E 		.ascii	"Counter_1_Wakeup\000"
+ 1555      7465725F 
+ 1555      315F5761 
+ 1555      6B657570 
+ 1555      00
+ 1556              	.LASF39:
+ 1557 02d6 54696D65 		.ascii	"Timer_1_Sleep\000"
+ 1557      725F315F 
+ 1557      536C6565 
+ 1557      7000
+ 1558              	.LASF53:
+ 1559 02e4 54696D65 		.ascii	"Timer_1_Start\000"
+ 1559      725F315F 
+ 1559      53746172 
+ 1559      7400
+ 1560              	.LASF26:
+ 1561 02f2 74696D65 		.ascii	"timerGlobal\000"
+ 1561      72476C6F 
+ 1561      62616C00 
+ 1562              	.LASF60:
+ 1563 02fe 6D61696E 		.ascii	"main.c\000"
+ 1563      2E6300
+ 1564              	.LASF8:
+ 1565 0305 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1565      20756E73 
+ 1565      69676E65 
+ 1565      6420696E 
+ 1565      7400
+ 1566              	.LASF35:
+ 1567 0317 4C43445F 		.ascii	"LCD_Char_1_Position\000"
+ 1567      43686172 
+ 1567      5F315F50 
+ 1567      6F736974 
+ 1567      696F6E00 
+ 1568              	.LASF58:
+ 1569 032b 4C43445F 		.ascii	"LCD_Char_1_Enable\000"
+ 1569      43686172 
+ 1569      5F315F45 
+ 1569      6E61626C 
+ 1569      6500
+ 1570              	.LASF24:
+ 1571 033d 636F756E 		.ascii	"count\000"
+ARM GAS  C:\Users\narking\AppData\Local\Temp\ccTZXtqk.s 			page 34
+
+
+ 1571      7400
+ 1572              	.LASF6:
+ 1573 0343 5F5F696E 		.ascii	"__int32_t\000"
+ 1573      7433325F 
+ 1573      7400
+ 1574              	.LASF22:
+ 1575 034d 7072696E 		.ascii	"print\000"
+ 1575      7400
+ 1576              	.LASF34:
+ 1577 0353 4C43445F 		.ascii	"LCD_Char_1_IsReady\000"
+ 1577      43686172 
+ 1577      5F315F49 
+ 1577      73526561 
+ 1577      647900
+ 1578              	.LASF16:
+ 1579 0366 646F7562 		.ascii	"double\000"
+ 1579      6C6500
+ 1580              	.LASF28:
+ 1581 036d 54696D65 		.ascii	"Timer_1_ReadCounter\000"
+ 1581      725F315F 
+ 1581      52656164 
+ 1581      436F756E 
+ 1581      74657200 
+ 1582              	.LASF25:
+ 1583 0381 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1583      52784275 
+ 1583      66666572 
+ 1583      00
+ 1584              	.LASF59:
+ 1585 038e 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1585      43313120 
+ 1585      352E342E 
+ 1585      31203230 
+ 1585      31363036 
+ 1586 03c1 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1586      20726576 
+ 1586      6973696F 
+ 1586      6E203233 
+ 1586      37373135 
+ 1587 03f4 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1587      66756E63 
+ 1587      74696F6E 
+ 1587      2D736563 
+ 1587      74696F6E 
+ 1588              	.LASF57:
+ 1589 041c 4C43445F 		.ascii	"LCD_Char_1_Init\000"
+ 1589      43686172 
+ 1589      5F315F49 
+ 1589      6E697400 
+ 1590              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

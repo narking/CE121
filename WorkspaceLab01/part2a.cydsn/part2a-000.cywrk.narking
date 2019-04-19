@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="part2a-000\part2a">
+<ExpandedNodeIds>
+<v>part2a-000</v>
+<v>part2a-000\part2a</v>
+<v>part2a-000\part2a\TopDesign</v>
+<v>part2a-000\part2a\part2a.cydwr</v>
+<v>part2a-000\part2a\Generated_Source</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>part2a-000</v>
+<v>part2a-000\part2a</v>
+<v>part2a-000\part2a\TopDesign</v>
+<v>part2a-000\part2a\part2a.cydwr</v>
+<v>part2a-000\part2a\part2a.cydwr\Pins</v>
+<v>part2a-000\part2a\part2a.cydwr\Analog</v>
+<v>part2a-000\part2a\part2a.cydwr\Clocks</v>
+<v>part2a-000\part2a\part2a.cydwr\Interrupts</v>
+<v>part2a-000\part2a\part2a.cydwr\DMA</v>
+<v>part2a-000\part2a\part2a.cydwr\System</v>
+<v>part2a-000\part2a\part2a.cydwr\Directives</v>
+<v>part2a-000\part2a\part2a.cydwr\Flash Security</v>
+<v>part2a-000\part2a\part2a.cydwr\EEPROM</v>
+<v>part2a-000\part2a\Header Files</v>
+<v>part2a-000\part2a\Source Files</v>
+<v>part2a-000\part2a\Generated_Source</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\Control_Reg_1</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cy_boot</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\Trigger</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cycodeshareexport.ld</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cycodeshareimport.ld</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cycodeshareimport.scat</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cydevice.h</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cydevice_trm.h</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cydevicegnu.inc</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cydevicegnu_trm.inc</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cydeviceiar.inc</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cydeviceiar_trm.inc</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cydevicerv.inc</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cydevicerv_trm.inc</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cydisabledsheets.h</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cyfitter.h</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cyfitter_cfg.c</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cyfitter_cfg.h</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cyfittergnu.inc</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cyfitteriar.inc</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cyfitterrv.inc</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\cymetadata.c</v>
+<v>part2a-000\part2a\Generated_Source\PSoC5\project.h</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>part2a-000</v>
+<v>part2a-000\part2a</v>
+<v>part2a-000\part2a\TopDesign</v>
+<v>part2a-000\part2a\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>part2a-000</v>
+<v>part2a-000\part2a</v>
+<v>part2a-000\part2a\TopDesign</v>
+<v>part2a-000\part2a\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>part2a-000</v>
+<v>part2a-000\part2a</v>
+<v>part2a-000\part2a\CortexM3</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Reg_1.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Reg_1_PM.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\Trigger.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\part2a.elf</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\part2a.hex</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\part2a.map</v>
+<v>part2a-000\part2a\part2a.gpdsc</v>
+<v>part2a-000\part2a\part2a.rpt</v>
+<v>part2a-000\part2a\part2a_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>part2a-000</v>
+<v>part2a-000\part2a</v>
+<v>part2a-000\part2a\CortexM3</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Reg_1.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\Control_Reg_1_PM.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\Listing Files\Trigger.lst</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\part2a.elf</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\part2a.hex</v>
+<v>part2a-000\part2a\CortexM3\ARM_GCC_541\Debug\part2a.map</v>
+<v>part2a-000\part2a\part2a.gpdsc</v>
+<v>part2a-000\part2a\part2a.rpt</v>
+<v>part2a-000\part2a\part2a_timing.html</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>part2a-000</v>
+<v>part2a-000\part2a</v>
+<v>part2a-000\part2a\PSoC 5LP Architecture TRM</v>
+<v>part2a-000\part2a\CY8C58LP Family Datasheet</v>
+<v>part2a-000\part2a\System Reference Guides</v>
+<v>part2a-000\part2a\System Reference Guides\cy_boot_v5_70</v>
+<v>part2a-000\part2a\cy_pins_v2_20.pdf</v>
+<v>part2a-000\part2a\CyControlReg_v1_80.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>part2a-000</v>
+<v>part2a-000\part2a</v>
+<v>part2a-000\part2a\PSoC 5LP Architecture TRM</v>
+<v>part2a-000\part2a\CY8C58LP Family Datasheet</v>
+<v>part2a-000\part2a\System Reference Guides</v>
+<v>part2a-000\part2a\System Reference Guides\cy_boot_v5_70</v>
+<v>part2a-000\part2a\cy_pins_v2_20.pdf</v>
+<v>part2a-000\part2a\CyControlReg_v1_80.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\main.c" />
+<name v=".\TopDesign\TopDesign.cysch" />
+<name v=".\part2a.cydwr" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="664, 822" SelectedTabbedMdiWindow="e68990b9-3706-4fb5-98ec-2eca83cd84dc"><DocumentWindow Key="C:\Users\narking\Desktop\CE121\narking\labs\lab1\design\WorkspaceLab01\part2a.cydsn\main.c" Guid="e68990b9-3706-4fb5-98ec-2eca83cd84dc" /><DocumentWindow Key="C:\Users\narking\Desktop\CE121\narking\labs\lab1\design\WorkspaceLab01\part2a.cydsn\TopDesign\TopDesign.cysch" Guid="b9ef9667-af1f-4cae-b994-dbae952d8098" /><DocumentWindow Key="C:\Users\narking\Desktop\CE121\narking\labs\lab1\design\WorkspaceLab01\part2a.cydsn\part2a.cydwr" Guid="372ec192-2c0f-4d20-b4c3-b99f4082cefc" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>
